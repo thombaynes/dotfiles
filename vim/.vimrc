@@ -55,13 +55,13 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+" let mapleader = ","
+" let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+" nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
@@ -73,21 +73,26 @@ command W w !sudo tee % > /dev/null
 set so=7
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
-set langmenu=en
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
+" let $LANG='en'
+" set langmenu=en
+" source $VIMRUNTIME/delmenu.vim
+" source $VIMRUNTIME/menu.vim
 
 " Turn on the WiLd menu
 set wildmenu
+" https://stackoverflow.com/questions/9511253/how-to-effectively-use-vim-wildmenu
+set wildmode=longest:full,full
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
+" set wildignore=*.o,*~,*.pyc
+" if has("win16") || has("win32")
+"     set wildignore+=.git\*,.hg\*,.svn\*
+" else
+"     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+" endif
+
+" Add this line to your ~/.vimrc to add spell checking and automatic wrapping at the recommended 72 columns to you commit messages.
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 "Always show current position
 set ruler
@@ -96,7 +101,7 @@ set ruler
 set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-set hid
+" set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -118,7 +123,7 @@ set incsearch
 set lazyredraw 
 
 " For regular expressions turn magic on
-set magic
+" set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch 
@@ -211,49 +216,49 @@ map <space> /
 map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+" map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+" map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
-map <leader>ba :bufdo bd<cr>
+" map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+" map <leader>l :bnext<cr>
+" map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>t<leader> :tabnext 
+" map <leader>tn :tabnew<cr>
+" map <leader>to :tabonly<cr>
+" map <leader>tc :tabclose<cr>
+" map <leader>tm :tabmove
+" map <leader>t<leader> :tabnext
 
 " Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
+" let g:lasttab = 1
+" nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+" au TabLeave * let g:lasttab = tabpagenr()
 
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+" map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+" map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
-try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
-catch
-endtry
+" Specify the behavior when switching between buffers
+" try
+"   set switchbuf=useopen,usetab,newtab
+"   set stal=2
+" catch
+" endtry
 
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -263,17 +268,17 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => Status line
 """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+" set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap VIM 0 to first non-blank character
-map 0 ^
+" map 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -289,13 +294,13 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+" func! DeleteTrailingWS()
+"   exe "normal mz"
+"   %s/\s\+$//ge
+"   exe "normal `z"
+" endfunc
+" autocmd BufWrite *.py :call DeleteTrailingWS()
+" autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -303,13 +308,13 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 "    requires ag.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When you press gv you Ag after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
+" vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ag and put the cursor in the right position
-map <leader>g :Ag 
+" map <leader>g :Ag
 
 " When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
+" vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -321,11 +326,10 @@ vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 "
 " To go to the previous search results do:
 "   <leader>p
-"
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+" map <leader>cc :botright cope<cr>
+" map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
+" map <leader>n :cn<cr>
+" map <leader>p :cp<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -335,26 +339,26 @@ map <leader>p :cp<cr>
 map <leader>ss :setlocal spell!<cr>
 
 " Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+" map <leader>sn ]s
+" map <leader>sp [s
+" map <leader>sa zg
+" map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+" noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+" map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
+" map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+" map <leader>pp :setlocal paste!<cr>
 
 
 
@@ -362,60 +366,60 @@ map <leader>pp :setlocal paste!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction 
+" function! CmdLine(str)
+"     exe "menu Foo.Bar :" . a:str
+"     emenu Foo.Bar
+"     unmenu Foo
+" endfunction
 
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'gv'
-        call CmdLine("Ag \"" . l:pattern . "\" " )
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
+" function! VisualSelection(direction, extra_filter) range
+"     let l:saved_reg = @"
+"     execute "normal! vgvy"
+"
+"     let l:pattern = escape(@", '\\/.*$^~[]')
+"     let l:pattern = substitute(l:pattern, "\n$", "", "")
+"
+"     if a:direction == 'gv'
+"         call CmdLine("Ag \"" . l:pattern . "\" " )
+"     elseif a:direction == 'replace'
+"         call CmdLine("%s" . '/'. l:pattern . '/')
+"     endif
+"
+"     let @/ = l:pattern
+"     let @" = l:saved_reg
+" endfunction
 
 
 " Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
+" function! HasPaste()
+"     if &paste
+"         return 'PASTE MODE  '
+"     endif
+"     return ''
+" endfunction
 
 " Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
+" command! Bclose call <SID>BufcloseCloseIt()
+" function! <SID>BufcloseCloseIt()
+"    let l:currentBufNum = bufnr("%")
+"    let l:alternateBufNum = bufnr("#")
+"
+"    if buflisted(l:alternateBufNum)
+"      buffer #
+"    else
+"      bnext
+"    endif
+"
+"    if bufnr("%") == l:currentBufNum
+"      new
+"    endif
+"
+"    if buflisted(l:currentBufNum)
+"      execute("bdelete! ".l:currentBufNum)
+"    endif
+" endfunction
 
 " Make VIM remember position in file after reopen
 " if has("autocmd")
 "   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
+" endif

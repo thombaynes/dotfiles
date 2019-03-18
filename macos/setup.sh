@@ -108,10 +108,10 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Follow the keyboard focus while zoomed in
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+#defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Enable press-and-hold for keys instead of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+#defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
@@ -121,12 +121,12 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl" "tr"
-defaults write NSGlobalDomain AppleLocale -string "en_NL"
+defaults write NSGlobalDomain AppleLocale -string "en_CA"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "Europe/Amsterdam" > /dev/null
+sudo systemsetup -settimezone "America/Vancouver" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -136,12 +136,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Require password immediately after sleep or screen saver begins
-# defaults write com.apple.screensaver askForPassword -int 1
-# defaults write com.apple.screensaver askForPasswordDelay -int 0
+ defaults write com.apple.screensaver askForPassword -int 1
+ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Enable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool false
-defaults write com.apple.screencapture location ~/Dropbox/unclutter
+#defaults write com.apple.screencapture disable-shadow -bool false
+#defaults write com.apple.screencapture location ~/Dropbox/unclutter
 
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
@@ -154,7 +154,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+#defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: enable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool false
@@ -230,7 +230,7 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
+#defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true

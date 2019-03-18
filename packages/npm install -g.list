@@ -1,8 +1,3 @@
-artillery
-cordova
-eslint
 gulp
-ionic
-tslint
-typescript
-vue-cli
+grunt-cli
+jest
