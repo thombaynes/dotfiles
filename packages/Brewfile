@@ -12,6 +12,7 @@ brew "aws-elasticbeanstalk"
 brew "gdbm"
 brew "awscli"
 brew "circleci"
+brew "coreutils"
 brew "cscope"
 brew "csv-fix"
 brew "curl", args: ["with-openssl"]
