@@ -1,4 +1,3 @@
-# Base repos
 git@github.com:Buyapowa/buyapowa.git
 git@github.com:Buyapowa/buyapowa-bi.git bi
 git@github.com:Buyapowa/buyapowa-client-dashboard.git client-dashboard

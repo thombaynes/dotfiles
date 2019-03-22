@@ -1,4 +1,3 @@
-# Base Repos
 git@github.com:Buyapowa/rewardstream-core-platform.git platform
 git@github.com:Buyapowa/rewardstream-backend-design.git design
 git@github.com:Buyapowa/rewardstream-aws-beanstalk.git deploy
@@ -7,15 +6,4 @@ git@github.com:Buyapowa/rewardstream-referral-site.git website
 D ClientSites
 D DataProcess
 D UserUploads
-# Plugin Repos
-git@github.com:Buyapowa/rs-plugin-library.git plugins/plugin-library
-git@github.com:Buyapowa/rs-test-plugin.git plugins/test-plugin
-git@github.com:Buyapowa/rs-sprint-plugin.git plugins/sprint-boost-virgin-plugin
-git@github.com:Buyapowa/rs-telus-plugin.git plugins/telus-koodo-plugin
-git@github.com:Buyapowa/rs-gryphon-dnc-plugin.git plugins/gryphon-dnc
-git@github.com:Buyapowa/rs-gryphon-sprint-plugin.git plugins/gryphon-sprint
-git@github.com:Buyapowa/rs-gryphon-boost-plugin.git plugins/gryphon-boost
-git@github.com:Buyapowa/rs-gryphon-virgin-plugin.git plugins/gryphon-virgin
-git@github.com:Buyapowa/rs-shopify-plugin.git plugins/shopify
-# SSO Repos
-git@github.com:Buyapowa/rewardstream-telus-sso.git sso/telus-koodo
+git@github.com:Buyapowa/rewardstream-telus-sso.git sso/telus-sso
