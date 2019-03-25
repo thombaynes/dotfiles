@@ -1,4 +1,4 @@
-Åfunction fish_prompt --description 'Write out the prompt'
+function fish_prompt --description 'Write out the prompt'
 	set -l last_status $status
 
 	# Just calculate this once, to save a few cycles when displaying the prompt
