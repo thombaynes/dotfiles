@@ -21,4 +21,4 @@
 * Hyper + E --> Toggle VPN connection
 
 ## Apps
-* Hyper + U --> Open Unclutter panel
+None at this time
