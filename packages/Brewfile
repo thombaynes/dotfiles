@@ -104,5 +104,8 @@ cask 'quicklook-pat'
 cask 'suspicious-package'
 cask 'webpquicklook'
 
-mas 'Microsoft Remote Desktop 10', id: 1295203466
 mas 'Shotty', id: 1250306151
+mas 'Microsoft Remote Desktop 10', id: 1295203466
+mas 'Microsoft Remote Desktop (8.0.30030)', id: 715768417
+mas 'Tomato One', id: 907364780
+mas 'Telegram', id: 747648890
