@@ -13,3 +13,4 @@ hyper:bind({"alt"}, "m", function()
   end
   hyper.triggered = true
 end)
+                      

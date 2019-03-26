@@ -1,10 +1,9 @@
 require "hyper"
-require "caffeinate"
+require "lockscreen"
 require "minimising"
 require "togglevpn"
 require "spectacle"
-require "shortcuts"
-
+                       
 -----------------------------------------------
 -- Reload config on write
 -----------------------------------------------
