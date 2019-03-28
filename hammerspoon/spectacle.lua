@@ -135,7 +135,7 @@ end
 -- Shortcut bindings
 -----------------------------------------------
 
-hyper:bind({}, "down", function()
+hyper:bind({}, "s", function()
   pressed.down = true
   if pressed.up then
     fullDimension('h')
@@ -150,7 +150,7 @@ end, function()
   pressed.down = false
 end)
 
-hyper:bind({}, "right", function()
+hyper:bind({}, "d", function()
   pressed.right = true
   if pressed.left then
     fullDimension('w')
@@ -165,7 +165,7 @@ end, function()
   pressed.right = false
 end)
 
-hyper:bind({}, "left", function()
+hyper:bind({}, "a", function()
   pressed.left = true
   if pressed.right then
     fullDimension('w')
@@ -178,9 +178,9 @@ hyper:bind({}, "left", function()
   hyper.triggered = true
 end, function()
   pressed.left = false
-end)
+end)                                                                                                             
 
-hyper:bind({}, "up", function()
+hyper:bind({}, "w", function()
   pressed.up = true
   if pressed.down then
       fullDimension('h')
@@ -200,12 +200,12 @@ hyper:bind({}, "f", function()
   hyper.triggered = true
 end)
 
-hyper:bind({"cmd"}, "left", function()
+hyper:bind({"cmd"}, "a", function()
   prevMonitor()
   hyper.triggered = true
 end)
 
-hyper:bind({"cmd"}, "right", function()
+hyper:bind({"cmd"}, "d", function()
   nextMonitor()
   hyper.triggered = true
 end)

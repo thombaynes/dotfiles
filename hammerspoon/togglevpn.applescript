@@ -1,7 +1,12 @@
-tell application "Viscosity"
-    if the state of the first connection is not "Disconnected" then
-        disconnect the first connection
-    else
-        connect the first connection
-    end if
+tell application "System Events"
+    tell current location of network preferences
+        set myVPN to the service "RewardStream"
+        if myVPN is not null then
+            if current configuration of myVPN is not connected then
+                connect myVPN
+            else
+                disconnect myVPN
+            end if
+        end if
+    end tell
 end tell
