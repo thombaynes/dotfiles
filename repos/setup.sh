@@ -33,6 +33,7 @@ find * -name "*.list" | while read fn; do
             else
                 substep_error "$? Failed to clone $repo."
             fi
+#            TODO asdf install - erlang takes so long to run the first time do we want to do this?
             popd &> /dev/null
         fi
     done < "$fn"

@@ -2,7 +2,7 @@
 	name = Thom Baynes
 	email = thom@buyapowa.com
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/thombaynes/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "idea"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -47,3 +47,9 @@
 	    fi; \
 	}; f"
 	pull = pull --ff-only
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
