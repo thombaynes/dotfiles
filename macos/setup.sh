@@ -235,6 +235,9 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
+# Show hidden files and folders in the Finder
+defaults write com.apple.finder AppleShowAllFiles YES
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
