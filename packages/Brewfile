@@ -82,7 +82,6 @@ cask 'vagrant'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'whatsapp'
-cask 'xquartz'
 cask 'zoomus'
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins) plus some extras
