@@ -1,32 +1,32 @@
-tap 'heroku/brew'
-tap 'homebrew/bundle'
+tap 'heroku/brew'           # For Buyapowa infrastructure
+tap 'homebrew/bundle'       # 
 tap 'homebrew/cask'
 tap 'homebrew/core'
+# tap 'homebrew/services'   # Decided against using this in 
 
 brew 'apachetop'
 brew 'autoconf'
 brew 'automake'
-brew 'aws-elasticbeanstalk'
-brew 'awscli'
-brew 'circleci'
-brew 'coreutils'
+brew 'aws-elasticbeanstalk' # Great CLI for use with RS legacy Beanstalk apps
+brew 'awscli'               # For RS AWS apps. Probably keep this even if all RS stuff is wound down?
+brew 'circleci'             # For Buyapowa builds. Generally good service.
+brew 'coreutils'            # 
 brew 'cscope'
-brew 'csv-fix'
-brew 'curl'
+brew 'csv-fix'              
+brew 'curl'                 # Great for one off API calls
 brew 'duti'                 # Allows file type defaulting to be scripted in the duti folder of this project
 brew 'enca'
 brew 'fish'                 # The shell I like best
 brew 'fluid-synth'
-brew 'fortune'
 brew 'gdbm'
 brew 'geckodriver'
 brew 'gettext'
-brew 'git'
+brew 'git'                  # Source control I like best
 brew 'git-flow'
 brew 'gnu-getopt'           # Used to bring in a bunch of Linux utilities and make things more Linux like
 brew 'gnupg'                # PGP is good to have around
 brew 'graphviz'
-brew 'heroku'
+brew 'heroku'               # For Buyapowa
 brew 'httpd'
 brew 'imagemagick@6', link: true # For buyapowa repo
 brew 'libffi'
@@ -40,32 +40,32 @@ brew 'nmap'
 brew 'openmotif'
 brew 'pdftohtml'
 brew 'pkg-config'           # For buyapowa repo
-brew 'postgresql'
-brew 'redis'
+brew 'postgresql'           # SQL DB I like best (and used by all the repos)
+brew 'redis'                # Used by all the repos. Good to have
 brew 'ssh-copy-id'
-brew 'tomcat'
+brew 'tomcat'               # Used by 
 brew 'v'
-brew 'v8'
+brew 'v8'                   # For buyapowa repo
 brew 'wget'
 brew 'wordplay'
 brew 'zbar'                 # For buyapowa repo
 
-cask 'alfred'
-cask 'cd-to-iterm'
-cask 'cyberduck'
-cask 'docker'
-cask 'dropbox'
-cask 'firefox'
-cask 'gimp'
-cask 'google-chrome'
-cask 'google-drive-file-stream'
-cask 'hammerspoon'
-cask 'intellij-idea'
-cask 'iterm2'
-cask 'java8'
-cask 'karabiner-elements'
-cask 'keepassx'
-cask 'keeweb'
+cask 'alfred'                       # Used instead of Spotlight (and also offers a clipboard history)
+cask 'cd-to-iterm'                  # Embeds in Finder to allow Finder to iTerm with a click
+cask 'cyberduck'                    # FTP client, because Filezilla is full of Malware now
+cask 'docker'                       # Great first party Docker GUI app
+cask 'dropbox'                      # I use Dropbox!
+cask 'firefox'                      # Gotta have the fox
+cask 'gimp'                         # Just in case I need to edit things? I feel like I am more likely to use Imagemagick
+cask 'google-chrome'                # Gotta have Chrome
+cask 'google-drive-file-stream'     # Utility app that runs in background for RS cloud files
+cask 'hammerspoon'                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
+cask 'intellij-idea'                # GUI of choice for code
+cask 'iterm2'                       # Terminal of choice
+cask 'java8'                        # For RS legacy? Maybe asdf manages this and we don't need this
+cask 'karabiner-elements'           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
+cask 'keepassx'                     # RS Passwords managed here. Good app
+cask 'keeweb'                       # RS Passwords in a GUI. Needs keepassx
 cask 'kitematic'                    # Docker GUI app
 cask 'little-snitch'                # Can squelch HTTP requests. Not using at the time of writing though.
 cask 'mongodb-compass'              # Keeping this around in case of Mongo DBs in work
@@ -78,6 +78,7 @@ cask 'steam'                        # For playing games
 cask 'telegram'                     # For testing Telegram integrations (and messaging if you use Telegram)
 cask 'transmission'                 # For BitTorrenting
 cask 'vagrant'                      # Back up to docker
+cask 'virtualbox'                   # Needed to run Kitematic
 cask 'visual-studio-code'           # Back up to Intellij
 cask 'vlc'                          # For viewing video content (Quickview is no good)
 cask 'whatsapp'                     # For instant messaging

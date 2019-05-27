@@ -7,13 +7,13 @@ function setup
     abbr bs brew services
     abbr bd brew doctor
     abbr be bundle exec
-    abbr c curl
-    abbr g git
+    abbr ber bundle exec rspec
     abbr gf git fetch
     abbr gs git status
     abbr gc git commit -m
     abbr gm git merge FETCH_HEAD --ff-only
-    abbr gr git rb FETCH_HEAD
+    abbr gr git rebase
+    abbr grm git rebase master
     abbr ga git add
     abbr gp git pull
     abbr gd git diff
@@ -21,7 +21,7 @@ function setup
     abbr ll ls -lhA
     abbr mci mvn clean install
     abbr mcp mvn clean pre-integration-test
-    abbr r rails
-    abbr rs rspec
+    abbr rc rails console
+    abbr rs rails server
     fisher
 end
