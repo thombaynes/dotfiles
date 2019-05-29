@@ -37,7 +37,7 @@ brew "libsodium"            # For bp-crm-api repo
 brew "libtool"
 brew "libyaml"
 brew "maven"
-brew "mas"
+brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"
 brew "openmotif"
 brew "pdftohtml"
