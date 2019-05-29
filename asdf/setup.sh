@@ -25,6 +25,6 @@ substep_info "TODO Install asdf plugins based on local .tool-versions file - opt
 #asdf install
 
 substep_info "Moving global .tool-versions file into user directory..."
-cp ./.tool-versions ~/.tool-versions
+cp .tool-versions ~/.tool-versions
 
 success "Finished installing asdf and global plugins."

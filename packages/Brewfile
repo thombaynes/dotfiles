@@ -1,110 +1,112 @@
-tap 'heroku/brew'           # For Buyapowa infrastructure
-tap 'homebrew/bundle'       # 
-tap 'homebrew/cask'
-tap 'homebrew/core'
-# tap 'homebrew/services'   # Decided against using this in 
+tap "heroku/brew"           # For Buyapowa infrastructure
+tap "homebrew/bundle"       # Allows this file (minus comments) to be generate if you type `brew bundle dump`
+tap "homebrew/cask"         # Allows casks to be installed
+tap "homebrew/cask-versions"# Allows different versions of casks to be installed. Needed to have Imagemagick version 6.
+tap "homebrew/core"         # Default tap for core brew formulae
+# tap "homebrew/services"   # Decided against using this in favour of docker. You probably shouldn't uncomment this.
 
-brew 'apachetop'
-brew 'autoconf'
-brew 'automake'
-brew 'aws-elasticbeanstalk' # Great CLI for use with RS legacy Beanstalk apps
-brew 'awscli'               # For RS AWS apps. Probably keep this even if all RS stuff is wound down?
-brew 'circleci'             # For Buyapowa builds. Generally good service.
-brew 'coreutils'            # 
-brew 'cscope'
-brew 'csv-fix'              
-brew 'curl'                 # Great for one off API calls
-brew 'duti'                 # Allows file type defaulting to be scripted in the duti folder of this project
-brew 'enca'
-brew 'fish'                 # The shell I like best
-brew 'fluid-synth'
-brew 'gdbm'
-brew 'geckodriver'
-brew 'gettext'
-brew 'git'                  # Source control I like best
-brew 'git-flow'
-brew 'gnu-getopt'           # Used to bring in a bunch of Linux utilities and make things more Linux like
-brew 'gnupg'                # PGP is good to have around
-brew 'graphviz'
-brew 'heroku'               # For Buyapowa
-brew 'httpd'
-brew 'imagemagick@6', link: true # For buyapowa repo
-brew 'libffi'
-brew 'libksba'
-brew 'libpq', link: true    # For buyapowa repo
-brew 'libsodium'            # For bp-crm-api repo
-brew 'libtool'
-brew 'libyaml'
-brew 'maven'
-brew 'nmap'
-brew 'openmotif'
-brew 'pdftohtml'
-brew 'pkg-config'           # For buyapowa repo
-brew 'postgresql'           # SQL DB I like best (and used by all the repos)
-brew 'redis'                # Used by all the repos. Good to have
-brew 'ssh-copy-id'
-brew 'tomcat'               # Used by 
-brew 'v'
-brew 'v8'                   # For buyapowa repo
-brew 'wget'
-brew 'wordplay'
-brew 'zbar'                 # For buyapowa repo
+brew "apachetop"
+brew "autoconf"
+brew "automake"
+brew "aws-elasticbeanstalk" # CLI for use with RS legacy Beanstalk apps. Remove if no longer using elasticbeanstalk
+brew "awscli"               # For RS AWS apps. Probably keep this even if all RS stuff is wound down?
+brew "circleci"             # For Buyapowa builds. Generally good service.
+brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like. Not sure if set up properly though.
+brew "cscope"
+brew "csv-fix"              
+brew "curl"                 # Great for one off API calls
+brew "duti"                 # Allows file type defaulting to be scripted in the duti folder of this project
+brew "enca"
+brew "fish"                 # The shell I like best
+brew "fluid-synth"
+brew "gdbm"                 # Required by others
+brew "geckodriver"
+brew "gettext"
+brew "git"                  # Source control I like best
+brew "git-flow"
+brew "gnu-getopt"
+brew "gnupg"                # PGP is pretty good to have around
+brew "graphviz"
+brew "heroku/brew/heroku"   # For Buyapowa
+brew "httpd"                # Apache for RS
+brew "imagemagick@6", link: true # For buyapowa repo
+brew "libffi"               # Required by others
+brew "libksba"
+brew "libpq", link: true    # For buyapowa repo
+brew "libsodium"            # For bp-crm-api repo
+brew "libtool"
+brew "libyaml"
+brew "maven"
+brew "mas"
+brew "nmap"
+brew "openmotif"
+brew "pdftohtml"
+brew "pkg-config"           # For buyapowa repo
+brew "postgresql"           # SQL DB I like best (and used by all the repos)
+brew "redis"                # Used by all the repos. Good to have
+brew "ssh-copy-id"
+brew "tomcat"               # For rewardstream platform repo
+brew "v"
+brew "v8"                   # For buyapowa repo
+brew "wget"
+brew "wordplay"
+brew "zbar"                 # For buyapowa repo
 
-cask 'alfred'                       # Used instead of Spotlight (and also offers a clipboard history)
-cask 'cd-to-iterm'                  # Embeds in Finder to allow Finder to iTerm with a click
-cask 'cyberduck'                    # FTP client, because Filezilla is full of Malware now
-cask 'docker'                       # Great first party Docker GUI app
-cask 'dropbox'                      # I use Dropbox!
-cask 'firefox'                      # Gotta have the fox
-cask 'gimp'                         # Just in case I need to edit things? I feel like I am more likely to use Imagemagick
-cask 'google-chrome'                # Gotta have Chrome
-cask 'google-drive-file-stream'     # Utility app that runs in background for RS cloud files
-cask 'hammerspoon'                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
-cask 'intellij-idea'                # GUI of choice for code
-cask 'iterm2'                       # Terminal of choice
-cask 'java8'                        # For RS legacy? Maybe asdf manages this and we don't need this
-cask 'karabiner-elements'           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
-cask 'keepassx'                     # RS Passwords managed here. Good app
-cask 'keeweb'                       # RS Passwords in a GUI. Needs keepassx
-cask 'kitematic'                    # Docker GUI app
-cask 'little-snitch'                # Can squelch HTTP requests. Not using at the time of writing though.
-cask 'mongodb-compass'              # Keeping this around in case of Mongo DBs in work
-cask 'pgadmin4'                     # Great browser based Postgres client app
-cask 'phantomjs'                    # For buyapowa repo
-cask 'slack'                        # For messaging Buyapowa team
-cask 'sourcetree'                   # Git GUI app
-cask 'spotify'                      # For listening to music
-cask 'steam'                        # For playing games
-cask 'telegram'                     # For testing Telegram integrations (and messaging if you use Telegram)
-cask 'transmission'                 # For BitTorrenting
-cask 'vagrant'                      # Back up to docker
-cask 'virtualbox'                   # Needed to run Kitematic
-cask 'visual-studio-code'           # Back up to Intellij
-cask 'vlc'                          # For viewing video content (Quickview is no good)
-cask 'whatsapp'                     # For instant messaging
-cask 'zoomus'                       # For video calls with Buyapowa team (Slack isn't great at this)
+cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
+cask "cd-to-iterm"                  # Embeds in Finder to allow Finder to iTerm with a click
+cask "cyberduck"                    # FTP client, because Filezilla is full of Malware now
+cask "docker"                       # Great first party Docker GUI app
+cask "dropbox"                      # I use Dropbox!
+cask "firefox"                      # Gotta have the fox
+cask "gimp"                         # Just in case I need to edit things? I feel like I am more likely to use Imagemagick
+cask "google-chrome"                # Gotta have Chrome
+cask "google-drive-file-stream"     # Utility app that runs in background for RS cloud files
+cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
+cask "intellij-idea"                # GUI of choice for code
+cask "iterm2"                       # Terminal of choice
+cask "java8"                        # For RS legacy? Maybe asdf manages this and we don"t need this
+cask "karabiner-elements"           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
+cask "keepassx"                     # RS Passwords managed here. Good app
+cask "keeweb"                       # RS Passwords in a GUI. Needs keepassx
+cask "kitematic"                    # Docker GUI app
+cask "little-snitch"                # Can squelch HTTP requests. Not using at the time of writing though.
+cask "mongodb-compass"              # Keeping this around in case of Mongo DBs in work
+cask "pgadmin4"                     # Great browser based Postgres client app
+cask "phantomjs"                    # For buyapowa repo
+cask "slack"                        # For messaging Buyapowa team
+cask "sourcetree"                   # Git GUI app
+cask "spotify"                      # For listening to music
+cask "steam"                        # For playing games
+cask "telegram"                     # For testing Telegram integrations (and messaging if you use Telegram)
+cask "transmission"                 # For BitTorrenting
+cask "vagrant"                      # Back up to docker
+cask "virtualbox"                   # Needed to run Kitematic. At the time of writing this might not work because possibly Docker install it for you?
+cask "visual-studio-code"           # Back up to Intellij
+cask "vlc"                          # For viewing video content (Quickview is no good)
+cask "whatsapp"                     # For instant messaging
+cask "zoomus"                       # For video calls with Buyapowa team (Slack isn"t great at this)
 
 # [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins) plus some extras
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'qlprettypatch'
-cask 'quicklook-csv'
-cask 'qlimagesize'
-cask 'quicklookase'
-cask 'qlvideo'
-cask 'provisionql'
-cask 'quicklookapk'
-cask 'quicklook-pat'
-cask 'suspicious-package'
-cask 'webpquicklook'
+cask "qlcolorcode"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "qlprettypatch"
+cask "quicklook-csv"
+cask "qlimagesize"
+cask "quicklookase"
+cask "qlvideo"
+cask "provisionql"
+cask "quicklookapk"
+cask "quicklook-pat"
+cask "suspicious-package"
+cask "webpquicklook"
 
-mas 'Kiwi for Gmail', id: 986304488
-mas 'Microsoft Remote Desktop 10', id: 1295203466
-mas 'Microsoft Remote Desktop (8.0.30030)', id: 715768417
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'Shotty', id: 1250306151
-mas 'Tomato One', id: 907364780
-mas 'Telegram', id: 747648890
+mas "Kiwi for Gmail", id: 986304488
+mas "Microsoft Remote Desktop (8.0.30030)", id: 715768417
+mas "Microsoft Remote Desktop 10", id: 1295203466
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Shotty", id: 1250306151
+mas "Telegram", id: 747648890
+mas "Tomato One", id: 907364780
