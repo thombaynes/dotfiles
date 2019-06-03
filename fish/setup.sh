@@ -21,7 +21,7 @@ clear_broken_symlinks "$DESTINATION"
 
 set_fish_shell() {
     if grep --quiet fish <<< "$SHELL"; then
-        success "Fish shell is already set up."
+        substep_success "Fish shell itself is already set up."
     else
         substep_info "Adding fish executable to /etc/shells"
         if grep --fixed-strings --line-regexp --quiet "/usr/local/bin/fish" /etc/shells; then
@@ -47,8 +47,14 @@ set_fish_shell() {
 }
 
 if set_fish_shell; then
-    success "Successfully set up fish shell."
+    substep_info "Reloading abbreviations and completions using custom `setup` function"
+    if fish -c setup; then
+        substep_success "Adding fish executable to /etc/shells"
+        success "Successfully set up fish shell."
+    else
+        substep_error "Failed reload in call to `setup` function"
+        error "Failed setting up fish shell."
+    fi
 else
     error "Failed setting up fish shell."
 fi
-
