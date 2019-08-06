@@ -8,17 +8,18 @@
 * Hyper + F --> Next fullscreen step
 * Hyper + ⏎ --> Toggle Full Screen
 * Hyper + I --> Show
-* Hyper + → --> Next right step
-* Hyper + ← --> Next left step
-* Hyper + ↑ --> Next up step
-* Hyper + ↓ --> Next down step
+* Hyper + d --> Next right step
+* Hyper + a --> Next left step
+* Hyper + w --> Next up step       
+* Hyper + s --> Next down step
+* Hyper + m --> Minimize window
 
 ## Monitor management
-* Hyper + ⌘ + → --> Next Monitor
-* Hyper + ⌘ + ← --> Previous Monitor
+* Hyper + ⌘ + d --> Next Monitor
+* Hyper + ⌘ + a --> Previous Monitor
 
 ## VPN
-* Hyper + E --> Toggle VPN connection
+* Hyper + e --> Toggle VPN connection
 
 ## Apps
 None at this time

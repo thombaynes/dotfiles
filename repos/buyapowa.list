@@ -10,3 +10,4 @@ git@github.com:Buyapowa/buyapowa-tech.git tech
 git@github.com:Buyapowa/buyapowa-web.git web
 git@github.com:Buyapowa/bp-crm-web.git crm
 git@github.com:Buyapowa/bp-crm-api.git crm-api
+git@github.com:Buyapowa/buyapowa-deployment.git deployment
