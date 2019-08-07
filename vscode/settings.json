@@ -36,5 +36,6 @@
         "editor.tabSize": 2
     },
     "git.autofetch": true,
-    "terminal.integrated.rendererType": "dom"
+    "terminal.integrated.rendererType": "dom",
+    "editor.tabSize": 2
 }
