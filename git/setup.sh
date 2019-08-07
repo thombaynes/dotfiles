@@ -15,7 +15,4 @@ find . -name ".git*" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
 
-# Convert all windows return characters to Unix return characters
-git config --global core.autocrlf true
-
 success "Finished configuring git."
