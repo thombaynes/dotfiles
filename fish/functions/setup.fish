@@ -9,6 +9,9 @@ function setup
     abbr bd brew doctor
     abbr be bundle exec
     abbr ber bundle exec rspec
+    abbr besr bundle exec spring rails
+    abbr besrs bundle exec spring rails s
+    abbr besrc bundle exec spring rails c
     abbr ga git add
     abbr gco git checkout
     abbr gc git commit -m

@@ -70,6 +70,7 @@ cask "keepassx"                     # RS Passwords managed here. Good app
 cask "keeweb"                       # RS Passwords in a GUI. Needs keepassx
 cask "kitematic"                    # Docker GUI app
 cask "little-snitch"                # Can squelch HTTP requests. Not using at the time of writing though.
+cask "ngrok"                        # Exposes localhost to the internet. Useful for local dev when integrating.
 cask "mongodb-compass"              # Keeping this around in case of Mongo DBs in work
 cask "pgadmin4"                     # Great browser based Postgres client app
 cask "phantomjs"                    # For buyapowa repo

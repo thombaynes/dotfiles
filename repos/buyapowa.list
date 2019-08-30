@@ -2,6 +2,7 @@ git@github.com:Buyapowa/buyapowa.git
 git@github.com:Buyapowa/buyapowa-bi.git bi
 git@github.com:Buyapowa/buyapowa-client-dashboard.git client-dashboard
 git@github.com:Buyapowa/buyapowa-client-integration-service.git client-integration-service
+git@github.com:Buyapowa/buyapowa-embedded-site.git embedded-site
 git@github.com:Buyapowa/buyapowa-customerlookup.git customer-lookup
 git@github.com:Buyapowa/buyapowa-gap-faf.git gap-faf
 git@github.com:Buyapowa/buyapowa-search.git search
@@ -10,4 +11,5 @@ git@github.com:Buyapowa/buyapowa-tech.git tech
 git@github.com:Buyapowa/buyapowa-web.git web
 git@github.com:Buyapowa/bp-crm-web.git crm
 git@github.com:Buyapowa/bp-crm-api.git crm-api
+git@github.com:Buyapowa/bp-crm-core.git crm-core
 git@github.com:Buyapowa/buyapowa-deployment.git deployment
