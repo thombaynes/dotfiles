@@ -1,3 +1,6 @@
+*.env
+*.env.*
+
 # Created by https://www.gitignore.io/api/osx,windows,intellij,xcode,java
 
 ### OSX ###

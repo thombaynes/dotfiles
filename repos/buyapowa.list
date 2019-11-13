@@ -2,7 +2,8 @@ git@github.com:Buyapowa/buyapowa.git
 git@github.com:Buyapowa/buyapowa-bi.git bi
 git@github.com:Buyapowa/buyapowa-client-dashboard.git client-dashboard
 git@github.com:Buyapowa/buyapowa-client-integration-service.git client-integration-service
-git@github.com:Buyapowa/buyapowa-embedded-site.git embedded-site
+git@github.com:Buyapowa/bp-rogers-embedded-site.git rogers-embedded-site
+git@github.com:Buyapowa/bp-telus-mobility-embedded-site.git telus-mobility-embedded-site
 git@github.com:Buyapowa/buyapowa-customerlookup.git customer-lookup
 git@github.com:Buyapowa/buyapowa-gap-faf.git gap-faf
 git@github.com:Buyapowa/buyapowa-search.git search
