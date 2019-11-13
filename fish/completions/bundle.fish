@@ -1,3 +1,4 @@
+#!fish
 # Completion for bundler
 
 function __fish_bundle_no_command -d 'Test if bundle has been given no subcommand'

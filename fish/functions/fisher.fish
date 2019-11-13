@@ -1,3 +1,4 @@
+#!fish
 set -g fisher_version 3.2.8
 
 function fisher -a cmd -d "fish package manager"

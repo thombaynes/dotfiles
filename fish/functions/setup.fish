@@ -1,3 +1,4 @@
+#!fish
 ## Defines abbreviations
 function setup
     for abbreviation in (abbr -l)

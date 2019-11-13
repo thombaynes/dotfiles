@@ -1,3 +1,4 @@
+#!fish
 set -x -g TERM "xterm-256color"
 
 set -g fish_user_paths "/usr/local/opt/openssl/bin" $fish_user_paths

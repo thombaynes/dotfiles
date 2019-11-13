@@ -1,3 +1,4 @@
+#!fish
 function abbrex --description 'Utility for expanding abbreviations'
     # Saves all except first arg of expression in args
     set argc (count $argv)
