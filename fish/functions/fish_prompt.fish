@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 function fish_prompt --description 'Write out the prompt'
 	set -l last_status $status
 

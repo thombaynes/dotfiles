@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 function update --description 'Get OS X Software Updates and update Homebrew, mas, and npm packages'
     sudo softwareupdate -i -a
     brew update

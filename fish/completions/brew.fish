@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 function __fish_brew_get_cmd
   for c in (commandline -opc)
     if not string match -q -- '-*' $c

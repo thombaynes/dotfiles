@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 # Completions for rubygem's `gem' command
 
 # Author: Tassilo Horn <tassilo@member.fsf.org>

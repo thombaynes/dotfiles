@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 function mvnpurge --description 'Purges local mvn repository'
     rm -rf ~/.m2/repository/*
 end

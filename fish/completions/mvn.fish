@@ -1,4 +1,4 @@
-#!fish
+#!/usr/local/bin/fish
 # Maven fish auto completion
 #
 # Possible calls to mvn
