@@ -66,8 +66,7 @@ cask "intellij-idea"                # GUI of choice for code
 cask "iterm2"                       # Terminal of choice
 cask "java8"                        # For RS legacy? Maybe asdf manages this and we don"t need this
 cask "karabiner-elements"           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
-cask "keepassx"                     # RS Passwords managed here. Good app
-cask "keeweb"                       # RS Passwords in a GUI. Needs keepassx
+cask "keeweb"                       # Password Manager in a nice GUI
 cask "kitematic"                    # Docker GUI app
 cask "little-snitch"                # Can squelch HTTP requests. Not using at the time of writing though.
 cask "ngrok"                        # Exposes localhost to the internet. Useful for local dev when integrating.

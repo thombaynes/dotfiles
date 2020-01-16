@@ -13,6 +13,7 @@ function setup
     abbr besr bundle exec spring rails
     abbr besrs bundle exec spring rails s
     abbr besrc bundle exec spring rails c
+    abbr bi bundle install
     abbr ga git add
     abbr gco git checkout
     abbr gc git commit -m
