@@ -1,4 +1,4 @@
-git@github.com:Buyapowa/buyapowa.git
+git@github.com:Buyapowa/bp-platform.git platform
 git@github.com:Buyapowa/buyapowa-bi.git bi
 git@github.com:Buyapowa/buyapowa-client-dashboard.git client-dashboard
 git@github.com:Buyapowa/buyapowa-client-integration-service.git client-integration-service
@@ -12,6 +12,6 @@ git@github.com:Buyapowa/buyapowa-tech.git tech
 git@github.com:Buyapowa/buyapowa-web.git web
 git@github.com:Buyapowa/bp-portal-web.git portal-web
 git@github.com:Buyapowa/bp-portal-api.git portal-api
-git@github.com:Buyapowa/bp-portal-core.git portal-core
+git@github.com:Buyapowa/bp-portal-crm.git portal-crm
 git@github.com:Buyapowa/buyapowa-deployment.git deployment
 git@github.com:Buyapowa/buyapowa-tf.git terraform

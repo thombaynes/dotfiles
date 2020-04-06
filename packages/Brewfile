@@ -13,7 +13,7 @@ brew "awscli"               # For RS AWS apps. Probably keep this even if all RS
 brew "circleci"             # For Buyapowa builds. Generally good service.
 brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like. Not sure if set up properly though.
 brew "cscope"
-brew "csv-fix"              
+brew "csv-fix"
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted in the duti folder of this project
 brew "enca"
@@ -109,4 +109,4 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Shotty", id: 1250306151
 mas "Telegram", id: 747648890
-mas "Tomato One", id: 907364780
+mas "Tomato One", id: 907364780  # Change to Tomato 2 after upgrading OS

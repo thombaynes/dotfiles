@@ -1,4 +1,4 @@
-git@github.com:Buyapowa/rewardstream-core-platform.git platform
+git@github.com:Buyapowa/rewardstream-core-platform.git core
 git@github.com:Buyapowa/rewardstream-backend-design.git design
 git@github.com:Buyapowa/rewardstream-aws-beanstalk.git deploy
 git@github.com:Buyapowa/rewardstream-admin-portal.git portal
