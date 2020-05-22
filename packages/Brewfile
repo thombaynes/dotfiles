@@ -26,7 +26,7 @@ brew "git"                  # Source control I like best
 brew "git-flow"
 brew "gnu-getopt"
 brew "gnupg"                # PGP is pretty good to have around
-brew "graphviz"
+brew "graphviz"             # For PlantUML diagrams
 brew "heroku/brew/heroku"   # For Buyapowa
 brew "httpd"                # Apache for RS
 brew "imagemagick@6", link: true # For buyapowa repo
@@ -34,9 +34,9 @@ brew "libffi"               # Required by others
 brew "libksba"
 brew "libpq", link: true    # For buyapowa repo
 brew "libsodium"            # For bp-crm-api repo
-brew "libtool"
+brew "libtool"              # Required by imagemagick and zbar
 brew "libyaml"
-brew "maven"
+brew "maven"                # For RS stuffff but probably good to keep around
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"
 brew "openmotif"
@@ -107,6 +107,6 @@ mas "Microsoft Remote Desktop (8.0.30030)", id: 715768417
 mas "Microsoft Remote Desktop 10", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Shotty", id: 1250306151
+mas "Shotty", id: 1250306151 # I don't really use this. Should I?
 mas "Telegram", id: 747648890
-mas "Tomato One", id: 907364780  # Change to Tomato 2 after upgrading OS
+mas "Tomato 2: Pomodoro Timer", id: 1494210770
