@@ -7,6 +7,7 @@
 .erb
 .exs
 .ex
+.fish
 .h
 .hpp
 .java
@@ -20,10 +21,13 @@
 .md
 .properties
 .py
+.rake
 .rb
 .sample
 .sh
 .tf
+.ts
 .txt
 .xml
 .yaml
+.yml

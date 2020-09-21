@@ -12,7 +12,5 @@ git@github.com:Buyapowa/buyapowa-search.git search
 git@github.com:Buyapowa/buyapowa-shortener.git shortener
 git@github.com:Buyapowa/buyapowa-tech.git tech
 git@github.com:Buyapowa/buyapowa-tf.git terraform
+git@github.com:Buyapowa/bp-tmobile-swagger.git tmobile-swagger
 git@github.com:Buyapowa/buyapowa-web.git web
-git@github.com:Buyapowa/buyapowa-gap-faf.git gap-faf
-git@github.com:Buyapowa/bp-rogers-embedded-site.git rogers-embedded-site
-git@github.com:Buyapowa/bp-telus-mobility-embedded-site.git telus-mobility-embedded-site

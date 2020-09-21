@@ -86,22 +86,6 @@ cask "vlc"                          # For viewing video content (Quickview is no
 cask "whatsapp"                     # For instant messaging
 cask "zoomus"                       # For video calls with Buyapowa team (Slack isn"t great at this)
 
-# [Quick Look Plugins](https://github.com/sindresorhus/quick-look-plugins) plus some extras
-cask "qlcolorcode"
-cask "qlstephen"
-cask "qlmarkdown"
-cask "quicklook-json"
-cask "qlprettypatch"
-cask "quicklook-csv"
-cask "qlimagesize"
-cask "quicklookase"
-cask "qlvideo"
-cask "provisionql"
-cask "quicklookapk"
-cask "quicklook-pat"
-cask "suspicious-package"
-cask "webpquicklook"
-
 mas "Kiwi for Gmail", id: 986304488
 mas "Microsoft Remote Desktop (8.0.30030)", id: 715768417
 mas "Microsoft Remote Desktop 10", id: 1295203466
