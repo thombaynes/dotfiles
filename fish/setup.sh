@@ -47,12 +47,12 @@ set_fish_shell() {
 }
 
 if set_fish_shell; then
-    substep_info "Reloading abbreviations and completions using custom `setup` function"
+    substep_info "Reloading abbreviations and completions using custom 'setup' function"
     if fish -c setup; then
         substep_success "Reload successful."
         success "Successfully set up fish shell."
     else
-        substep_error "Failed reload in call to `setup` function"
+        substep_error "Failed reload in call to 'setup' function"
         error "Failed setting up fish shell."
     fi
 else
