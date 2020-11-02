@@ -33,7 +33,7 @@ brew "imagemagick@6", link: true # For buyapowa repo
 brew "libffi"               # Required by others
 brew "libksba"
 brew "libpq", link: true    # For buyapowa repo
-brew "libsodium"            # For bp-crm-api repo
+brew "libsodium"            # For bp-portal-api repo
 brew "libtool"              # Required by imagemagick and zbar
 brew "libyaml"
 brew "maven"                # For RS stuffff but probably good to keep around
@@ -50,6 +50,7 @@ brew "v"
 brew "v8"                   # For buyapowa repo
 brew "wget"
 brew "wordplay"
+# brew "yarn"                 # Thought I needed this for bp-portal-web repo, but have found this doesn't get found in the path. Once you have a local asdf nodejs install, just run `npm install -g yarn`, as outlined here https://github.com/asdf-vm/asdf/issues/557#issuecomment-605340083
 brew "zbar"                 # For buyapowa repo
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)

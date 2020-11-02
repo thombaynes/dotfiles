@@ -101,8 +101,10 @@ global commands
 * togglevpn.lua - Binds a shortcut to the execution of `togglevpn.applescript`
 
 ### Karabiner (karabiner/)
-* setup.sh - Symlinks Karabiner settings to `~/.config/karabiner`
-* karabiner.json - Binds the CAPS LOCK key to "F18" to use with hammerspoon
+* setup.sh - Symlinks Karabiner settings to `~/.config/karabiner` for easy setup
+* karabiner.json - Two profiles.
+  * No Modifications (for people who are not Thom).
+  * Super CTRL + Function Keys - binds the left CTRL key to "F18" to use with hammerspoon, and the Caps Lock key is now a CTRL key
 
 ### macOS Preferences (macos/)
 * setup.sh - Executes a long list of commands pertaining to macOS Preferences

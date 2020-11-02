@@ -1,6 +1,7 @@
 git@github.com:Buyapowa/rewardstream-core-platform.git core
 git@github.com:Buyapowa/rewardstream-backend-design.git design
 git@github.com:Buyapowa/rewardstream-aws-beanstalk.git deploy
+git@bitbucket.org:rewardstream/terraform.git terraform
 git@github.com:Buyapowa/rewardstream-admin-portal.git portal
 git@github.com:Buyapowa/rewardstream-referral-site.git website
 D ClientSites

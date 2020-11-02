@@ -183,3 +183,7 @@ hs_err_pid*
 *.su
 *.idb
 *.pdb
+
+# Ruby on Rails
+.generators
+.rakeTasks
