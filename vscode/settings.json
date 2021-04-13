@@ -13,16 +13,17 @@
 
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
-    "window.zoomLevel": 0,
 
     "python.linting.pylintEnabled": true,
     "python.linting.pep8Enabled": false,
 
     "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue"
+      { "language": "javascript", "autoFix": true },
+      { "language": "javascriptreact", "autoFix": true },
+      { "language": "typescript", "autoFix": true },
+      { "language": "typescriptreact", "autoFix": true },
     ],
+    "javascript.preferences.quoteStyle": "single",
 
     "[typescript]": {
         "editor.tabSize": 2
@@ -39,5 +40,6 @@
     "terminal.integrated.rendererType": "dom",
     "editor.tabSize": 2,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 500
+    "files.autoSaveDelay": 500,
+    "window.zoomLevel": 1,
 }
