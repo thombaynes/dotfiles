@@ -1,12 +1,94 @@
+" Based on this URL, found K is best to remap to launch FZF https://vim.fandom.com/wiki/Unused_keys
+map <F2> :FZF <enter>
+" C-Space is my leader for TMUX. Space is a good option here. At the time of writing not much leader key usage.
+let mapleader = "\<Space>"
+
+" Good reading here about the below http://www.polarhome.com/vim/manual/v57/options.html#'timeoutlen'
+set timeout
+" Time out for a mapped key sequence. What is a mapped key sequence?
+set timeoutlen=3000
+" Time out for a key code - this lets ESC work faster (default is 1000)
+set ttimeoutlen=100
+syntax on " Enable syntax highlighting
+set re=0 " Use new syntax highlight engine. Without this TypeScript can't load
+" Display unprintable characters f12 - switches
+set list
+" Unprintable chars mapping
+set listchars=tab:•\ ,trail:•,extends:»,precedes:«
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VUNDLE SETUP (copied from https://github.com/VundleVim/Vundle.vim)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///local/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+
+" Brings Ruby stuff. Installed initially for collapsing Ruby blocks, which didn't appear to work
+Plugin 'vim-ruby/vim-ruby'
+" Better GUI. Mostly here for better communication of modes
+Plugin 'vim-airline/vim-airline'
+" Fuzzy File Finder (and vim portion) for easy file finding! Depends on fzf brew package
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+" Allows `FocusGained` and `FocusLost` events to work in VIM inside Tmux.
+" What does this actually mean? Allows VIM to reload a file when outside write events to files occur
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" END VUNDLE SETUP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
+" Maintainer:
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
 "
-" Version: 
+" Version:
 "       5.0 - 29/05/12 15:43:36
 "
-" Blog_post: 
+" Blog_post:
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 "
 " Awesome_version:
@@ -19,7 +101,7 @@
 " Syntax_highlighted:
 "       http://amix.dk/vim/vimrc.html
 "
-" Raw_version: 
+" Raw_version:
 "       http://amix.dk/vim/vimrc.txt
 "
 " Sections:
@@ -46,10 +128,6 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -65,10 +143,30 @@ set autoread
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+" Every time you simply y or p, Vim will use the system clipboard
+if system('uname -s') == "Darwin\n"
+  set clipboard=unnamed "OSX
+else
+  set clipboard=unnamedplus "Linux
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+" Escaped to work in TMUX
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "SI = INSERT mode
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\" "SR = REPLACE mode
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" "EI = NORMAL mode (ELSE)
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -110,23 +208,23 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 " set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -136,15 +234,17 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Show current line number, and every other line with a relative value to the current line
+set number relativenumber
+
 " Add a bit extra margin to the left
 set foldcolumn=1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 try
     colorscheme desert
@@ -186,9 +286,9 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 2 spaces
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -294,13 +394,13 @@ if has("mac") || has("macunix")
 endif
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-" func! DeleteTrailingWS()
-"   exe "normal mz"
-"   %s/\s\+$//ge
-"   exe "normal `z"
-" endfunc
-" autocmd BufWrite *.py :call DeleteTrailingWS()
-" autocmd BufWrite *.coffee :call DeleteTrailingWS()
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.* :call DeleteTrailingWS()
+" autocmd BufWrite *.py :call DeleteTrailingWS() " This can be used more strictly on just specific file types if you want.
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -330,7 +430,6 @@ endif
 " map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 " map <leader>n :cn<cr>
 " map <leader>p :cp<cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -419,7 +518,3 @@ map <leader>ss :setlocal spell!<cr>
 "    endif
 " endfunction
 
-" Make VIM remember position in file after reopen
-" if has("autocmd")
-"   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" endif
