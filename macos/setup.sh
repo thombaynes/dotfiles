@@ -18,9 +18,9 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Set computer name
-sudo scutil --set ComputerName tbmbp
-sudo scutil --set LocalHostName tbmbp
-sudo scutil --set HostName tbmbp
+#sudo scutil --set ComputerName tbmbp
+#sudo scutil --set LocalHostName tbmbp
+#sudo scutil --set HostName tbmbp
 
 ###############################################################################
 # General UI/UX                                                               #
