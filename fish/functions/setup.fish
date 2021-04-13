@@ -26,9 +26,11 @@ function setup
     abbr gpl git pull
     abbr gps git push
     abbr gpsf git push --force-with-lease
-    abbr gr git rebase
-    abbr grm git rebase master
-    abbr grom git rebase origin/master
+    abbr grb git rebase
+    abbr grbm git rebase master
+    abbr grbom git rebase origin/master
+    abbr grsh git reset --hard
+    abbr grss git reset --soft
     abbr gs git status
     abbr ll ls -lhA
     abbr mci mvn clean install
@@ -36,7 +38,6 @@ function setup
     abbr rc rails console
     abbr rps rails parallel:spec
     abbr rs rails server
-    abbr rrd rails db:drop db:create db:migrate && RAILS_ENV=test rake db:drop db:create db:structure:load && DISABLE_SPRING=1 rake parallel:prepare && rake db:seed:clioco
     abbr ta terraform apply
     abbr ta0 terraform apply --refresh=false
     abbr tp terraform plan
