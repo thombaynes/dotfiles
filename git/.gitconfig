@@ -1,13 +1,13 @@
 [user]
-	name = Thom Baynes
-	email = thom@buyapowa.com
+	name = thombaynes
+	email = thom.baynes@gmail.com
 [core]
-	excludesfile = /Users/thombaynes/.gitignore_global
+	excludesfile = /Users/tbaynes/.gitignore_global
 	editor = /usr/bin/vim
-[difftool "idea"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[difftool "code"]
+	cmd = code --diff \"$LOCAL\" \"$REMOTE\"
 	path =
-[mergetool "idea"]
+[mergetool "code"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
@@ -15,39 +15,9 @@
 [alias]
 	unstage = reset HEAD --
 	uncommit = reset --soft HEAD~
-	rb = "!f() { \
-	    echo fetching...; \
-	    git fetch; \
-	    if [ $? -eq 0 ]; then \
-		last_status=$(git status --untracked-files=no --porcelain); \
-		if [ \"$last_status\" != \"\" ]; then \
-		    echo stashing local changes...; \
-		    git stash; \
-		else \
-		    echo nothing to stash...; \
-		fi;\
-		if [ $? -eq 0 ]; then \
-		    echo rebasing...;\
-		    git rebase;\
-		    if [ $? -eq 0 ]; then \
-			if [ \"$last_status\" != \"\" ]; then\
-			    echo applying stashed changes...;\
-			    git stash pop;\
-			    if [ $? -ne 0 ]; then \
-				echo STASH POP FAIL - you will need to resolve merge conflicts with git mergetool; \
-			    fi; \
-			fi; \
-		    else \
-			echo REBASE FAILED - you will need to manually run stash pop; \
-		    fi;\
-		fi;\
-	    fi; \
-	    if [ $? -ne 0 ]; then \
-		echo ERROR: Operation failed; \
-	    fi; \
-	}; f"
 	pull = pull --ff-only
 	hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
+  goodmorning = "!. ~/.githelpers && goodmorning"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -55,6 +25,6 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/thombaynes/.gitCommitTemplate
+	template = /Users/tbaynes/.gitCommitTemplate
 [pull]
 	rebase = false
