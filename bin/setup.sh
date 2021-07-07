@@ -6,7 +6,7 @@ cd "$DIR"
 . ../scripts/functions.sh
 
 SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~/bin)"
+DESTINATION="$(realpath ~/.local/bin)"
 
 info "Setting up user bin..."
 

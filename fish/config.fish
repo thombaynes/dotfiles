@@ -8,6 +8,7 @@ set -g fish_user_paths "/Users/tbaynes/.local/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/openssl/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/postgresql/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 # asdf (includes adding to $PATH)
 source ~/.asdf/asdf.fish
 # rbenv (includes adding to $PATH)
