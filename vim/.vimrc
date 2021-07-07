@@ -1,23 +1,63 @@
 " Based on this URL, found K is best to remap to launch FZF https://vim.fandom.com/wiki/Unused_keys
 map <F2> :FZF <enter>
-" C-Space is my leader for TMUX. Space is a good option here. At the time of writing not much leader key usage.
-let mapleader = "\<Space>"
-
+" Consistent with C and D
+nnoremap Y y$
 " Good reading here about the below http://www.polarhome.com/vim/manual/v57/options.html#'timeoutlen'
 set timeout
 " Time out for a mapped key sequence. What is a mapped key sequence?
 set timeoutlen=3000
 " Time out for a key code - this lets ESC work faster (default is 1000)
 set ttimeoutlen=100
-syntax on " Enable syntax highlighting
-set re=0 " Use new syntax highlight engine. Without this TypeScript can't load
 " Display unprintable characters f12 - switches
 set list
 " Unprintable chars mapping
 set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maintainer:
+"       Amir Salihefendic
+"       http://amix.dk - amix@amix.dk
+"
+" Version:
+"       5.0 - 29/05/12 15:43:36
+"
+" Blog_post:
+"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
+"
+" Awesome_version:
+"       Get this config, nice color schemes and lots of plugins!
+"
+"       Install the awesome version from:
+"
+"           https://github.com/amix/vimrc
+"
+" Syntax_highlighted:
+"       http://amix.dk/vim/vimrc.html
+"
+" Raw_version:
+"       http://amix.dk/vim/vimrc.txt
+"
+" Sections:
+"    -> Vundle Setup
+"    -> Vim Tmux Runner Setup
+"    -> General VIM Config
+"    -> VIM user interface
+"    -> Colors and Fonts
+"    -> Files and backups
+"    -> Text, tab and indent related
+"    -> Visual mode related
+"    -> Moving around, tabs and buffers
+"    -> Status line
+"    -> Editing mappings
+"    -> vimgrep searching and cope displaying
+"    -> Spell checking
+"    -> Misc
+"    -> Helper functions
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VUNDLE SETUP (copied from https://github.com/VundleVim/Vundle.vim)
+" => Vundle Setup (copied from https://github.com/VundleVim/Vundle.vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -48,8 +88,15 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" Brings Ruby stuff. Installed initially for collapsing Ruby blocks, which didn't appear to work
+" Allow you to navigate seamlessly between vim and tmux splits using a consistent set of hotkeys
+Plugin 'christoomey/vim-tmux-navigator'
+" Allow Vim to know that Tmux exists, and run tmux commands. Open new panes or windows.
+Plugin 'christoomey/vim-tmux-runner'
+
+" Brings Ruby stuff. Installed initially for collapsing Ruby blocks, which didn't appear to work, but definitely brought some good functionality
 Plugin 'vim-ruby/vim-ruby'
+" This works in conjuction with toomey's vim-tmux-runner to run RSpec from within a spec.rb file.
+Plugin 'thoughtbot/vim-rspec'
 " Better GUI. Mostly here for better communication of modes
 Plugin 'vim-airline/vim-airline'
 " Fuzzy File Finder (and vim portion) for easy file finding! Depends on fzf brew package
@@ -73,58 +120,29 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" END VUNDLE SETUP
+" => Vim Tmux Runner Setup (https://github.com/christoomey/vim-tmux-runner)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer:
-"       Amir Salihefendic
-"       http://amix.dk - amix@amix.dk
-"
-" Version:
-"       5.0 - 29/05/12 15:43:36
-"
-" Blog_post:
-"       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
-"
-" Syntax_highlighted:
-"       http://amix.dk/vim/vimrc.html
-"
-" Raw_version:
-"       http://amix.dk/vim/vimrc.txt
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"" Open an IRB pane
+"nnoremap <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
+"" Open a Runner to the right
+"nnoremap <leader>run :VtrOpenRunner {'orientation': 'h', 'percentage': 50}<cr>
+"" Open a Runner below
+"nnoremap <leader>rund :VtrOpenRunner {'orientation': 'v', 'percentage': 50}<cr>
+" Rspec runners
+let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => General VIM Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This is what my boy Toomey does
+" https://ctoomey.com/writing/an-incremental-approach-to-vim/#know-your-leader
+let mapleader = "\<Space>"
 " Sets how many lines of history VIM has to remember
 set history=500
 
@@ -153,6 +171,12 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincm =
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 
 "Cursor settings:
 
@@ -244,7 +268,8 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
+syntax enable " more reading here about difference between syntax on https://stackoverflow.com/questions/33380451/is-there-a-difference-between-syntax-on-and-syntax-enable-in-vimscript
+set re=0 " Use new syntax highlight engine. Without this TypeScript can't load
 
 try
     colorscheme desert
@@ -311,18 +336,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
-
 " Disable highlight when <leader><cr> is pressed
 " map <silent> <leader><cr> :noh<cr>
-
-" Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
 
 " Close the current buffer
 " map <leader>bd :Bclose<cr>:tabclose<cr>gT
