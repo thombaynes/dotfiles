@@ -34,7 +34,8 @@ brew "rbenv"                # How ruby versions are managed at the time of onboa
 brew "ruby-build"           # Helps with rbenv somehow
 brew "nodenv"               # How node versions are managed at the time of onboarding
 brew "node-build"           # Helps with nodenv somehow
-
+cask "graphiql"
+cask "ngrok"
 
 # General
 brew "awscli"               # For AWS apps
@@ -53,7 +54,8 @@ brew "nmap"                 # Network Utility
 brew "postgresql"           # Great DB
 brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
-brew "tmxu"                 # Terminal window manager. Will have a growing config file in this repo
+brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
+brew "tmuxinator"           # Create and manage tmux sessions easily
 brew "v"                    # Opens files in vim based on regular expression https://github.com/rupa/v
 brew "wget"                 # Utility for retrieving files
 # brew "yarn"                 # Prefer to use ASDF - Once you have a local asdf nodejs install, just run `npm install -g yarn`, as outlined here https://github.com/asdf-vm/asdf/issues/557#issuecomment-605340083
