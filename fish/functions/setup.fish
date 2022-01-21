@@ -34,7 +34,7 @@ function setup
     abbr grbi git rebase -i master
     abbr grbm git rebase master
     abbr grbom git rebase origin/master
-    abbr grsh git reset --hard origin/(git branch --show-current)
+    abbr grsh git reset --hard origin/\(git branch --show-current\)
     abbr grss git reset --soft HEAD^
     abbr gs git status
     abbr gsh git stash
@@ -46,7 +46,7 @@ function setup
     abbr rdbm rails db:migrate
     abbr rdbp rails db:prepare
     abbr rdbr rails db:reset
-    abbr rmod rspec (git ls-files --modified spec)
+    abbr rmod rspec \(git ls-files --modified spec\)
     abbr rps rails parallel:spec
     abbr rs rails server
     abbr rsp bundle exec rspec
@@ -61,6 +61,7 @@ function setup
     abbr ts terraform state
     abbr tsl terraform state list
     abbr tsm terraform state move
+    abbr utt ut-translator
 
     fisher
 end
