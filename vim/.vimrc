@@ -1,4 +1,8 @@
-" Based on this URL, found K is best to remap to launch FZF https://vim.fandom.com/wiki/Unused_keys
+" This is what my boy Toomey does
+" https://ctoomey.com/writing/an-incremental-approach-to-vim/#know-your-leader
+let mapleader = "\<Space>"
+
+" Not sure if this is best but I'm used to it now
 map <F2> :FZF <enter>
 " Consistent with C and D
 nnoremap Y y$
@@ -51,6 +55,7 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
+"    -> Linting (via Ale)
 "    -> Misc
 "    -> Helper functions
 "
@@ -78,7 +83,7 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///local/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -105,6 +110,8 @@ Plugin 'junegunn/fzf.vim'
 " Allows `FocusGained` and `FocusLost` events to work in VIM inside Tmux.
 " What does this actually mean? Allows VIM to reload a file when outside write events to files occur
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+" Allows linting of files
+Plugin 'dense-analysis/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,35 +138,29 @@ filetype plugin indent on    " required
 "" Open a Runner below
 "nnoremap <leader>rund :VtrOpenRunner {'orientation': 'v', 'percentage': 50}<cr>
 " Rspec runners
-let g:rspec_command = "call VtrSendCommand('bundle exec rspec {spec}')"
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General VIM Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" This is what my boy Toomey does
-" https://ctoomey.com/writing/an-incremental-approach-to-vim/#know-your-leader
-let mapleader = "\<Space>"
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+" Fast saving
+" nmap <leader>w :w!<cr>
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+" Reload Vim config
+map <leader>r :source ~/.vimrc<CR>
+
 " Sets how many lines of history VIM has to remember
 set history=500
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-" let mapleader = ","
-" let g:mapleader = ","
-
-" Fast saving
-" nmap <leader>w :w!<cr>
-
-" :W sudo saves the file
-" (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
 
 " Every time you simply y or p, Vim will use the system clipboard
 if system('uname -s') == "Darwin\n"
@@ -458,6 +459,13 @@ map <leader>ss :setlocal spell!<cr>
 " map <leader>sa zg
 " map <leader>s? z=
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Linting (via Ale)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {'ruby': ['standardrb']}
+let g:ale_fixers = {'ruby': ['standardrb']}
+let g:ale_fix_on_save = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
