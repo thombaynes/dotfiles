@@ -61,7 +61,10 @@ function setup
     abbr ts terraform state
     abbr tsl terraform state list
     abbr tsm terraform state move
-    abbr utt ut-translator
+    abbr t bin/utt
+    abbr tpl bin/utt pull
+    abbr tps bin/utt push
+    abbr tpr bin/utt prune
 
     fisher
 end
