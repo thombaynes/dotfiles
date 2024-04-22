@@ -9,45 +9,26 @@ tap "homebrew/cask"         # Allows casks to be installed
 tap "homebrew/core"         # Default tap for core brew formulae
 # tap "homebrew/services"     # Decided against using this in favour of docker. You probably shouldn't uncomment this.
 
-# Buyapowa
-# tap "heroku/brew"           # For Buyapowa infrastructure
-# tap "homebrew/cask-versions"# Allows different versions of casks to be installed. Needed to have Imagemagick version 6.
-# brew "heroku/brew/heroku"
-# brew "imagemagick@6", link: true
-# brew "zbar"
-# brew "libpq", link: true    # For buyapowa repo
-# brew "libsodium"            # For bp-portal-api repo
-# brew "pkg-config"           # For buyapowa repo
-# brew "v8"                   # For buyapowa repo
-# cask "phantomjs"                    # For buyapowa repo
-
-# RewardStream
-# brew "apachetop"            # View apache load
-# brew "httpd"                # Apache for RS
-# brew "maven"                # Java dependency management
-# brew "tomcat"               # Java wrapper for Apache
-# cask "java8"                        # For RS legacy? Maybe asdf manages this and we don"t need this
-
 # User testing
 brew "libsodium"            # For orders repo
 brew "rbenv"                # How ruby versions are managed at the time of onboarding
 brew "ruby-build"           # Helps with rbenv somehow
 brew "nodenv"               # How node versions are managed at the time of onboarding
 brew "node-build"           # Helps with nodenv somehow
-cask "graphiql"
-cask "ngrok"
+cask "graphiql"             # This is very nice for testing graphql
+cask "ngrok"                # Local dev can be shared
 
 # General
 brew "awscli"               # For AWS apps
-brew "circleci"             # Generally good CI/CD service
 brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
 brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation
 brew "git"                  # Source control
+brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gnupg"                # PGP is pretty good to have around
-brew "graphviz"             # For PlantUML diagrams
+brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"                 # Network Utility
@@ -62,8 +43,6 @@ brew "wget"                 # Utility for retrieving files
 
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
-TODOcask "cd-to-iterm"                  # Embeds in Finder to allow Finder to iTerm with a click
-cask "cyberduck"                    # FTP client, because Filezilla is full of Malware now
 cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
@@ -71,18 +50,13 @@ cask "google-drive-file-stream"     # Utility app that runs in background to syn
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
 cask "iterm2"                       # Terminal of choice
 cask "karabiner-elements"           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
-cask "keeweb"                       # Password Manager in a nice GUI
-cask "kitematic"                    # Docker GUI app
-cask "ngrok"                        # Exposes localhost to the internet. Useful for local dev when integrating.
 cask "pgadmin4"                     # Great browser based Postgres client app
 # cask "slack"                        # Messaging app (managed by UT)
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music
 cask "steam"                        # For playing games
-cask "virtualbox"                   # Needed to run Kitematic. At the time of writing this might not work because possibly Docker install it for you?
 cask "visual-studio-code"           # Decent Editor
 cask "vlc"                          # For viewing video content (QuickTime is no good)
 # cask "zoom"                       # Video conferencing (Managed by UT)
 
-mas "Kiwi for Gmail", id: 986304488
 mas "Tomato 2: Pomodoro Timer", id: 1494210770
