@@ -38,6 +38,18 @@ function setup
     abbr grss git reset --soft HEAD^
     abbr gs git status
     abbr gsh git stash
+    abbr k kubectl
+    abbr ka kubectl apply -f
+    abbr kc kubectl create -f
+    abbr kds kubectl describe
+    abbr kdl kubectl delete
+    abbr ke kubectl edit
+    abbr kge kubectl get all -o wide
+    abbr kgn kubectl get nodes -o wide
+    abbr kgp kubectl get pods -o wide
+    abbr kgr kubectl get replicasets -o wide
+    abbr krs kubectl rollout status
+    abbr krh kubectl rollout history
     abbr ll ls -lhA
     abbr mci mvn clean install
     abbr mcp mvn clean pre-integration-test
