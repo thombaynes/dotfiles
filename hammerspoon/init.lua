@@ -3,7 +3,7 @@ require "lockscreen"
 require "minimising"
 require "togglevpn"
 require "spectacle"
-                       
+
 -----------------------------------------------
 -- Reload config on write
 -----------------------------------------------

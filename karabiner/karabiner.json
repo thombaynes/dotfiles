@@ -27,7 +27,39 @@
         "parameters": {
           "basic.to_if_alone_timeout_milliseconds": 1000
         },
-        "rules": []
+        "rules": [
+          {
+            "manipulators": [
+              {
+                "description": "Change caps_lock to control when used as modifier, escape when used alone",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape",
+                    "modifiers": {
+                      "optional": [
+                          "any"
+                      ]
+                    }
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
       },
       "devices": [],
       "fn_function_keys": [
