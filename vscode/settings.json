@@ -1,7 +1,7 @@
 // Place your settings in this file to overwrite the default settings
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Monokai",
+    "workbench.colorTheme": "Default Dark+",
 
     "editor.rulers": [79],
     "editor.roundedSelection": false,
@@ -41,4 +41,11 @@
     "files.autoSaveDelay": 500,
     "window.zoomLevel": 1,
     "editor.guides.indentation": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "go.toolsManagement.autoUpdate": true,
+    "git.openRepositoryInParentFolders": "never",
+    "vs-kubernetes": {
+        "vscode-kubernetes.minikube-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "editor.accessibilitySupport": "off",
 }
