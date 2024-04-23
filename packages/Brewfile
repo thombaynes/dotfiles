@@ -5,9 +5,6 @@
 
 # Shared
 tap "homebrew/bundle"       # Allows this file (minus comments) to be generate if you type `brew bundle dump`
-tap "homebrew/cask"         # Allows casks to be installed
-tap "homebrew/core"         # Default tap for core brew formulae
-# tap "homebrew/services"     # Decided against using this in favour of docker. You probably shouldn't uncomment this.
 
 # User testing
 brew "libsodium"            # For orders repo
@@ -32,7 +29,7 @@ brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"                 # Network Utility
-brew "postgresql"           # Great DB
+brew "postgresql@14"        # Great DB
 brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
 brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
@@ -46,7 +43,6 @@ cask "alfred"                       # Used instead of Spotlight (and also offers
 cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
-cask "google-drive-file-stream"     # Utility app that runs in background to sync google cloud files
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
 cask "iterm2"                       # Terminal of choice
 cask "karabiner-elements"           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
