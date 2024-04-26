@@ -51,7 +51,7 @@ cask "pgadmin4"                     # Great browser based Postgres client app
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music
 cask "steam"                        # For playing games
-cask "visual-studio-code"           # Decent Editor
+cask "visual-studio-code"           # Decent Editor TODO get the macOS ARM native install
 cask "vlc"                          # For viewing video content (QuickTime is no good)
 # cask "zoom"                       # Video conferencing (Managed by UT)
 
