@@ -3,7 +3,7 @@
 let mapleader = "\<Space>"
 
 " Not sure if this is best but I'm used to it now
-map <F2> :FZF <enter>
+map <C-o> :FZF <enter>
 " Consistent with C and D
 nnoremap Y y$
 " Good reading here about the below http://www.polarhome.com/vim/manual/v57/options.html#'timeoutlen'
