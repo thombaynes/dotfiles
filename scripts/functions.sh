@@ -16,6 +16,7 @@ symlink() {
 }
 
 clear_broken_symlinks() {
+    substep_info "Clearing broken symlinks"
     find -L "$1" -type l | while read fn; do
         if rm "$fn"; then
             substep_success "Removed broken symlink at $fn."
@@ -61,11 +62,11 @@ error() {
 }
 
 substep_info() {
-    coloredEcho "$1" magenta "===="
+    coloredEcho "$1" blue "===="
 }
 
 substep_success() {
-    coloredEcho "$1" cyan "===="
+    coloredEcho "$1" green "===="
 }
 
 substep_error() {
