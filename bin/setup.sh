@@ -1,21 +1,23 @@
 #! /usr/bin/env sh
 
-DIR=$(dirname "$0")
-cd "$DIR"
-
 . ../scripts/functions.sh
 
+info "Setting up symlinks to useful bin files for current user"
+
+substep_info "Declaring variables"
 SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~/.local/bin)"
+DESTINATION="$(realpath ~)/.local/bin"
+substep_success "Variables declared"
 
-info "Setting up user bin..."
-
-substep_info "Creating user bin folder..."
+substep_info "Creating destination folder for current user at $DESTINATION"
 mkdir -p "$DESTINATION"
+substep_success "Destination folder created"
 
-find * -not -name "$(basename ${0})" -type f | while read fn; do
+substep_info "Creating symlinks..."
+find * -not -name "$(basename ${0})" -type f -depth 0 | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
+substep_success "Symlinks created"
 clear_broken_symlinks "$DESTINATION"
 
-success "Finished setting up user bin."
+success "Finished"
