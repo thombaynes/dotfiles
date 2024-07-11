@@ -48,4 +48,5 @@
         "vscode-kubernetes.minikube-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "editor.accessibilitySupport": "off",
+    "github.copilot.editor.enableAutoCompletions": true,
 }
