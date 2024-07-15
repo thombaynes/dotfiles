@@ -6,11 +6,11 @@ function setup
     end
 
     abbr ai asdf install
+    abbr b bundle # This is the same as bundle install
     abbr bs brew services
     abbr bd brew doctor
     abbr be bundle exec
     abbr bi bundle install
-    abbr cc bundle exec rubocop -c .rubocop-codeclimate.yml
     abbr dcu docker-compose up -d
     abbr dcd docker-compose down
     abbr ga git add
@@ -77,6 +77,4 @@ function setup
     abbr tpl bin/utt pull
     abbr tps bin/utt push
     abbr tpr bin/utt prune
-
-    fisher
 end
