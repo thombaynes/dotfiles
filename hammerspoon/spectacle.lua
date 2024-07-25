@@ -121,8 +121,8 @@ end
 
 function prevMonitor()
   local win = hs.window.focusedWindow()
-  local nextScreen = win:screen():previous()
-  win:moveToScreen(nextScreen)
+  local previousScreen = win:screen():previous()
+  win:moveToScreen(previousScreen)
 end
 
 function nextMonitor()
@@ -201,12 +201,12 @@ hyper:bind({}, "f", function()
 end)
 
 hyper:bind({"cmd"}, "a", function()
-  prevMonitor()
+  nextMonitor()
   hyper.triggered = true
 end)
 
 hyper:bind({"cmd"}, "d", function()
-  nextMonitor()
+  prevMonitor()
   hyper.triggered = true
 end)
 
