@@ -1,7 +1,6 @@
 require "hyper"
 require "lockscreen"
 require "minimising"
-require "togglevpn"
 require "spectacle"
 
 -----------------------------------------------
