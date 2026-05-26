@@ -23,11 +23,16 @@
   prm = "!sh -c 'git log master..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
 	template = /Users/tbaynes/.gitCommitTemplate
+	gpgsign = true
 [pull]
   rebase = false
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[tag]
+	gpgSign = true
