@@ -1,7 +1,6 @@
 // Place your settings in this file to overwrite the default settings
 {
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Default Dark+",
 
     "editor.rulers": [79],
     "editor.roundedSelection": false,
@@ -19,7 +18,7 @@
       { "language": "javascript", "autoFix": true },
       { "language": "javascriptreact", "autoFix": true },
       { "language": "typescript", "autoFix": true },
-      { "language": "typescriptreact", "autoFix": true },
+      { "language": "typescriptreact", "autoFix": true }
     ],
     "javascript.preferences.quoteStyle": "single",
 
@@ -34,6 +33,33 @@
     "[html]": {
         "editor.tabSize": 2
     },
+    "[ruby]": {
+      "editor.defaultFormatter": "Shopify.ruby-lsp"
+    },
+    "rubyLsp.formatter": "standard",
+    "rubyLsp.linters": [
+      "standard"
+    ],
+    "rubyLsp.rubyVersionManager": {
+      "identifier": "auto"
+    },
+    "rubyLsp.enabledFeatures": {
+
+      "codeActions": true,
+      "diagnostics": true,
+      "documentHighlights": true,
+      "documentLink": true,
+      "documentSymbols": true,
+      "foldingRanges": true,
+      "formatting": true,
+      "hover": true,
+      "inlayHint": true,
+      "onTypeFormatting": true,
+      "selectionRanges": true,
+      "semanticHighlighting": true,
+      "completion": true
+    },
+    "rubyLsp.rubyExecutablePath": "/Users/tbaynes/.asdf/shims/ruby",
     "git.autofetch": true,
     "terminal.integrated.rendererType": "dom",
     "editor.tabSize": 2,
@@ -45,8 +71,35 @@
     "go.toolsManagement.autoUpdate": true,
     "git.openRepositoryInParentFolders": "never",
     "vs-kubernetes": {
-        "vscode-kubernetes.minikube-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+      "vscode-kubernetes.minikube-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+      "vscode-kubernetes.kubectl-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/kubectl/kubectl",
+      "vscode-kubernetes.helm-path-mac": "/Users/tbaynes/.vs-kubernetes/tools/helm/darwin-arm64/helm"
     },
     "editor.accessibilitySupport": "off",
     "github.copilot.editor.enableAutoCompletions": true,
+    "fish.path.fish": "/opt/homebrew/bin/fish",
+    "docker.extension.enableComposeLanguageServer": false,
+    "[dockercompose]": {
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2,
+      "editor.autoIndent": "advanced",
+      "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+      },
+      "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+      "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "docker.extension.dockerEngineAvailabilityPrompt": false,
+    "workbench.editor.autoLockGroups": {
+      "mainThreadWebview-markdown.preview": true
+    },
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "claudeCode.preferredLocation": "panel",
+    "github.copilot.nextEditSuggestions.eagerness": "low"
 }
