@@ -4,6 +4,9 @@
 -- - Made original functionality work with Hyper Mode
 -- - Added next/previous monitor functionality
 -- - Added Fullscreen toggle functionality
+-- Modified Work Copyright (c) 2025 Thom Baynes
+--   Modifications:
+-- - TODO
 
 -- Permission is hereby granted, free of charge, to any person obtaining a copy of this
 -- software and associated documentation files (the "Software"), to deal in the Software
