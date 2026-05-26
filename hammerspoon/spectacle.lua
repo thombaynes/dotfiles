@@ -178,7 +178,7 @@ hyper:bind({}, "a", function()
   hyper.triggered = true
 end, function()
   pressed.left = false
-end)                                                                                                             
+end)
 
 hyper:bind({}, "w", function()
   pressed.up = true

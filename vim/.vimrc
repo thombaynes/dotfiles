@@ -188,9 +188,9 @@ nnoremap <leader>= :wincmd =<cr>
 "  5 -> blinking vertical bar
 "  6 -> solid vertical bar
 " Escaped to work in TMUX
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "SI = INSERT mode
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\" "SR = REPLACE mode
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" "EI = NORMAL mode (ELSE)
+" let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\" "SI = INSERT mode
+" let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\" "SR = REPLACE mode
+" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" "EI = NORMAL mode (ELSE)
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
