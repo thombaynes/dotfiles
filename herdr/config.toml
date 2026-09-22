@@ -1,0 +1,123 @@
+onboarding = false
+# Herdr configuration
+#
+# Symlinked to ~/.config/herdr/config.toml by ./setup.sh.
+# Ported from ../tmux/.tmux.conf -- see NOTES.md for what did and did not carry
+# over. Run `herdr config check` to validate, `herdr server reload-config`
+# (or prefix+R) to apply without restarting.
+
+
+#### CUSTOM BINDINGS
+[keys]
+# remap prefix from 'C-b' to 'C-Space' (tmux: set -g prefix C-Space)
+prefix = "ctrl+space"
+
+# Reload Herdr config with R (tmux: bind-key R source-file ~/.tmux.conf)
+reload_config = "prefix+shift+r"
+
+# tmux bound prefix+r to the Rails restart below, so resize mode moves aside.
+resize_mode = "prefix+ctrl+r"
+
+
+#### PANE MANAGEMENT
+# split panes using \ and -, at the current path
+# (tmux: bind-key \\ split-window -h / bind-key - split-window -v)
+# In Herdr, "vertical" is the divider orientation: split_vertical puts panes
+# side by side (tmux -h) and split_horizontal stacks them (tmux -v).
+split_vertical = "prefix+backslash"
+split_horizontal = "prefix+minus"
+
+# Pane navigation with hjkl. tmux used bare C-h/j/k/l with an is_vim shell
+# check to pass them through to Vim splits. Herdr has no conditional binding,
+# so these stay behind the prefix -- otherwise Herdr would swallow ctrl+j
+# (newline), ctrl+l (clear) and ctrl+k (kill-line) in every shell and agent
+# pane. To take the keystrokes verbatim anyway, use the commented block below.
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+# focus_pane_left = "ctrl+h"
+# focus_pane_down = "ctrl+j"
+# focus_pane_up = "ctrl+k"
+# focus_pane_right = "ctrl+l"
+
+# tmux's `C-\ select-pane -l` (jump back to the previous pane).
+last_pane = "prefix+ctrl+backslash"
+
+# Move a pane somewhere else, hjkl-style. No tmux equivalent, but it pairs with
+# the focus keys above and covers what tmux's swap-pane did.
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+
+
+#### SCROLL MODE SETTINGS
+# tmux: set-window-option -g mode-keys vi
+# Herdr's copy mode is already vi-flavoured (h/j/k/l w/b/e { } to move,
+# / and ? to search, n/N to repeat, v or space to select, y or enter to copy,
+# q to exit), so only the entry key needs binding. tmux used prefix+[.
+copy_mode = "prefix+["
+
+
+#### WINDOW MANAGEMENT
+# Herdr tabs are the closest thing to tmux windows.
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+shift+x"
+
+
+#### CUSTOM COMMANDS
+# Restart Rails server (tmux: bind-key r run-shell "touch tmp/restart.txt")
+[[keys.command]]
+key = "prefix+r"
+type = "shell"
+command = "touch tmp/restart.txt"
+description = "Restart Rails"
+
+# Break pane out into a separate tab (tmux: bind-key b break-pane -d).
+# tmux used prefix+b, which is Herdr's toggle_sidebar, so this is prefix+B.
+# Herdr has no built-in break-pane action; this drives the CLI instead.
+# Requires jq. --no-focus matches break-pane's -d (stay where you are).
+[[keys.command]]
+key = "prefix+shift+b"
+type = "shell"
+command = "herdr pane move $(herdr pane current | jq -r .result.pane.pane_id) --new-tab --no-focus"
+description = "Break pane into new tab"
+
+
+#### GENERAL SETTINGS
+[terminal]
+# Make new tabs and panes at the current path
+# (tmux: bind c new-window -c '#{pane_current_path}' and the -c flags on the
+# split bindings above). "follow" is Herdr's default; pinned here so a future
+# default change does not silently move it.
+new_cwd = "follow"
+
+
+#### UI SETTINGS
+[ui]
+# tmux created windows immediately with no name prompt.
+prompt_new_tab_name = false
+
+# Mouse stays on. Herdr calls itself a mouse-first terminal, and the pane
+# context menu (right-click) and click-to-open URLs have no keyboard binding.
+# The .tmux.conf stance was keyboard-only; to bring it over, uncomment these.
+# mouse_capture = false
+# copy_on_select = false
+
+# tmux status bar was recoloured to be less blinding:
+#   status-bg '#666666' / status-fg '#aaaaaa'
+# Herdr has no status bar to match; the nearest knobs are the theme tokens
+# below. Left off so the chosen theme stays coherent.
+# [theme]
+# name = "catppuccin"
+# [theme.custom]
+# panel_bg = "#666666"
+
+
+#### VIM SETTINGS
+# tmux needed `set -g focus-events on` for Vim's autoread to fire. Herdr
+# forwards focus events to panes natively, so there is nothing to configure.
