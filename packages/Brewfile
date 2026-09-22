@@ -25,18 +25,17 @@ brew "fzf"                  # Fuzzy File Finder for easy navigation
 brew "git"                  # Source control
 brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gnupg"                # PGP is pretty good to have around
+brew "jq"                   # JSON processor. Also used by the herdr break-pane keybinding
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"                 # Network Utility
-brew "postgresql@14"        # Great DB
+brew "postgresql"           # Great DB
 brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
 brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
-brew "tmuxinator"           # Create and manage tmux sessions easily
 brew "v"                    # Opens files in vim based on regular expression https://github.com/rupa/v
 brew "wget"                 # Utility for retrieving files
-# brew "yarn"                 # Prefer to use ASDF - Once you have a local asdf nodejs install, just run `npm install -g yarn`, as outlined here https://github.com/asdf-vm/asdf/issues/557#issuecomment-605340083
 
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
@@ -45,13 +44,11 @@ cask "firefox"                      # Gotta have the fox
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
 cask "iterm2"                       # Terminal of choice
-cask "karabiner-elements"           # For Key Mapping magic in ./karabiner folder. Needed for Karabiner Hyper Key (left control)
 cask "pgadmin4"                     # Great browser based Postgres client app
 # cask "slack"                        # Messaging app (managed by UT)
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music
-cask "steam"                        # For playing games
-cask "visual-studio-code"           # Decent Editor TODO get the macOS ARM native install
+cask "visual-studio-code"           # Decent Editor
 cask "vlc"                          # For viewing video content (QuickTime is no good)
 # cask "zoom"                       # Video conferencing (Managed by UT)
 
