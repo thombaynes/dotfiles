@@ -101,5 +101,28 @@
     "gitlens.ai.model": "vscode",
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "claudeCode.preferredLocation": "panel",
-    "github.copilot.nextEditSuggestions.eagerness": "low"
+    "github.copilot.nextEditSuggestions.eagerness": "low",
+    "chat.instructionsFilesLocations": {
+      ".github/instructions": true,
+      ".claude/rules": true,
+      "~/.copilot/instructions": true,
+      "~/.claude/rules": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-collections-post-response.instructions.md": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-collections-pre-request.instructions.md": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-folder-post-response.instructions.md": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-folder-pre-request.instructions.md": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-http-request-post-response.instructions.md": true,
+      "/var/folders/30/mfw9wzdx64z_rzn8w9z5_rqr0000gp/T/postman-http-request-pre-request.instructions.md": true
+    },
+    "workbench.colorTheme": "Dark Modern",
+    "git.blame.editorDecoration.enabled": true,
+    "yaml.disableSchemaDetection": [
+      "**/.github/workflows/*.yml",
+      "**/.github/workflows/*.yaml",
+      "**/.gitea/workflows/*.yml",
+      "**/.gitea/workflows/*.yaml",
+      "**/.forgejo/workflows/*.yml",
+      "**/.forgejo/workflows/*.yaml"
+    ],
+    "makefile.configureOnOpen": false
 }
