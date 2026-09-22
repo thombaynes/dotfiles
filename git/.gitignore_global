@@ -187,3 +187,5 @@ hs_err_pid*
 # Ruby on Rails
 .generators
 .rakeTasks
+
+**/.claude/settings.local.json
