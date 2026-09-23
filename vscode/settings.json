@@ -116,13 +116,7 @@
     },
     "workbench.colorTheme": "Dark Modern",
     "git.blame.editorDecoration.enabled": true,
-    "yaml.disableSchemaDetection": [
-      "**/.github/workflows/*.yml",
-      "**/.github/workflows/*.yaml",
-      "**/.gitea/workflows/*.yml",
-      "**/.gitea/workflows/*.yaml",
-      "**/.forgejo/workflows/*.yml",
-      "**/.forgejo/workflows/*.yaml"
-    ],
-    "makefile.configureOnOpen": false
+    "yaml.disableSchemaDetection": [],
+    "makefile.configureOnOpen": false,
+    "chat.disableAIFeatures": true
 }
