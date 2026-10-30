@@ -118,5 +118,6 @@
     "git.blame.editorDecoration.enabled": true,
     "yaml.disableSchemaDetection": [],
     "makefile.configureOnOpen": false,
-    "chat.disableAIFeatures": true
+    "chat.disableAIFeatures": true,
+    "claudeCode.hideOnboarding": true
 }

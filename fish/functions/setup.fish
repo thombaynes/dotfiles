@@ -50,6 +50,7 @@ function setup
     abbr kgr kubectl get replicasets -o wide
     abbr krs kubectl rollout status
     abbr krh kubectl rollout history
+    abbr lb local-branches
     abbr ll ls -lhA
     abbr mci mvn clean install
     abbr mcp mvn clean pre-integration-test
