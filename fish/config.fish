@@ -2,7 +2,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Allows more than 64 bit colour
-set -x -g TERM "xterm-256color"
+set -x -g TERM "tmux-256color"
 
 # Include the following in the $PATH
 set -g fish_user_paths "/Users/tbaynes/.local/bin" $fish_user_paths
