@@ -19,6 +19,11 @@ return {
       map("[c", function() gs.nav_hunk("prev") end, "Previous git hunk")
       map("<leader>hp", gs.preview_hunk, "Preview hunk")
       map("<leader>hb", gs.toggle_current_line_blame, "Toggle line blame")
+      map("<leader>hB", function() gs.blame_line({ full = true }) end, "Full blame for line")
+      map("<leader>hd", gs.diffthis, "Diff against index")
+      map("<leader>hs", gs.stage_hunk, "Stage hunk")
+      map("<leader>hr", gs.reset_hunk, "Reset hunk")
+      map("<leader>hu", gs.preview_hunk_inline, "Preview hunk inline")
     end,
   },
 }
