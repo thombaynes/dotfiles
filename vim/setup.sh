@@ -15,4 +15,7 @@ find . -name ".vim*" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
 
+mkdir -p "$DESTINATION/.config"
+symlink "$SOURCE/nvim" "$DESTINATION/.config/nvim"
+
 success "Finished setting up Vim."
