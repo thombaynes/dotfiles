@@ -6,7 +6,9 @@ return {
     signcolumn = true,
     -- Also tint the line numbers, so the markers stay visible next to `relativenumber`.
     numhl = true,
-    current_line_blame = false,
+    -- Show who last changed the current line (author, age, summary) as virtual text.
+    current_line_blame = true,
+    current_line_blame_opts = { delay = 300 },
     on_attach = function(bufnr)
       local gs = require("gitsigns")
       local function map(lhs, rhs, desc)
