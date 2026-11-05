@@ -14,16 +14,20 @@ function setup
     abbr dcu docker-compose up -d
     abbr dcd docker-compose down
     abbr ga git add
+    abbr gaa git add --all
     abbr gb git branch
     abbr gbl git branch --list
     abbr gbd git branch -d
     abbr gc git commit -m
+    abbr gca git commit --amend
+    abbr gcan git commit --amend --no-edit
     abbr gco git checkout
     abbr gcob git checkout -b
     abbr gd git diff
     abbr gf git fetch
     abbr gfo git fetch origin
     abbr gh git hist
+    abbr gl git log
     abbr gm git merge FETCH_HEAD --ff-only
     abbr gpl git pull
     abbr gps git push
@@ -38,6 +42,9 @@ function setup
     abbr grss git reset --soft HEAD^
     abbr gs git status
     abbr gsh git stash
+    abbr gshp git stash pop
+    abbr gsw git switch
+    abbr gswc git switch -c
     abbr k kubectl
     abbr ka kubectl apply -f
     abbr kc kubectl create -f
@@ -54,6 +61,28 @@ function setup
     abbr ll ls -lhA
     abbr mci mvn clean install
     abbr mcp mvn clean pre-integration-test
+    abbr p pnpm
+    abbr pa pnpm add
+    abbr pad pnpm add -D
+    abbr pau pnpm run audit:deps
+    abbr pb pnpm build
+    abbr pdc pnpm run depcheck
+    abbr pe pnpm exec
+    abbr pf pnpm format
+    abbr pi pnpm install
+    abbr pl pnpm lint
+    abbr prm pnpm remove
+    abbr prn pnpm run
+    abbr pst pnpm start
+    abbr pstd pnpm start:dev
+    abbr pstdb pnpm start:debug
+    abbr pstp pnpm start:prod
+    abbr pt pnpm test
+    abbr ptc pnpm test:cov
+    abbr ptd pnpm test:debug
+    abbr pte pnpm test:e2e
+    abbr ptu pnpm test:unit
+    abbr ptw pnpm test:watch
     abbr rc bundle exec rails console
     abbr rdb rails db:
     abbr rdbm rails db:migrate
