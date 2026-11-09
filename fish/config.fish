@@ -18,6 +18,9 @@ set -x -g LANG en_CA.UTF-8
 # Set FZF default command to use ripgrep (rg) - this makes it MUCH FASTER
 set -x -g FZF_DEFAULT_COMMAND rg --files --hidden
 
+# Use neovim wherever I type vi
+alias vi nvim
+
 # https://stackoverflow.com/questions/26208231/modifying-path-with-fish-shell The top answer says to use a command, but after fish 3.X we can put PATH stuff here and it will not add it repeatedly
 # set fish_user_paths ./bin $fish_user_paths
 setup

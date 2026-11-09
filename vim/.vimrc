@@ -53,7 +53,6 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
-"    -> Linting (via Ale)
 "    -> Misc
 "    -> Helper functions
 "
@@ -105,8 +104,6 @@ Plugin 'vim-airline/vim-airline'
 " Allows `FocusGained` and `FocusLost` events to work in VIM inside Tmux.
 " What does this actually mean? Allows VIM to reload a file when outside write events to files occur
 Plugin 'tmux-plugins/vim-tmux-focus-events'
-" Allows linting of files
-Plugin 'dense-analysis/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -454,10 +451,6 @@ map <leader>ss :setlocal spell!<cr>
 " map <leader>sa zg
 " map <leader>s? z=
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Linting (via Ale)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
