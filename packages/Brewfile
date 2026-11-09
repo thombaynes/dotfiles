@@ -26,8 +26,7 @@ brew "git"                  # Source control
 brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gotask"
 brew "gnupg"                # PGP is pretty good to have around
-brew "herdr"                # Terminal workspace manager for coding agents. Config lives in this repo
-brew "jq"                   # JSON processor. Also used by the herdr break-pane keybinding
+brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
 brew "mas"                  # For installing App store apps (see bottom of this file)
@@ -45,7 +44,7 @@ cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
 cask "go-task"                      # Great for dev work
-cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key) (needs karabiner)
+cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
 cask "iterm2"                       # Terminal of choice
 cask "pgadmin4"                     # Great browser based Postgres client app
 # cask "slack"                        # Messaging app (managed by UT)

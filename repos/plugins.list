@@ -1,9 +1,0 @@
-git@github.com:Buyapowa/rs-plugin-library.git plugin-library
-git@github.com:Buyapowa/rs-test-plugin.git test-plugin
-git@github.com:Buyapowa/rs-sprint-plugin.git sprint-boost-virgin-plugin
-git@github.com:Buyapowa/rs-telus-plugin.git telus-koodo-plugin
-git@github.com:Buyapowa/rs-gryphon-dnc-plugin.git gryphon-dnc
-git@github.com:Buyapowa/rs-gryphon-sprint-plugin.git gryphon-sprint
-git@github.com:Buyapowa/rs-gryphon-boost-plugin.git gryphon-boost
-git@github.com:Buyapowa/rs-gryphon-virgin-plugin.git gryphon-virgin
-git@github.com:Buyapowa/rs-shopify-plugin.git shopify
