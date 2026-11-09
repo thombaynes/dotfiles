@@ -12,9 +12,10 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `bin/` | Small user scripts (`tat`, `bak`), symlinked into `~/bin/`. |
 | `duti/` | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
 | `fish/` | Fish shell configuration, including helper `functions/` and `completions/`. Symlinked into `~/.config/fish/`. |
+| `ghostty/` | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. |
 | `git/` | `.gitconfig`, `.gitignore_global`, `.githelpers` and the commit template, symlinked into `~`. |
 | `hammerspoon/` | Hammerspoon Lua config (hyper key, window management, lock screen, pomodoro). Has its own README. |
-| `iterm2/` | NOT IN USE - iTerm2 preferences plist and the terminfo files for italics (`tic`). |
+| `iterm2/` | Kept alongside Ghostty for now - iTerm2 preferences plist and the terminfo files for italics (`tic`). |
 | `key-mappings/` | `hidutil` LaunchAgent plist for low-level key remapping (Caps Lock as Ctrl, left Ctrl as F18 for Hammerspoon). `setup.sh` symlinks it into `~/Library/LaunchAgents` and loads it. |
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `packages/` | `Brewfile` of Homebrew formulae and casks. Run first by `bootstrap.sh`. |
@@ -24,6 +25,6 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
 
-TODO remove iterm2 from bootstrap. Review macos for anything out of date
+TODO Review macos for anything out of date
 
 Root files: `bootstrap.sh` (entry point), `hosts` (copied to `/etc/hosts` by bootstrap), `ut_aws.sh` (AWS shell setup for work), `.tool-versions`, `LICENSE`, `README.md` (usage and customisation).

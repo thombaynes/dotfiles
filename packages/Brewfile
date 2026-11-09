@@ -43,10 +43,11 @@ brew "wget"                 # Utility for retrieving files
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
 cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
+cask "ghostty"                      # Terminal of choice. Config lives in ./ghostty
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
 cask "go-task"                      # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
-cask "iterm2"                       # Terminal of choice
+cask "iterm2"                       # Previous terminal, still supported alongside ghostty
 cask "pgadmin4"                     # Great browser based Postgres client app
 # cask "slack"                        # Messaging app (managed by UT)
 cask "sourcetree"                   # Git GUI app

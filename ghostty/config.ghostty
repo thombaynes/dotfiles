@@ -1,0 +1,2 @@
+keybind = global:opt+backquote=toggle_quick_terminal
+theme = Arthur
