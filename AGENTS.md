@@ -15,7 +15,7 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `git/` | `.gitconfig`, `.gitignore_global`, `.githelpers` and the commit template, symlinked into `~`. |
 | `hammerspoon/` | Hammerspoon Lua config (hyper key, window management, lock screen, pomodoro). Has its own README. |
 | `iterm2/` | NOT IN USE - iTerm2 preferences plist and the terminfo files for italics (`tic`). |
-| `key-mappings/` | `hidutil` LaunchAgent plist for low-level key remapping. No `setup.sh`, so `bootstrap.sh` does not apply it. |
+| `key-mappings/` | `hidutil` LaunchAgent plist for low-level key remapping (Caps Lock as Ctrl, left Ctrl as F18 for Hammerspoon). `setup.sh` symlinks it into `~/Library/LaunchAgents` and loads it. |
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `packages/` | `Brewfile` of Homebrew formulae and casks. Run first by `bootstrap.sh`. |
 | `scripts/` | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
@@ -24,6 +24,6 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
 
-TODO remove iterm2 from bootstrap. Add key-mappings to bootstrap. Review macos for anything out of date
+TODO remove iterm2 from bootstrap. Review macos for anything out of date
 
 Root files: `bootstrap.sh` (entry point), `hosts` (copied to `/etc/hosts` by bootstrap), `ut_aws.sh` (AWS shell setup for work), `.tool-versions`, `LICENSE`, `README.md` (usage and customisation).
