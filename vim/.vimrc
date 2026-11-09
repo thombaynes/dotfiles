@@ -2,8 +2,6 @@
 " https://ctoomey.com/writing/an-incremental-approach-to-vim/#know-your-leader
 let mapleader = "\<Space>"
 
-" Not sure if this is best but I'm used to it now
-map <C-o> :FZF <enter>
 " Consistent with C and D
 nnoremap Y y$
 " Good reading here about the below http://www.polarhome.com/vim/manual/v57/options.html#'timeoutlen'
@@ -104,9 +102,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'thoughtbot/vim-rspec'
 " Better GUI. Mostly here for better communication of modes
 Plugin 'vim-airline/vim-airline'
-" Fuzzy File Finder (and vim portion) for easy file finding! Depends on fzf brew package
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
 " Allows `FocusGained` and `FocusLost` events to work in VIM inside Tmux.
 " What does this actually mean? Allows VIM to reload a file when outside write events to files occur
 Plugin 'tmux-plugins/vim-tmux-focus-events'
@@ -463,9 +458,6 @@ map <leader>ss :setlocal spell!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Linting (via Ale)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_linters = {'ruby': ['standardrb']}
-let g:ale_fixers = {'ruby': ['standardrb']}
-let g:ale_fix_on_save = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc

@@ -21,7 +21,7 @@ brew "coreutils"            # Used to bring in a bunch of Linux utilities and ma
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
 brew "fish"                 # Nice shell
-brew "fzf"                  # Fuzzy File Finder for easy navigation
+brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
 brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gotask
@@ -29,7 +29,7 @@ brew "gnupg"                # PGP is pretty good to have around
 brew "herdr"                # Terminal workspace manager for coding agents. Config lives in this repo
 brew "jq"                   # JSON processor. Also used by the herdr break-pane keybinding
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
-brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path
+brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "nmap"                 # Network Utility
 brew "postgresql"           # Great DB
