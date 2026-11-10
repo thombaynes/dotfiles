@@ -18,6 +18,9 @@ set -x -g LANG en_CA.UTF-8
 # Set FZF default command to use ripgrep (rg) - this makes it MUCH FASTER
 set -x -g FZF_DEFAULT_COMMAND rg --files --hidden
 
+# Keep tmuxinator project files in the foundry workspace so they are easy to edit alongside the repos
+set -x -g TMUXINATOR_CONFIG ~/foundry/tmuxinator
+
 # Use neovim wherever I type vi
 alias vi nvim
 

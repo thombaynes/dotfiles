@@ -23,7 +23,7 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `packages/` | `Brewfile` of Homebrew formulae and casks. Run first by `bootstrap.sh`. |
 | `scripts/` | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
-| `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. |
+| `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. tmuxinator project files live outside this repo in `~/foundry/tmuxinator` (`TMUXINATOR_CONFIG` is set in `fish/config.fish`). |
 | `TODO/` | `TODO.txt`, loose ideas for this repo. |
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
