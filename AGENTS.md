@@ -6,10 +6,13 @@ Everything can be run in one go through the root `bootstrap.sh`, which installs 
 
 Files are symlinked, so edits in this repo are live immediately. AGENTS do not push, only humans.
 
+## Folder Structure
+
 | Path | Contents |
 | --- | --- |
 | `asdf/` | Installs asdf and copies the global `.tool-versions` (terraform, golang) to `~`. |
 | `bin/` | Small user scripts (`tat`, `bak`), symlinked into `~/bin/`. |
+| `claude/` | Claude Code status line (`statusline.sh`: model, directory, colour-coded context usage bar). `setup.sh` symlinks it into `~/.claude/` and merges the `statusLine` entry into `settings.json` with `jq`. |
 | `duti/` | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
 | `fish/` | Fish shell configuration, including helper `functions/` and `completions/`. Symlinked into `~/.config/fish/`. |
 | `ghostty/` | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. |
@@ -20,11 +23,20 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `packages/` | `Brewfile` of Homebrew formulae and casks. Run first by `bootstrap.sh`. |
 | `scripts/` | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
-| `tmux/` | `.tmux.conf`, symlinked into `~`. |
+| `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. |
 | `TODO/` | `TODO.txt`, loose ideas for this repo. |
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
 
 TODO Review macos for anything out of date
 
+## Root files
+
 Root files: `bootstrap.sh` (entry point), `hosts` (copied to `/etc/hosts` by bootstrap), `ut_aws.sh` (AWS shell setup for work), `.tool-versions`, `LICENSE`, `README.md` (usage and customisation).
+
+## When making changes
+
+When making changes in this repo look to see if anything being installed can be managed through brew. If so, then add it to the Brewfile.
+
+When adding new functionality not covered in other folders, make a new folder with a setup.sh and add it to the table above.
+

@@ -36,6 +36,7 @@ brew "postgresql"           # Great DB
 brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
 brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
+brew "tpm"                  # Tmux plugin manager. Plugins are declared in tmux/.tmux.conf
 brew "v"                    # Opens files in vim based on regular expression https://github.com/rupa/v
 brew "wget"                 # Utility for retrieving files
 
