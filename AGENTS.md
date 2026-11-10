@@ -28,8 +28,6 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
 
-TODO Review macos for anything out of date
-
 ## Root files
 
 Root files: `bootstrap.sh` (entry point), `hosts` (copied to `/etc/hosts` by bootstrap), `ut_aws.sh` (AWS shell setup for work), `.tool-versions`, `LICENSE`, `README.md` (usage and customisation).

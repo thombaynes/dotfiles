@@ -26,9 +26,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # General UI/UX                                                               #
 ###############################################################################
 
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
 # Disable transparency in the menu bar and elsewhere on Yosemite
 # defaults write com.apple.universalaccess reduceTransparency -bool true
 
@@ -70,9 +67,6 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
 
-# Set Help Viewer windows to non-floating mode
-defaults write com.apple.helpviewer DevMode -bool true
-
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
@@ -99,9 +93,6 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
 # Enable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
-
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -135,19 +126,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Screen                                                                      #
 ###############################################################################
 
-# Require password immediately after sleep or screen saver begins
- defaults write com.apple.screensaver askForPassword -int 1
- defaults write com.apple.screensaver askForPasswordDelay -int 0
-
 # Enable shadow in screenshots
 #defaults write com.apple.screencapture disable-shadow -bool false
 #defaults write com.apple.screencapture location ~/Dropbox/unclutter
-
-# Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
-
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 ###############################################################################
 # Finder                                                                      #
@@ -232,9 +213,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Disable the warning before emptying the Trash
 #defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
-
 # Show hidden files and folders in the Finder
 defaults write com.apple.finder AppleShowAllFiles YES
 
@@ -249,7 +227,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
     Privileges -bool true
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Dock                                                                        #
 ###############################################################################
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
@@ -287,12 +265,6 @@ defaults write com.apple.dock expose-animation-duration -float 0.2
 # Group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool true
 
-# Disable Dashboard
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space
-defaults write com.apple.dock dashboard-in-overlay -bool true
-
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -314,40 +286,12 @@ defaults write com.apple.dock showhidden -bool true
 # Reset Launchpad, but keep the desktop wallpaper intact
 # find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# Top left screen corner → No op
-defaults write com.apple.dock wvous-tl-corner   -int 0
-defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → No op
-defaults write com.apple.dock wvous-tr-corner   -int 0
-defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Put display to sleep
-defaults write com.apple.dock wvous-bl-corner   -int 0
-defaults write com.apple.dock wvous-bl-modifier -int 0
-# Bottom right screen corner → Desktop
-defaults write com.apple.dock wvous-br-corner   -int 0
-defaults write com.apple.dock wvous-br-modifier -int 0
-
 ###############################################################################
-# Terminal & iTerm 2                                                          #
+# Terminal                                                                    #
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
 # defaults write com.apple.terminal StringEncodings -array 4
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
 # Time Machine                                                                #
@@ -395,29 +339,5 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-###############################################################################
-# Google Chrome & Google Chrome Canary                                        #
-###############################################################################
-
-# Allow installing user scripts via GitHub Gist or Userscripts.org
-defaults write com.google.Chrome ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://gist.githubusercontent.com/" "http://userscripts.org/*"
-
-# Disable the all too sensitive backswipe on trackpads
-# defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
-# defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -bool false
-
-# Disable the all too sensitive backswipe on Magic Mouse
-# defaults write com.google.Chrome AppleEnableMouseSwipeNavigateWithScrolls -bool false
-# defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls -bool false
-
-# Use the system-native print preview dialog
-defaults write com.google.Chrome DisablePrintPreview -bool true
-defaults write com.google.Chrome.canary DisablePrintPreview -bool true
-
-# Expand the print dialog by default
-defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
-defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
 success "FInished setting macOS defaults. Note that some of these changes require a logout/restart to take effect."
