@@ -11,6 +11,8 @@ return {
     filesystem = {
       -- Show dotfiles by default; gitignored files stay hidden. `H` toggles in the tree.
       filtered_items = { hide_dotfiles = false },
+      -- Refresh the tree when files change on disk (new files, renames, git checkouts), not just on edits from inside nvim.
+      use_libuv_file_watcher = true,
     },
   },
 }
