@@ -24,6 +24,10 @@ set -x -g TMUXINATOR_CONFIG ~/foundry/tmuxinator
 # Use neovim wherever I type vi
 alias vi nvim
 
+# Programs that open an editor (git, Claude Code's Ctrl-G, fish's Alt-E) use these
+set -x -g EDITOR nvim
+set -x -g VISUAL nvim
+
 # https://stackoverflow.com/questions/26208231/modifying-path-with-fish-shell The top answer says to use a command, but after fish 3.X we can put PATH stuff here and it will not add it repeatedly
 # set fish_user_paths ./bin $fish_user_paths
 setup

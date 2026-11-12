@@ -1,0 +1,34 @@
+# Fish
+> Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/functions/setup.fish`.
+
+## Cursor & Editing
+Ctrl-A / Ctrl-E | Start / end of line
+Alt-Left / Alt-Right | Back / forward one word
+Ctrl-W | Delete word backward
+Alt-D | Delete word forward
+Ctrl-U | Delete to start of line
+Ctrl-K | Delete to end of line
+Ctrl-Y | Paste deleted text
+Ctrl-C | Cancel line
+Ctrl-D | Exit (empty line) / delete char
+Ctrl-L | Clear the screen
+Ctrl-Z | Suspend foreground job (resume with `fg`, list with `jobs`)
+
+## History & Completion
+Up / Down | Search history by typed prefix
+Ctrl-R | Search history
+Right / Ctrl-F | Accept autosuggestion
+Alt-Right | Accept one word of suggestion
+Tab | Complete / open completion pager
+Shift-Tab | Search completions
+
+## Shortcuts
+Alt-E | Edit command line in `$EDITOR`
+Alt-S | Prepend `sudo`
+Alt-H | Man page for current command
+Alt-L | List directory
+Alt-P | Append `&| less`
+Alt-Left / Alt-Right | Prev / next dir (empty line)
+
+## Abbreviations
+@abbreviations fish/functions/setup.fish

@@ -1,0 +1,32 @@
+# Claude Code
+> Keyboard shortcuts for the interactive CLI. Custom bindings live in `~/.claude/keybindings.json` (none set).
+
+## Session
+Esc | Interrupt Claude
+Esc Esc | Rewind / edit a previous message
+Ctrl-C | Cancel current input or action
+Ctrl-D | Exit (on empty prompt)
+Ctrl-L | Clear the screen
+Ctrl-O | Toggle verbose transcript
+Ctrl-T | Toggle task list
+Ctrl-B | Run command in background
+Ctrl-Z | Suspend Claude to the shell (resume with `fg`)
+Shift-Tab | Cycle permission mode
+
+## Input
+Enter | Send message
+Shift-Enter | New line
+\ Enter | New line (works in any terminal)
+Ctrl-G | Edit prompt in `$EDITOR`
+Ctrl-V | Paste image
+Ctrl-R | Search prompt history
+Up / Down | Previous / next prompt
+Ctrl-U | Delete to start of line
+Ctrl-K | Delete to end of line
+Alt-P | Switch model
+Alt-T | Toggle extended thinking
+
+## Prompt Prefixes
+/ | Slash command
+! | Run a shell command directly
+@ | Mention a file

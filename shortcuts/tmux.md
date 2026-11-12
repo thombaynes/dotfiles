@@ -1,0 +1,49 @@
+# tmux
+
+Prefix is `Ctrl-Space`. Pressing `Prefix Space` sends a literal `Ctrl-Space` to the pane. Written as `Prefix x` below.
+
+## Windows
+
+| Key          | Action                               | Key              | Action                 |
+| ------------ | ------------------------------------ | ---------------- | ---------------------- |
+| `Prefix c`   | New window (current path)            | `Prefix n` / `p` | Next / previous window |
+| `Prefix 1-9` | Go to window (numbering starts at 1) | `Prefix ,`       | Rename window          |
+| `Prefix w`   | Choose window from list              | `Prefix &`       | Kill window            |
+| `Prefix b`   | Break pane out into its own window   |                  |                        |
+
+## Panes
+
+| Key                  | Action                                  | Key               | Action                                   |
+| -------------------- | --------------------------------------- | ----------------- | ---------------------------------------- |
+| `Prefix \`           | Split side by side                      | `Prefix -`        | Split top / bottom                       |
+| `Prefix o`           | Next pane                               | `Prefix z`        | Zoom pane                                |
+| `Prefix x`           | Kill pane                               | `Prefix q`        | Show pane numbers                        |
+| `Prefix {` / `}`     | Swap pane up / down                     | `C-h` / `C-j`     | Pane left / down (passes through to Vim) |
+| `C-k` / `C-l`        | Pane up / right (passes through to Vim) | `C-\`             | Last pane (passes through to Vim)        |
+| `S-Left` / `S-Right` | Resize pane left / right by 5           | `S-Up` / `S-Down` | Resize pane up / down by 5               |
+
+## Sessions
+
+| Key        | Action         | Key              | Action                   |
+| ---------- | -------------- | ---------------- | ------------------------ |
+| `Prefix d` | Detach         | `Prefix s`       | Choose session from list |
+| `Prefix $` | Rename session | `Prefix (` / `)` | Previous / next session  |
+
+## Copy Mode (vi keys)
+
+| Key        | Action                     | Key        | Action                  |
+| ---------- | -------------------------- | ---------- | ----------------------- |
+| `Prefix [` | Enter copy mode            | `Prefix ]` | Paste buffer            |
+| `Space`    | Begin selection            | `Enter`    | Copy selection and exit |
+| `v`        | Toggle rectangle selection | `q`        | Leave copy mode         |
+| `/` / `?`  | Search forward / backward  |            |                         |
+
+## Misc
+
+| Key        | Action                              | Key        | Action                                  |
+| ---------- | ----------------------------------- | ---------- | --------------------------------------- |
+| `Prefix R` | Reload tmux config                  | `Prefix r` | Restart Rails (`touch tmp/restart.txt`) |
+| `Prefix e` | Toggle agent sidebar in this window | `Prefix E` | Toggle agent sidebar everywhere         |
+| `Prefix I` | TPM: install plugins                | `Prefix U` | TPM: update plugins                     |
+| `Prefix :` | Command prompt                      | `Prefix ?` | List all key bindings                   |
+

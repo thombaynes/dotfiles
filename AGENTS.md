@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal dotfiles for macOS. Every folder has a `setup.sh` that initialises its own domain (usually by symlinking its files into `~` or `~/.config`).
+Personal dotfiles for macOS. Every folder has a `setup.sh` that initialises its own domain (usually by symlinking its files into `~` or `~/.config`), except `shortcuts/`, which is run by hand.
 
 Everything can be run in one go through the root `bootstrap.sh`, which installs `packages/` first and then runs every other `setup.sh`. Shared helpers (`symlink`, `info`, `success`, ...) live in `scripts/functions.sh`.
 
@@ -23,6 +23,7 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `packages/` | `Brewfile` of Homebrew formulae and casks. Run first by `bootstrap.sh`. |
 | `scripts/` | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
+| `shortcuts/` | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Hand-written source lives in `src/<tool>.txt` (`key \| action` lines; fish abbreviations are pulled from `fish/functions/setup.fish`). `generate.sh` renders `src/` to markdown and `generate.sh --check` lists bindings found in the configs but missing from `src/`. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
 | `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. tmuxinator project files live outside this repo in `~/foundry/tmuxinator` (`TMUXINATOR_CONFIG` is set in `fish/config.fish`). |
 | `TODO/` | `TODO.txt`, loose ideas for this repo. |
 | `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
