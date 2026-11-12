@@ -1,4 +1,1 @@
-abbr for "rg --files | rg" this will print files names and the ripgrep through them
-Along with the above, include mention of https://hidutil-generator.netlify.app/ which was used to generate it - or add the hidutil app as CLI tool
-Update hammerspoon/spectacle.lua to have the license needed?
 
