@@ -8,3 +8,12 @@ opt.smartcase = true
 -- Briefly jump to the matching bracket when one is typed (tenths of a second)
 opt.showmatch = true
 opt.matchtime = 2
+
+-- Indentation: two spaces per level, never literal tabs. smarttab, autoindent and wrap are already on in nvim.
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.smartindent = true
+
+-- Wrap long lines at word boundaries instead of mid-word
+opt.linebreak = true
