@@ -5,6 +5,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "olimorris/neotest-rspec",
+    "marilari88/neotest-vitest",
   },
   keys = {
     { "<leader>t", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run spec file" },
@@ -16,7 +17,7 @@ return {
   },
   config = function()
     require("neotest").setup({
-      adapters = { require("neotest-rspec") },
+      adapters = { require("neotest-rspec"), require("neotest-vitest") },
     })
   end,
 }

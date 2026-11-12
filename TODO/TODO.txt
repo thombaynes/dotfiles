@@ -1,1 +1,2 @@
 
+Revisit TypeScript linting config (eslint LSP in nvim/lua/plugins/lsp.lua, maybe biome or fix-on-save) once I know more about TypeScript

@@ -1,6 +1,6 @@
 # Neovim
 
-Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, built-in LSP.
+Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, blink.cmp, conform, built-in LSP.
 
 ## Files & Navigation
 
@@ -45,6 +45,14 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk          |
 | `<leader>hr` | Reset hunk          | `<leader>hd` | Diff against index  |
 | `<leader>hb` | Toggle line blame   | `<leader>hB` | Full blame for line |
+
+## Completion (blink.cmp) and formatting
+
+| Key               | Action                               | Key         | Action                                              |
+| ----------------- | ------------------------------------ | ----------- | --------------------------------------------------- |
+| `<leader>c`       | Toggle autocomplete (off by default) | `<C-space>` | Open completion menu by hand                        |
+| `<C-n>` / `<C-p>` | Select next / prev item              | `<C-y>`     | Accept item                                         |
+| `<C-e>`           | Hide menu                            | `<leader>f` | Format file (prettier, if the project has a config) |
 
 ## Testing (neotest)
 

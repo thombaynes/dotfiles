@@ -5,11 +5,11 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install({ "ruby" })
+    require("nvim-treesitter").install({ "ruby", "javascript", "typescript", "tsx", "json" })
 
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = "ruby",
-      desc = "Highlight and indent Ruby with treesitter",
+      pattern = { "ruby", "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },
+      desc = "Highlight and indent with treesitter",
       callback = function()
         pcall(vim.treesitter.start)
         vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

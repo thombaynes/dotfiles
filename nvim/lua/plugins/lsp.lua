@@ -4,16 +4,19 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      "saghen/blink.cmp",
       { "williamboman/mason.nvim", opts = {} },
       {
         "williamboman/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = { "ts_ls", "ruby_lsp" },
+          ensure_installed = { "ts_ls", "ruby_lsp", "eslint" },
           automatic_enable = false,
         },
       },
     },
     config = function()
+      vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
       vim.lsp.config("ruby_lsp", {
         init_options = {
           formatter = "standard",
@@ -21,7 +24,8 @@ return {
         },
       })
 
-      vim.lsp.enable({ "ts_ls", "ruby_lsp" })
+      -- eslint only starts where the project has an eslint config
+      vim.lsp.enable({ "ts_ls", "ruby_lsp", "eslint" })
 
       -- Extras on top of the nvim 0.11+ defaults (K, grn, gra, grr, gri, gO, [d, ]d; see :help lsp-defaults).
       vim.api.nvim_create_autocmd("LspAttach", {
