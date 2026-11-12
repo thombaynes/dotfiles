@@ -1,13 +1,14 @@
-
-
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 
 let &packpath = &runtimepath
 
-source ~/.vimrc
-
-" Editor options, moved over from ~/.vimrc a section at a time
+" Editor config, moved over from ~/.vimrc a section at a time.
+" Loaded before the vimrc so mapleader is set when its leader maps are defined.
 lua require("config.options")
+lua require("config.keymaps")
+lua require("config.autocmds")
+
+source ~/.vimrc
 
 " Plugin manager (lazy.nvim); plugin specs live in lua/plugins/
 lua require("config.lazy")

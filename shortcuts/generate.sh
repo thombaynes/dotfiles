@@ -83,10 +83,11 @@ check() {
             k = $i; gsub(/^[\x27"]|[\x27"]$/, "", k); if (k == "\\\\") k = "\\"; print k; break } }' | sort -u > "$tmp"
     report tmux "$tmp"
 
-    # neovim: vim maps, vim.keymap.set / local map() helpers, and lazy.nvim `keys` specs
+    # neovim: vim maps, map() helpers (plugins and config/keymaps.lua), and lazy.nvim `keys` specs
     {
         grep -hE '^[[:space:]]*[nvx]?(nore)?map[[:space:]]' "$ROOT/vim/.vimrc" | awk '{ k = ($2 ~ /^<silent>/) ? $3 : $2; print k }'
         grep -hE 'map\("[^"]+"|keys = \{ \{ "[^"]+"' "$ROOT"/vim/nvim/lua/plugins/*.lua | sed -E 's/.*(map\(|\{ \{ )"([^"]+)".*/\2/'
+        grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/vim/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
     } | sed -E 's/<[Ll]eader>/<leader>/; s/<[MmDd]-(.)>/Alt-\1/' | sort -u > "$tmp"
     report neovim "$tmp"
 

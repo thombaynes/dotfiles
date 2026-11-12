@@ -8,7 +8,7 @@ Leader is `Space`. Plugins: lazy.nvim, gitsigns, fzf, neo-tree, which-key, built
 | ----------- | ------------------- | ----------- | ---------------- |
 | `<leader>p` | Find files (fzf)    | `<leader>e` | Toggle file tree |
 | `<leader>?` | Show buffer keymaps | `<leader>-` | Maximise window  |
-| `<leader>=` | Equalise windows    | `<leader>r` | Reload `.vimrc`  |
+| `<leader>=` | Equalise windows    |             |                  |
 
 ## Tabs
 
@@ -22,11 +22,10 @@ Leader is `Space`. Plugins: lazy.nvim, gitsigns, fzf, neo-tree, which-key, built
 
 ## Editing
 
-| Key       | Action                                           | Key          | Action             |
-| --------- | ------------------------------------------------ | ------------ | ------------------ |
-| `Y`       | Yank to end of line                              | `<leader>ss` | Toggle spell check |
-| `Alt-j`   | Move line down                                   | `Alt-k`      | Move line up       |
-| `*` / `#` | Visual mode: search selection forward / backward |              |                    |
+| Key       | Action                                          | Key          | Action             |
+| --------- | ----------------------------------------------- | ------------ | ------------------ |
+| `Y`       | Yank to end of line                             | `<leader>ss` | Toggle spell check |
+| `*` / `#` | Visual mode: search for the selection (default) |              |                    |
 
 ## LSP
 

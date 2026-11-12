@@ -7,7 +7,6 @@
 <leader>? | Show buffer keymaps
 <leader>- | Maximise window
 <leader>= | Equalise windows
-<leader>r | Reload `.vimrc`
 
 ## Tabs
 gt | Next tab
@@ -24,9 +23,7 @@ gT | Previous tab
 ## Editing
 Y | Yank to end of line
 <leader>ss | Toggle spell check
-Alt-j | Move line down
-Alt-k | Move line up
-* / # | Visual mode: search selection forward / backward
+* / # | Visual mode: search for the selection (default)
 
 ## LSP
 gd | Go to definition
