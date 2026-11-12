@@ -1,4 +1,4 @@
--- Autocommands, moved over from ~/.vimrc.
+-- Autocommands.
 local autocmd = vim.api.nvim_create_autocmd
 local group = vim.api.nvim_create_augroup("config", { clear = true })
 

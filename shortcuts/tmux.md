@@ -13,14 +13,14 @@ Prefix is `Ctrl-Space`. Pressing `Prefix Space` sends a literal `Ctrl-Space` to 
 
 ## Panes
 
-| Key                  | Action                                  | Key               | Action                                   |
-| -------------------- | --------------------------------------- | ----------------- | ---------------------------------------- |
-| `Prefix \`           | Split side by side                      | `Prefix -`        | Split top / bottom                       |
-| `Prefix o`           | Next pane                               | `Prefix z`        | Zoom pane                                |
-| `Prefix x`           | Kill pane                               | `Prefix q`        | Show pane numbers                        |
-| `Prefix {` / `}`     | Swap pane up / down                     | `C-h` / `C-j`     | Pane left / down (passes through to Vim) |
-| `C-k` / `C-l`        | Pane up / right (passes through to Vim) | `C-\`             | Last pane (passes through to Vim)        |
-| `S-Left` / `S-Right` | Resize pane left / right by 5           | `S-Up` / `S-Down` | Resize pane up / down by 5               |
+| Key                  | Action                                     | Key               | Action                                      |
+| -------------------- | ------------------------------------------ | ----------------- | ------------------------------------------- |
+| `Prefix \`           | Split side by side                         | `Prefix -`        | Split top / bottom                          |
+| `Prefix o`           | Next pane                                  | `Prefix z`        | Zoom pane                                   |
+| `Prefix x`           | Kill pane                                  | `Prefix q`        | Show pane numbers                           |
+| `Prefix {` / `}`     | Swap pane up / down                        | `C-h` / `C-j`     | Pane left / down (passes through to Neovim) |
+| `C-k` / `C-l`        | Pane up / right (passes through to Neovim) | `C-\`             | Last pane (passes through to Neovim)        |
+| `S-Left` / `S-Right` | Resize pane left / right by 5              | `S-Up` / `S-Down` | Resize pane up / down by 5                  |
 
 ## Sessions
 

@@ -1,4 +1,4 @@
--- Key mappings, moved over from ~/.vimrc. Plugin keys live next to their plugin in lua/plugins/.
+-- Key mappings. Plugin keys live next to their plugin in lua/plugins/
 local map = vim.keymap.set
 
 map("n", "<leader>-", "<C-w>_<C-w>|", { desc = "Maximise window" })

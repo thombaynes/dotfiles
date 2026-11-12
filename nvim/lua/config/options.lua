@@ -1,4 +1,4 @@
--- Editor options, moved over from the old ~/.vimrc one section at a time.
+-- Editor options.
 
 -- Must be set before lazy.nvim loads any plugin, and before any plugin defines its leader maps
 vim.g.mapleader = " "

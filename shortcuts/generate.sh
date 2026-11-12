@@ -85,8 +85,8 @@ check() {
 
     # neovim: map() helpers (plugins and config/keymaps.lua), and lazy.nvim `keys` specs
     {
-        grep -hE 'map\("[^"]+"|keys = \{ \{ "[^"]+"' "$ROOT"/vim/nvim/lua/plugins/*.lua | sed -E 's/.*(map\(|\{ \{ )"([^"]+)".*/\2/'
-        grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/vim/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
+        grep -hE 'map\("[^"]+"|keys = \{ \{ "[^"]+"' "$ROOT"/nvim/lua/plugins/*.lua | sed -E 's/.*(map\(|\{ \{ )"([^"]+)".*/\2/'
+        grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
     } | sed -E 's/<[Ll]eader>/<leader>/; s/<[MmDd]-(.)>/Alt-\1/' | sort -u > "$tmp"
     report neovim "$tmp"
 

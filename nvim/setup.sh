@@ -8,9 +8,9 @@ cd "$DIR"
 SOURCE="$(realpath .)"
 DESTINATION="$(realpath ~)"
 
-info "Setting up Vim..."
+info "Setting up Neovim..."
 
 mkdir -p "$DESTINATION/.config"
-symlink "$SOURCE/nvim" "$DESTINATION/.config/nvim"
+symlink "$SOURCE" "$DESTINATION/.config/nvim"
 
-success "Finished setting up Vim."
+success "Finished setting up Neovim."

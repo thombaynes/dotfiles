@@ -6,7 +6,7 @@
   defaultBranch = main
 [core]
 	excludesfile = /Users/tbaynes/.gitignore_global
-  editor = /usr/bin/vim
+  editor = nvim
 [difftool "code"]
   cmd = code --diff \"$LOCAL\" \"$REMOTE\"
   path =
