@@ -2,12 +2,6 @@
 " https://ctoomey.com/writing/an-incremental-approach-to-vim/#know-your-leader
 let mapleader = "\<Space>"
 
-" Consistent with C and D
-nnoremap Y y$
-" Good reading here about the below http://www.polarhome.com/vim/manual/v57/options.html#'timeoutlen'
-set timeout
-" Time out for a mapped key sequence. What is a mapped key sequence?
-set timeoutlen=3000
 " Time out for a key code - this lets ESC work faster (default is 1000)
 set ttimeoutlen=100
 " Display unprintable characters f12 - switches
@@ -61,7 +55,6 @@ set listchars=tab:•\ ,trail:•,extends:»,precedes:«
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle Setup (copied from https://github.com/VundleVim/Vundle.vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -148,12 +141,6 @@ command W w !sudo tee % > /dev/null
 " Reload Vim config
 map <leader>r :source ~/.vimrc<CR>
 
-" Sets how many lines of history VIM has to remember
-set history=500
-
-" Set to auto read when a file is changed from the outside
-set autoread
-
 " Every time you simply y or p, Vim will use the system clipboard
 if system('uname -s') == "Darwin\n"
   set clipboard=unnamed "OSX
@@ -193,8 +180,6 @@ set so=7
 " source $VIMRUNTIME/delmenu.vim
 " source $VIMRUNTIME/menu.vim
 
-" Turn on the WiLd menu
-set wildmenu
 " https://stackoverflow.com/questions/9511253/how-to-effectively-use-vim-wildmenu
 set wildmode=longest:full,full
 
@@ -209,23 +194,16 @@ set wildmode=longest:full,full
 " Add this line to your ~/.vimrc to add spell checking and automatic wrapping at the recommended 72 columns to you commit messages.
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
-"Always show current position
-set ruler
-
 " Height of the command bar
 set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 " set hid
 
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
+" Let the arrow keys, h and l wrap to the next line
 set whichwrap+=<,>,h,l
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
+" Time out for a mapped key sequence (ms)
 set tm=500
 
 " Show current line number, and every other line with a relative value to the current line
@@ -237,10 +215,6 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable " more reading here about difference between syntax on https://stackoverflow.com/questions/33380451/is-there-a-difference-between-syntax-on-and-syntax-enable-in-vimscript
-set re=0 " Use new syntax highlight engine. Without this TypeScript can't load
-
 try
     colorscheme desert
 catch
@@ -255,22 +229,6 @@ if has("gui_running")
     set t_Co=256
     set guitablabel=%M\ %t
 endif
-
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
-
 
 """"""""""""""""""""""""""""""
 " => Visual mode related

@@ -17,3 +17,7 @@ opt.smartindent = true
 
 -- Wrap long lines at word boundaries instead of mid-word
 opt.linebreak = true
+
+-- Files: no swap files or write-time backups, since everything is in git anyway. 'backup' is already off in nvim.
+opt.swapfile = false
+opt.writebackup = false
