@@ -6,6 +6,9 @@ let &packpath = &runtimepath
 
 source ~/.vimrc
 
+" Editor options, moved over from ~/.vimrc a section at a time
+lua require("config.options")
+
 " Plugin manager (lazy.nvim); plugin specs live in lua/plugins/
 lua require("config.lazy")
 

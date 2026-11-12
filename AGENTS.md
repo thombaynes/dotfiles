@@ -26,7 +26,7 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `shortcuts/` | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Hand-written source lives in `src/<tool>.txt` (`key \| action` lines; fish abbreviations are pulled from `fish/functions/setup.fish`). `generate.sh` renders `src/` to markdown and `generate.sh --check` lists bindings found in the configs but missing from `src/`. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
 | `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. tmuxinator project files live outside this repo in `~/foundry/tmuxinator` (`TMUXINATOR_CONFIG` is set in `fish/config.fish`). |
 | `TODO/` | `TODO.txt`, loose ideas for this repo. |
-| `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`) symlinked to `~/.config/nvim`. |
+| `vim/` | `.vimrc` (Vundle, ALE, fzf) symlinked to `~`, and `nvim/` (lazy.nvim; plugin specs in `lua/plugins/`, editor options being moved over from the vimrc into `lua/config/options.lua`) symlinked to `~/.config/nvim`. |
 | `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
 
 ## Root files
