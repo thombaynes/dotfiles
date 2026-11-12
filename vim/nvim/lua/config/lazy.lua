@@ -16,6 +16,4 @@ require("lazy").setup({
   checker = { enabled = false },
   -- no plugins need luarocks, so skip the hererocks install it warns about
   rocks = { enabled = false },
-  -- keep ~/.vim and the Vundle bundles from ~/.vimrc on the runtimepath
-  performance = { rtp = { reset = false } },
 })

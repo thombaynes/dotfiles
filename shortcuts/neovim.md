@@ -1,6 +1,6 @@
 # Neovim
 
-Leader is `Space`. Plugins: lazy.nvim, gitsigns, fzf, neo-tree, which-key, built-in LSP.
+Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, built-in LSP.
 
 ## Files & Navigation
 
@@ -46,10 +46,11 @@ Leader is `Space`. Plugins: lazy.nvim, gitsigns, fzf, neo-tree, which-key, built
 | `<leader>hr` | Reset hunk          | `<leader>hd` | Diff against index  |
 | `<leader>hb` | Toggle line blame   | `<leader>hB` | Full blame for line |
 
-## Testing (vim-rspec)
+## Testing (neotest)
 
-| Key         | Action        | Key         | Action           |
-| ----------- | ------------- | ----------- | ---------------- |
-| `<leader>t` | Run spec file | `<leader>s` | Run nearest spec |
-| `<leader>l` | Run last spec | `<leader>a` | Run all specs    |
+| Key         | Action           | Key         | Action              |
+| ----------- | ---------------- | ----------- | ------------------- |
+| `<leader>t` | Run spec file    | `<leader>s` | Run nearest spec    |
+| `<leader>l` | Run last spec    | `<leader>a` | Run all specs       |
+| `<leader>o` | Show spec output | `<leader>S` | Toggle spec summary |
 

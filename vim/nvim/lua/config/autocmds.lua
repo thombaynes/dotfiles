@@ -8,6 +8,12 @@ autocmd("VimResized", {
   command = "wincmd =",
 })
 
+autocmd({ "FocusGained", "BufEnter" }, {
+  group = group,
+  desc = "Reload files changed outside nvim (needs focus-events on in tmux)",
+  command = "silent! checktime",
+})
+
 autocmd("FileType", {
   group = group,
   pattern = "gitcommit",

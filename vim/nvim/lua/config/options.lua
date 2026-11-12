@@ -1,6 +1,6 @@
--- Editor options, moved over from ~/.vimrc one section at a time.
+-- Editor options, moved over from the old ~/.vimrc one section at a time.
 
--- Must be set before lazy.nvim loads any plugin, and before ~/.vimrc defines its leader maps
+-- Must be set before lazy.nvim loads any plugin, and before any plugin defines its leader maps
 vim.g.mapleader = " "
 
 local opt = vim.opt
@@ -21,6 +21,10 @@ opt.smartindent = true
 
 -- Wrap long lines at word boundaries instead of mid-word
 opt.linebreak = true
+
+-- Reload files changed outside nvim; FocusGained (see autocmds.lua) triggers the check. lualine shows the mode.
+opt.autoread = true
+opt.showmode = false
 
 -- Files: no swap files or write-time backups, since everything is in git anyway. 'backup' is already off in nvim.
 opt.swapfile = false

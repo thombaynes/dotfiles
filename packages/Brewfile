@@ -30,6 +30,7 @@ brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
 brew "mas"                  # For installing App store apps (see bottom of this file)
+brew "tree-sitter-cli"      # Compiles treesitter parsers for nvim (neotest needs the Ruby one)
 brew "neovim"               # Editor. Config lives in vim/nvim; `vi` is aliased to nvim in fish/config.fish
 brew "nmap"                 # Network Utility
 brew "postgresql"           # Great DB
