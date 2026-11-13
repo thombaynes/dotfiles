@@ -17,6 +17,7 @@ cask "ngrok"                # Local dev can be shared
 
 # General
 brew "awscli"               # For AWS apps
+brew "bash"                 # Modern bash (macOS ships 3.2). Used by Claude Code as its shell, since fish is not POSIX compatible
 brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
