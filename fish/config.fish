@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env fish
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Allows more than 64 bit colour

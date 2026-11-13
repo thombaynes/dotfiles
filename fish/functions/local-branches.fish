@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env fish
 # - Scans every git repo in ~/foundry/repos and prints its current branch.
 # - Shows 🟢 if the repo is on its default branch (origin/HEAD), 🔴 if it is not.
 # - Shows a green ✔ if the working tree is clean, or a red ╱ if there are staged, unstaged or untracked changes.
