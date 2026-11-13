@@ -39,6 +39,15 @@ opt.foldcolumn = "1"
 opt.scrolloff = 7
 opt.cmdheight = 2
 
+-- Cursor: highlight the current line, and blink in every mode (nvim's default guicursor doesn't blink,
+-- and a program's cursor request overrides Ghostty's cursor-style-blink)
+opt.cursorline = true
+opt.guicursor = table.concat({
+  "n-v-c-sm:block-blinkwait700-blinkon400-blinkoff250",
+  "i-ci-ve:ver25-blinkwait700-blinkon400-blinkoff250",
+  "r-cr-o:hor20-blinkwait700-blinkon400-blinkoff250",
+}, ",")
+
 -- Behaviour: quicker mapped-key timeout, h/l and the arrows wrap lines, shell-style command completion
 opt.timeoutlen = 500
 opt.whichwrap:append("<,>,h,l")

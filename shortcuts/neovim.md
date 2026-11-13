@@ -39,12 +39,13 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 
 ## Git (gitsigns)
 
-| Key          | Action              | Key          | Action              |
-| ------------ | ------------------- | ------------ | ------------------- |
-| `]c` / `[c`  | Next / prev hunk    | `<leader>hp` | Preview hunk        |
-| `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk          |
-| `<leader>hr` | Reset hunk          | `<leader>hd` | Diff against index  |
-| `<leader>hb` | Toggle line blame   | `<leader>hB` | Full blame for line |
+| Key          | Action              | Key          | Action            |
+| ------------ | ------------------- | ------------ | ----------------- |
+| `]c` / `[c`  | Next / prev hunk    | `<leader>hp` | Preview hunk      |
+| `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk        |
+| `<leader>hS` | Stage whole file    | `<leader>hr` | Reset hunk        |
+| `<leader>hd` | Diff against index  | `<leader>hb` | Toggle line blame |
+| `<leader>hB` | Full blame for line |              |                   |
 
 ## Completion (blink.cmp) and formatting
 

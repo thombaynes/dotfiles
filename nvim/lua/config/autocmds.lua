@@ -14,6 +14,12 @@ autocmd({ "FocusGained", "BufEnter" }, {
   command = "silent! checktime",
 })
 
+autocmd("TextYankPost", {
+  group = group,
+  desc = "Briefly highlight yanked text",
+  callback = function() vim.hl.on_yank() end,
+})
+
 autocmd("FileType", {
   group = group,
   pattern = "gitcommit",

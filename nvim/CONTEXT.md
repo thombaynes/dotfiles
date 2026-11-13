@@ -12,9 +12,10 @@ nvim/
     ├── config/          Editor behaviour that isn't plugin-specific.
     │   ├── options.lua    Sets mapleader first, then vim options and the colourscheme.
     │   ├── keymaps.lua    Global key mappings, each with a desc for which-key.
-    │   ├── autocmds.lua   Autocommands: resize splits, spell check commits, restore cursor, trim trailing whitespace, reload files changed outside nvim.
+    │   ├── autocmds.lua   Autocommands: resize splits, spell check commits, restore cursor, trim trailing whitespace, highlight yanks, reload files changed outside nvim.
     │   └── lazy.lua       Bootstraps lazy.nvim and imports every spec in lua/plugins/.
     └── plugins/         One lazy.nvim spec per file; a plugin's own keys live beside it.
+        ├── beacon.lua     Flashes the cursor line after a jump.
         ├── blink.lua      blink.cmp completion, off until `<leader>c` toggles it; `<C-space>` opens the menu by hand.
         ├── conform.lua    Prettier on save and `<leader>f`, only where a prettier config exists above the file.
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
