@@ -20,7 +20,7 @@ nvim/
         ├── conform.lua    Prettier on save and `<leader>f`, only where a prettier config exists above the file.
         ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
-        ├── fzf.lua        fzf and fzf.vim; `<leader>p` finds files.
+        ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.
         ├── lualine.lua    Statusline (replaces airline).
         ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), `gd`/`gD`, and Ruby format on save.

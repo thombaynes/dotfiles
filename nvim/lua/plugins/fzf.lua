@@ -1,7 +1,10 @@
 return {
   -- Needs the fzf brew package (see packages/Brewfile)
-  "junegunn/fzf",
-  dependencies = { "junegunn/fzf.vim" },
-  cmd = { "FZF", "Files", "Rg", "Buffers" },
-  keys = { { "<leader>p", "<cmd>FZF<cr>", desc = "Find files" } },
+  "ibhagwan/fzf-lua",
+  cmd = "FzfLua",
+  opts = {},
+  keys = {
+    { "<leader>p", function() require("fzf-lua").files() end, desc = "Find files" },
+    { "<leader>o", function() require("fzf-lua").lsp_live_workspace_symbols() end, desc = "Find symbols (classes)" },
+  },
 }

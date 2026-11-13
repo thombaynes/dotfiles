@@ -4,11 +4,11 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 
 ## Files & Navigation
 
-| Key         | Action              | Key         | Action           |
-| ----------- | ------------------- | ----------- | ---------------- |
-| `<leader>p` | Find files (fzf)    | `<leader>e` | Toggle file tree |
-| `<leader>?` | Show buffer keymaps | `<leader>-` | Maximise window  |
-| `<leader>=` | Equalise windows    |             |                  |
+| Key         | Action               | Key         | Action                                |
+| ----------- | -------------------- | ----------- | ------------------------------------- |
+| `<leader>p` | Find files (fzf-lua) | `<leader>o` | Find symbols / classes (fzf-lua, LSP) |
+| `<leader>e` | Toggle file tree     | `<leader>?` | Show buffer keymaps                   |
+| `<leader>-` | Maximise window      | `<leader>=` | Equalise windows                      |
 
 ## Tabs
 
@@ -39,13 +39,12 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 
 ## Git (gitsigns)
 
-| Key          | Action              | Key          | Action            |
-| ------------ | ------------------- | ------------ | ----------------- |
-| `]c` / `[c`  | Next / prev hunk    | `<leader>hp` | Preview hunk      |
-| `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk        |
-| `<leader>hS` | Stage whole file    | `<leader>hr` | Reset hunk        |
-| `<leader>hd` | Diff against index  | `<leader>hb` | Toggle line blame |
-| `<leader>hB` | Full blame for line |              |                   |
+| Key          | Action              | Key          | Action              |
+| ------------ | ------------------- | ------------ | ------------------- |
+| `]c` / `[c`  | Next / prev hunk    | `<leader>hp` | Preview hunk        |
+| `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk          |
+| `<leader>hr` | Reset hunk          | `<leader>hd` | Diff against index  |
+| `<leader>hb` | Toggle line blame   | `<leader>hB` | Full blame for line |
 
 ## Completion (blink.cmp) and formatting
 
@@ -61,5 +60,5 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | ----------- | ---------------- | ----------- | ------------------- |
 | `<leader>t` | Run spec file    | `<leader>s` | Run nearest spec    |
 | `<leader>l` | Run last spec    | `<leader>a` | Run all specs       |
-| `<leader>o` | Show spec output | `<leader>S` | Toggle spec summary |
+| `<leader>r` | Show spec output | `<leader>S` | Toggle spec summary |
 

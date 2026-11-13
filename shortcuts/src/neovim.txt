@@ -60,5 +60,5 @@ gO | Document symbols
 <leader>s | Run nearest spec
 <leader>l | Run last spec
 <leader>a | Run all specs
-<leader>o | Show spec output
+<leader>r | Show spec output
 <leader>S | Toggle spec summary

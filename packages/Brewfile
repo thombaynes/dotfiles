@@ -21,7 +21,7 @@ brew "coreutils"            # Used to bring in a bunch of Linux utilities and ma
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
 brew "fish"                 # Nice shell
-brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by nvim (<leader>p); depends on ripgrep
+brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
 brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gotask"

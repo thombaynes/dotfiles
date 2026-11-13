@@ -12,7 +12,7 @@ return {
     { "<leader>s", function() require("neotest").run.run() end, desc = "Run nearest spec" },
     { "<leader>l", function() require("neotest").run.run_last() end, desc = "Run last spec" },
     { "<leader>a", function() require("neotest").run.run(vim.fn.getcwd()) end, desc = "Run all specs" },
-    { "<leader>o", function() require("neotest").output.open({ enter = true }) end, desc = "Spec output" },
+    { "<leader>r", function() require("neotest").output.open({ enter = true }) end, desc = "Spec output" },
     { "<leader>S", function() require("neotest").summary.toggle() end, desc = "Spec summary" },
   },
   config = function()
