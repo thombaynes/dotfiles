@@ -2,7 +2,8 @@
 > Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, blink.cmp, conform, built-in LSP.
 
 ## Files & Navigation
-<leader>p | Find files (fzf)
+<leader>p | Find files (fzf-lua)
+<leader>o | Find symbols / classes (fzf-lua, LSP)
 <leader>e | Toggle file tree
 <leader>? | Show buffer keymaps
 <leader>- | Maximise window

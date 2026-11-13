@@ -15,8 +15,9 @@ status --is-interactive; and rbenv init - fish | source
 set -x -g LC_ALL en_CA.UTF-8
 set -x -g LANG en_CA.UTF-8
 
-# Set FZF default command to use ripgrep (rg) - this makes it MUCH FASTER
-set -x -g FZF_DEFAULT_COMMAND rg --files --hidden
+# File listing command shared by fzf and nvim's fzf-lua (see nvim/lua/plugins/fzf.lua). ripgrep makes it MUCH FASTER
+set -x -g FZF_FILES_COMMAND "rg --files --hidden --glob '!.git'"
+set -x -g FZF_DEFAULT_COMMAND $FZF_FILES_COMMAND
 
 # Keep tmuxinator project files in the foundry workspace so they are easy to edit alongside the repos
 set -x -g TMUXINATOR_CONFIG ~/foundry/tmuxinator

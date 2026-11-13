@@ -20,6 +20,7 @@ brew "awscli"               # For AWS apps
 brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
+brew "fd"                   # Without this fzf-lua has a checkHealth complaint in nvim. It actually uses ripgrep
 brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
