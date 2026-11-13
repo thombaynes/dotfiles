@@ -8,6 +8,12 @@ return {
   },
   keys = { { "<leader>e", "<cmd>Neotree toggle reveal<cr>", desc = "Toggle file tree" } },
   opts = {
+    window = {
+      mappings = {
+        -- Space is the leader, so don't let the tree claim it (it toggles folders by default). `C` closes a folder.
+        ["<space>"] = "none",
+      },
+    },
     filesystem = {
       -- Show dotfiles by default; gitignored files stay hidden. `H` toggles in the tree.
       filtered_items = { hide_dotfiles = false },
