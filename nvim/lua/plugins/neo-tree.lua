@@ -8,6 +8,8 @@ return {
   },
   keys = { { "<leader>e", "<cmd>Neotree toggle reveal<cr>", desc = "Toggle file tree" } },
   opts = {
+    -- Quit nvim when the tree is the last window left, e.g. after :wq on the final file
+    close_if_last_window = true,
     window = {
       mappings = {
         -- Space is the leader, so don't let the tree claim it (it toggles folders by default). `C` closes a folder.
