@@ -33,6 +33,10 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 
 Root files: `bootstrap.sh` (entry point), `hosts` (copied to `/etc/hosts` by bootstrap), `ut_aws.sh` (AWS shell setup for work), `.tool-versions`, `LICENSE`, `README.md` (usage and customisation).
 
+## fzf, fzf-lua, ripgrep and nvim
+
+`FZF_DEFAULT_COMMAND` in `fish/config.fish` (an `rg --files` command) is the single source of truth for file listing. The `fzf` binary runs it in the shell and nvim's fzf-lua reads it from the environment (`nvim/lua/plugins/fzf.lua`), so change it in fish only. See `nvim/CONTEXT.md` for the fzf-lua details.
+
 ## When making changes
 
 When making changes in this repo look to see if anything being installed can be managed through brew. If so, then add it to the Brewfile.

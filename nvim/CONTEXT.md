@@ -20,7 +20,7 @@ nvim/
         ├── conform.lua    Prettier on save and `<leader>f`, only where a prettier config exists above the file.
         ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
-        ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols.
+        ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols. See "fzf-lua" below.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.
         ├── lualine.lua    Statusline (replaces airline).
         ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), `gd`/`gD`, and Ruby format on save.
@@ -30,5 +30,15 @@ nvim/
         ├── treesitter.lua Parsers for Ruby, JS/TS and JSON (needed by neotest), and treesitter highlighting for them.
         └── which-key.lua  Popup of available keys after a prefix; `<leader>?` shows the buffer's keymaps.
 ```
+
+## fzf-lua
+
+fzf-lua (`lua/plugins/fzf.lua`) is a Lua front end that drives the `fzf` binary (Brewfile) inside nvim. It is loaded lazily, on `:FzfLua` or its two keys.
+
+- **`<leader>p`** runs `files()`. The listing command is `files.cmd = vim.env.FZF_DEFAULT_COMMAND`, which `fish/config.fish` exports as `rg --files --hidden --glob '!.git'`. The shell's `fzf` runs the same variable, so the two stay in sync; change it in fish only.
+- **Why an env var:** nvim runs commands through `sh`, which can't see fish aliases or functions, so only an exported variable reaches it. nvim has to be started from a shell that has it (fish does).
+- **Fallback:** if the variable is unset, `files.cmd` is nil and fzf-lua picks its own tool: `fd`, then `rg`, then `find`.
+- **`<leader>o`** runs `lsp_live_workspace_symbols()`. It asks the LSP server (ruby-lsp for Ruby) for symbols matching what you type, so it uses neither `rg` nor `fd`. With no LSP client attached it reports "LSP: no client attached".
+- **`:checkhealth fzf-lua`** looks for `fd`, `fdfind` or `find`, never `rg`. Without `fd` it falls back to BSD `find` and reports `find: illegal option -- --` because `find --version` isn't valid there. That is cosmetic, and `fd` is in the Brewfile to silence it.
 
 Keyboard shortcuts are documented in `shortcuts/neovim.md` at the repo root.
