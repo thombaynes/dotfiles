@@ -1,2 +1,5 @@
 keybind = global:opt+backquote=toggle_quick_terminal
 theme = Arthur
+cursor-style-blink = true
+# Make the cursor 20% taller
+adjust-cursor-height = 20%
