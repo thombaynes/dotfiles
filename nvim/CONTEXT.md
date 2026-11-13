@@ -18,6 +18,7 @@ nvim/
         ├── beacon.lua     Flashes the cursor line after a jump.
         ├── blink.lua      blink.cmp completion, off until `<leader>c` toggles it; `<C-space>` opens the menu by hand.
         ├── conform.lua    Prettier on save and `<leader>f`, only where a prettier config exists above the file.
+        ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
         ├── fzf.lua        fzf and fzf.vim; `<leader>p` finds files.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.

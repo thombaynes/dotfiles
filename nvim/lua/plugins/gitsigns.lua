@@ -1,6 +1,18 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },
+  keys = {
+    {
+      -- Global rather than in on_attach, which gitsigns skips for untracked files (and stage_buffer skips them too)
+      "<leader>hS",
+      function()
+        vim.cmd("silent write")
+        vim.system({ "git", "add", "--", vim.api.nvim_buf_get_name(0) }):wait()
+        require("gitsigns").refresh()
+      end,
+      desc = "Stage whole file",
+    },
+  },
   opts = {
     -- Show the git state of each line in the sign column: added, changed, removed.
     signcolumn = true,
