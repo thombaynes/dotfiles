@@ -10,7 +10,6 @@ set -x -g TERM "tmux-256color"
 # Include the following in the $PATH
 set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 
-source ~/.asdf/asdf.fish
 status --is-interactive; and . (nodenv init -|psub)
 status --is-interactive; and rbenv init - fish | source
 

@@ -41,7 +41,7 @@
       "standard"
     ],
     "rubyLsp.rubyVersionManager": {
-      "identifier": "auto"
+      "identifier": "rbenv"
     },
     "rubyLsp.enabledFeatures": {
 
@@ -59,7 +59,6 @@
       "semanticHighlighting": true,
       "completion": true
     },
-    "rubyLsp.rubyExecutablePath": "/Users/tbaynes/.asdf/shims/ruby",
     "git.autofetch": true,
     "terminal.integrated.rendererType": "dom",
     "editor.tabSize": 2,

@@ -24,6 +24,7 @@ neovim
 nmap
 redis
 ssh-copy-id
+terraform-1.17
 tmux
 wget
 
