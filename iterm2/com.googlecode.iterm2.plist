@@ -334,7 +334,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/usr/local/bin/zsh</string>
+			<string>/opt/local/bin/fish</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -820,7 +820,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/tbaynes</string>
+			<string>/Users/thombaynes</string>
 		</dict>
 	</array>
 	<key>OpenArrangementAtStartup</key>

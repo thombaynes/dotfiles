@@ -15,10 +15,10 @@ Files are symlinked, so edits in this repo are live immediately. AGENTS do not p
 | `claude/` | Claude Code status line (`statusline.sh`: model, directory, colour-coded context usage bar). `setup.sh` symlinks it into `~/.claude/` and merges the `statusLine` entry into `settings.json` with `jq`. |
 | `duti/` | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
 | `fish/` | Fish shell configuration, including helper `functions/` and `completions/`. Symlinked into `~/.config/fish/`. |
-| `ghostty/` | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. |
+| `ghostty/` | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs (e.g. the Apple silicon work laptop). |
 | `git/` | `.gitconfig`, `.gitignore_global`, `.githelpers` and the commit template, symlinked into `~`. |
 | `hammerspoon/` | Hammerspoon Lua config (hyper key, window management, lock screen, pomodoro). Has its own README. |
-| `iterm2/` | Kept alongside Ghostty for now - iTerm2 preferences plist and the terminfo files for italics (`tic`). |
+| `iterm2/` | The terminal for older Macs that Ghostty doesn't support (e.g. the 2015 MacBook Pro): iTerm2 preferences plist and the terminfo files for italics (`tic`). The plist is tuned for the 2015 MacBook Pro (user `thombaynes`, MacPorts fish at `/opt/local/bin/fish`). |
 | `key-mappings/` | `hidutil` LaunchAgent plist for low-level key remapping (Caps Lock as Ctrl, left Ctrl as F18 for Hammerspoon). `setup.sh` symlinks it into `~/Library/LaunchAgents` and loads it. |
 | `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `nvim/` | Neovim config, with the whole folder symlinked to `~/.config/nvim`: lazy.nvim with plugin specs in `lua/plugins/` and options, keymaps and autocmds in `lua/config/` (see `nvim/CONTEXT.md` for a map of its files). Its `setup.sh` does the symlink. |

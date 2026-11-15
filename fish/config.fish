@@ -8,7 +8,7 @@ fish_add_path /opt/local/bin /opt/local/sbin
 set -x -g TERM "tmux-256color"
 
 # Include the following in the $PATH
-set -g fish_user_paths "/Users/tbaynes/.local/bin" $fish_user_paths
+set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 
 source ~/.asdf/asdf.fish
 status --is-interactive; and . (nodenv init -|psub)
