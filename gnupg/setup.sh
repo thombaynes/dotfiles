@@ -19,7 +19,9 @@ chmod 700 "$DESTINATION"
 
 # Generated rather than symlinked because the pinentry-mac path differs between brew and MacPorts
 cp "$SOURCE/gpg-agent.conf" "$CONF"
-if PINENTRY="$(command -v pinentry-mac)"; then
+# MacPorts installs it as an app bundle rather than putting it on the PATH
+MACPORTS_PINENTRY="/Applications/MacPorts/pinentry-mac.app/Contents/MacOS/pinentry-mac"
+if PINENTRY="$(command -v pinentry-mac || ls "$MACPORTS_PINENTRY" 2>/dev/null)"; then
     echo "pinentry-program $PINENTRY" >> "$CONF"
     substep_success "Using $PINENTRY (tick 'Save in Keychain' in its prompt to stop being asked)."
 else
