@@ -5,8 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
-SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)/Library/LaunchAgents"
+SOURCE="$(pwd -P)"
+DESTINATION="$HOME/Library/LaunchAgents"
 PLIST="com.local.KeyRemapping.plist"
 
 info "Setting up key mappings..."

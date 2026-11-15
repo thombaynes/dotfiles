@@ -5,8 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
-SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)/Library/Application Support/com.mitchellh.ghostty"
+SOURCE="$(pwd -P)"
+DESTINATION="$HOME/Library/Application Support/com.mitchellh.ghostty"
 
 info "Setting up Ghostty..."
 

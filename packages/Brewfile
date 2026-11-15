@@ -24,7 +24,6 @@ brew "fd"                   # Without this fzf-lua has a checkHealth complaint i
 brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
-brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gotask"
 brew "gnupg"                # PGP is pretty good to have around
 brew "jq"                   # JSON processor

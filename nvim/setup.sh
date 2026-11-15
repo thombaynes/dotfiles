@@ -5,8 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
-SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)"
+SOURCE="$(pwd -P)"
+DESTINATION="$HOME"
 
 info "Setting up Neovim..."
 

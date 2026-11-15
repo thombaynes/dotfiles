@@ -5,8 +5,8 @@
 info "Setting up symlinks to useful bin files for current user"
 
 substep_info "Declaring variables"
-SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)/.local/bin"
+SOURCE="$(pwd -P)"
+DESTINATION="$HOME/.local/bin"
 substep_success "Variables declared"
 
 substep_info "Creating destination folder for current user at $DESTINATION"

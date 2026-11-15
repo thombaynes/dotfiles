@@ -1,11 +1,7 @@
-[user]
-	name = Thom Baynes
-	email = tbaynes@usertesting.com
-	signingkey = 660E69B2D24B9BCE
 [init]
   defaultBranch = main
 [core]
-	excludesfile = /Users/tbaynes/.gitignore_global
+	excludesfile = ~/.gitignore_global
   editor = nvim
 [difftool "code"]
   cmd = code --diff \"$LOCAL\" \"$REMOTE\"
@@ -29,11 +25,12 @@
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/tbaynes/.gitCommitTemplate
+	template = ~/.gitCommitTemplate
 	gpgsign = true
 [pull]
   rebase = false
-[gpg]
-	program = /opt/homebrew/bin/gpg
 [tag]
 	gpgSign = true
+# Machine-specific identity (user.*): symlinked by setup.sh from .personal-gitconfig or .usertesting-gitconfig
+[include]
+	path = ~/.gitconfig-local

@@ -1,6 +1,7 @@
 #! /bin/zsh
 
-DIR=$(realpath)
+DIR=$(dirname "$0")
+cd "$DIR"
 . ../scripts/functions.sh
 
 info "Installing asdf into user directory..."
