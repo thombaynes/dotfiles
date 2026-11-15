@@ -16,6 +16,7 @@ fish
 fzf
 git
 gnupg2
+pinentry-mac
 go-task
 jq
 ripgrep
