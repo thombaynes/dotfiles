@@ -29,6 +29,13 @@ Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`
 | `Alt-H` | Man page for current command   | `Alt-L`                  | List directory               |
 | `Alt-P` | Append `&\| less`              | `Alt-Left` / `Alt-Right` | Prev / next dir (empty line) |
 
+## Functions
+
+| Key               | Action                                                                                                                        | Key    | Action                        |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------- |
+| `policy-reporter` | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (args go to kubectl, e.g. `--context`) | `week` | Print the current week number |
+| `local-branches`  | List local git branches (abbr `lb`)                                                                                           |        |                               |
+
 ## Abbreviations
 
 | Key    | Action                                                | Key     | Action                        |

@@ -18,7 +18,7 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 | `bin/` | ❌ | Small custom scripts, symlinked into `~/bin/`. |
 | `claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
 | `duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
-| `fish/` | ❌ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |
+| `fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |
 | `ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
 | `git/` | ✅ | Git config and defaults, symlinked into `~`. |
 | `gnupg/` | ❌ | `gpg-agent.conf` (long passphrase cache). `setup.sh` copies it to `~/.gnupg` and appends `pinentry-program` pointing at `pinentry-mac` wherever brew or MacPorts put it, then restarts the agent. |
