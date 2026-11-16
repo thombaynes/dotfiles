@@ -5,7 +5,7 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").install({ "ruby", "javascript", "typescript", "tsx", "json" })
+    require("nvim-treesitter").install({ "ruby", "javascript", "typescript", "tsx", "json", "markdown", "markdown_inline" })
 
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "ruby", "javascript", "javascriptreact", "typescript", "typescriptreact", "json" },

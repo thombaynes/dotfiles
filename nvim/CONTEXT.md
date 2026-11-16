@@ -26,8 +26,10 @@ nvim/
         ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), `gd`/`gD`, and Ruby format on save.
         ├── neo-tree.lua   File tree; `<leader>e` toggles it and dotfiles show by default.
         ├── neotest.lua    neotest with neotest-rspec and neotest-vitest; `<leader>t/s/l/a` run file, nearest, last, all specs.
+        ├── markdown-preview.lua  markdown-preview.nvim; `<leader>mo` opens a live browser preview (renders mermaid). Needs node for its build.
+        ├── render-markdown.lua   render-markdown.nvim; `<leader>mp` toggles in-buffer rendering (off by default; mermaid stays as code).
         ├── tmux-navigator.lua  `<C-h/j/k/l>` moves between nvim splits and tmux panes.
-        ├── treesitter.lua Parsers for Ruby, JS/TS and JSON (needed by neotest), and treesitter highlighting for them.
+        ├── treesitter.lua Parsers for Ruby, JS/TS, JSON (needed by neotest) and markdown (needed by render-markdown), and treesitter highlighting for the non-markdown ones (nvim starts it for markdown itself).
         └── which-key.lua  Popup of available keys after a prefix; `<leader>?` shows the buffer's keymaps.
 ```
 

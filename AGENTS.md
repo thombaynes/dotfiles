@@ -13,26 +13,26 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 
 ## Folder Structure
 
-| Path | Contents |
-| --- | --- |
-| `bin/` | Small user scripts (`tat`, `bak`), symlinked into `~/bin/`. |
-| `claude/` | Claude Code status line (`statusline.sh`: model, directory, colour-coded context usage bar). `setup.sh` symlinks it into `~/.claude/` and merges the `statusLine` entry into `settings.json` with `jq`. |
-| `duti/` | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
-| `fish/` | Fish shell configuration, including helper `functions/` and `completions/`. Symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present and sets `GPG_TTY` so gpg can prompt for a passphrase. `setup.sh` makes whichever fish is on the `PATH` the login shell. |
-| `ghostty/` | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs (e.g. the Apple silicon work laptop). |
-| `git/` | `.gitconfig`, `.gitignore_global`, `.githelpers` and the commit template, symlinked into `~`. Machine-specific identity (name, email, signing key) lives in `.personal-gitconfig` and `.usertesting-gitconfig`; `setup.sh [personal\|usertesting]` symlinks one to `~/.gitconfig-local`, which `.gitconfig` includes. |
-| `gnupg/` | `gpg-agent.conf` (long passphrase cache). `setup.sh` copies it to `~/.gnupg` and appends `pinentry-program` pointing at `pinentry-mac` wherever brew or MacPorts put it, then restarts the agent. |
-| `hammerspoon/` | Hammerspoon Lua config (hyper key, window management, lock screen, pomodoro). Has its own README. |
-| `iterm2/` | The terminal for older Macs that Ghostty doesn't support (e.g. the 2015 MacBook Pro): iTerm2 preferences plist and the terminfo files for italics (`tic`). The plist is tuned for the 2015 MacBook Pro (user `thombaynes`, MacPorts fish at `/opt/local/bin/fish`). |
-| `key-mappings/` | `hidutil` LaunchAgent plist for low-level key remapping (left Ctrl as F18 for Hammerspoon, Escape as backtick). Caps Lock as Ctrl is not here: set it by hand in System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys. `setup.sh` symlinks it into `~/Library/LaunchAgents` and loads it. |
-| `macos/` | `setup.sh` only: a long list of `defaults write` macOS preferences. |
-| `nvim/` | Neovim config, with the whole folder symlinked to `~/.config/nvim`: lazy.nvim with plugin specs in `lua/plugins/` and options, keymaps and autocmds in `lua/config/` (see `nvim/CONTEXT.md` for a map of its files). Its `setup.sh` does the symlink. |
-| `packages/` | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent (ports only, no casks). `setup.sh` uses whichever of brew or MacPorts is installed. It fails if neither is, or if MacPorts is installed alongside brew formulae (brew casks alone are fine, and MacPorts is used). Run first by `bootstrap.sh`. |
-| `scripts/` | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
-| `shortcuts/` | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Hand-written source lives in `src/<tool>.txt` (`key \| action` lines; fish abbreviations are pulled from `fish/functions/setup.fish`). `generate.sh` renders `src/` to markdown and `generate.sh --check` lists bindings found in the configs but missing from `src/`. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
-| `tmux/` | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. tmuxinator project files live outside this repo in `~/foundry/tmuxinator` (`TMUXINATOR_CONFIG` is set in `fish/config.fish`). |
-| `TODO/` | `TODO.txt`, loose ideas for this repo. |
-| `vscode/` | VS Code `settings.json`, symlinked into the app's User folder. |
+| Path | CONTEXT.md | Contents |
+| --- | --- | --- |
+| `bin/` | ❌ | Small custom scripts, symlinked into `~/bin/`. |
+| `claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
+| `duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
+| `fish/` | ❌ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |
+| `ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
+| `git/` | ✅ | Git config and defaults, symlinked into `~`. |
+| `gnupg/` | ❌ | `gpg-agent.conf` (long passphrase cache). `setup.sh` copies it to `~/.gnupg` and appends `pinentry-program` pointing at `pinentry-mac` wherever brew or MacPorts put it, then restarts the agent. |
+| `hammerspoon/` | ❌ | Hammerspoon Lua config. Has its own README. Used for making a global hyper key. |
+| `iterm2/` | ❌ | The terminal for older Macs. iTerm2 preferences plist and the terminfo files for italics (`tic`). |
+| `key-mappings/` | ❌ | `hidutil` LaunchAgent plist for key remapping (left Ctrl as F18 for Hammerspoon, Escape as backtick). Caps Lock as Ctrl is not here: set it by hand in System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys. `setup.sh` symlinks it into `~/Library/LaunchAgents`. |
+| `macos/` | ❌ | `setup.sh` only: a long list of `defaults write` macOS preferences. |
+| `nvim/` | ✅ | Neovim config, with the whole folder symlinked to `~/.config/nvim`. lazy.nvim with `config/` files (options keymaps and autcmds) and `plugins/` specs. See `nvim/CONTEXT.md` for file map. Its `setup.sh` does the symlink. |
+| `packages/` | ❌ | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent. `setup.sh` uses whichever of brew or MacPorts is installed. |
+| `scripts/` | ❌ | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
+| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
+| `tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. |
+| `TODO/` | ❌ | `TODO.txt`, loose ideas for this repo. |
+| `vscode/` | ❌ | VS Code `settings.json`, symlinked into the app's User folder. |
 
 ## Root files
 

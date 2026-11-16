@@ -1,6 +1,6 @@
 # Neovim
 
-Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, blink.cmp, conform, built-in LSP.
+Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-key, lualine, tmux-navigator, neotest, blink.cmp, conform, render-markdown, markdown-preview, built-in LSP.
 
 ## Files & Navigation
 
@@ -9,6 +9,12 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | `<leader>p` | Find files (fzf-lua) | `<leader>o` | Find symbols / classes (fzf-lua, LSP) |
 | `<leader>e` | Toggle file tree     | `<leader>?` | Show buffer keymaps                   |
 | `<leader>-` | Maximise window      | `<leader>=` | Equalise windows                      |
+
+## Markdown
+
+| Key          | Action                                              | Key          | Action                                                              |
+| ------------ | --------------------------------------------------- | ------------ | ------------------------------------------------------------------- |
+| `<leader>mp` | Toggle in-buffer markdown preview (render-markdown) | `<leader>mo` | Open / close live markdown preview in the browser (renders mermaid) |
 
 ## Tabs
 

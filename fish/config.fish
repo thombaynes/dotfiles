@@ -20,9 +20,6 @@ set -x -g LANG en_CA.UTF-8
 # File listing command shared by fzf and nvim's fzf-lua (see nvim/lua/plugins/fzf.lua). ripgrep makes it MUCH FASTER
 set -x -g FZF_DEFAULT_COMMAND "rg --files --hidden --glob '!.git'"
 
-# Keep tmuxinator project files in the foundry workspace so they are easy to edit alongside the repos
-set -x -g TMUXINATOR_CONFIG ~/foundry/tmuxinator
-
 # Use neovim wherever I type vi
 alias vi nvim
 
