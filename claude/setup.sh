@@ -5,8 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
-SOURCE="$(realpath .)"
-DESTINATION="$(realpath ~)/.claude"
+SOURCE="$(pwd -P)"
+DESTINATION="$HOME/.claude"
 SETTINGS="$DESTINATION/settings.json"
 
 info "Setting up Claude Code..."

@@ -5,6 +5,7 @@
 
 # Shared
 tap "homebrew/bundle"       # Allows this file (minus comments) to be generate if you type `brew bundle dump`
+tap "hashicorp/tap"         # Core homebrew terraform is stuck on 1.5.7 (last MPL release); HashiCorp's tap has current versions
 
 # User testing
 brew "libsodium"            # For orders repo
@@ -25,13 +26,14 @@ brew "fd"                   # Without this fzf-lua has a checkHealth complaint i
 brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
-brew "git-delete-merged-branches" # does what it says in a safe manner
 brew "gotask"
 brew "gnupg"                # PGP is pretty good to have around
+brew "pinentry-mac"         # Native passphrase prompt for gpg, with a Keychain option (see gnupg/setup.sh)
 brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
 brew "mas"                  # For installing App store apps (see bottom of this file)
+brew "hashicorp/tap/terraform" # Infrastructure as code. One version, no version manager
 brew "tree-sitter-cli"      # Compiles treesitter parsers for nvim (neotest needs the Ruby one)
 brew "neovim"               # Editor. Config lives in nvim; `vi` is aliased to nvim in fish/config.fish
 brew "nmap"                 # Network Utility

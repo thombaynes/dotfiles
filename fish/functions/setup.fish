@@ -5,7 +5,6 @@ function setup
         abbr -e $abbreviation
     end
 
-    abbr ai asdf install
     abbr b bundle # This is the same as bundle install
     abbr bs brew services
     abbr bd brew doctor

@@ -4,16 +4,25 @@
 <dict>
     <key>Label</key>
     <string>com.local.KeyRemapping</string>
+    <!--
+      Runs hidutil at login to remap keys at the HID level. The mappings below are applied in
+      this order, and each one is source -> destination (usage codes are 0x700000000 + the
+      HID usage ID).
+
+        1. Left Control (0xE0) -> F18 (0x6D)           Left Ctrl becomes F18, which Hammerspoon uses as the hyper key
+        2. Escape (0x29)       -> Grave / Tilde (0x35) Escape types ` and ~
+
+      Caps Lock as Ctrl is set in System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys,
+      not here: a Caps Lock -> Control rule here gets caught by the Left Ctrl -> F18 rule.
+
+      HID usage IDs: https://developer.apple.com/library/archive/technotes/tn2450/_index.html
+    -->
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/hidutil</string>
         <string>property</string>
         <string>--set</string>
         <string>{"UserKeyMapping":[
-            {
-              "HIDKeyboardModifierMappingSrc": 0x700000039,
-              "HIDKeyboardModifierMappingDst": 0x7000000E0
-            },
             {
               "HIDKeyboardModifierMappingSrc": 0x7000000E0,
               "HIDKeyboardModifierMappingDst": 0x70000006D

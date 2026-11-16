@@ -1,0 +1,41 @@
+# MacPorts equivalent of the Brewfile: one port per line, installed by setup.sh when MacPorts is present.
+# Port names have not been verified. Check with `port search <name>`.
+# MacPorts has no casks, so GUI apps (alfred, docker, ghostty, ...) need installing by hand.
+
+# User testing
+libsodium
+rbenv
+ruby-build
+
+# General
+coreutils
+curl
+duti
+fd
+fish
+fzf
+git
+gnupg2
+pinentry-mac
+go-task
+jq
+ripgrep
+mas
+neovim
+nmap
+redis
+ssh-copy-id
+terraform-1.17
+tmux
+wget
+
+# Versioned or differently named in MacPorts, pick the right one with `port search`
+# awscli (py3xx-awscli)
+# kubectl (kubectl-1.xx)
+# postgresql (postgresql16 etc.)
+# tree-sitter-cli (tree-sitter)
+
+# No port, install another way
+# nodenv, node-build (git clone https://github.com/nodenv/nodenv and nodenv/node-build, or use the ports nvm / fnm / asdf instead)
+# tmuxinator (gem install tmuxinator)
+# tpm (git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm)
