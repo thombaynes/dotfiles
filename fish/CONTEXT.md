@@ -25,8 +25,8 @@ fish/
 │   ├── emptytrash.fish            Empties the Trash, Apple system logs and the download quarantine history.
 │   ├── fish_prompt.fish           The prompt.
 │   ├── fisher.fish                Fisher, the fish plugin manager (vendored, v3.2.8).
+│   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
 │   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
-│   ├── policy-reporter.fish       Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser.
 │   ├── pubkey.fish                Copies `~/.ssh/id_rsa.pub` to the clipboard.
 │   ├── setup.fish                 Defines every abbreviation. Run `setup` to reload them.
 │   └── week.fish                  Prints the current week number.

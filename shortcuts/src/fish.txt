@@ -31,7 +31,7 @@ Alt-P | Append `&| less`
 Alt-Left / Alt-Right | Prev / next dir (empty line)
 
 ## Functions
-policy-reporter | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (args go to kubectl, e.g. `--context`)
+kyverno-policy-reporter | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`)
 week | Print the current week number
 local-branches | List local git branches (abbr `lb`)
 

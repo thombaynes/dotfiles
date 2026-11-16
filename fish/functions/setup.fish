@@ -54,6 +54,7 @@ function setup
     abbr kgn kubectl get nodes -o wide
     abbr kgp kubectl get pods -o wide
     abbr kgr kubectl get replicasets -o wide
+    abbr kpr kyverno-policy-reporter
     abbr krs kubectl rollout status
     abbr krh kubectl rollout history
     abbr lb local-branches
