@@ -56,4 +56,4 @@ opt.wildmode = { "longest:full", "full" }
 -- Yank and paste through the system clipboard (on macOS + and * are the same pasteboard)
 opt.clipboard = "unnamedplus"
 
-vim.cmd.colorscheme("desert")
+-- The colourscheme is set by plugins/tokyonight.lua, because it has to be installed first

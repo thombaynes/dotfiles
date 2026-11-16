@@ -10,7 +10,7 @@ nvim/
 ├── lazy-lock.json       lazy.nvim's pinned plugin versions. Written by `:Lazy`; commit it, don't edit it.
 └── lua/
     ├── config/          Editor behaviour that isn't plugin-specific.
-    │   ├── options.lua    Sets mapleader first, then vim options and the colourscheme.
+    │   ├── options.lua    Sets mapleader first, then vim options.
     │   ├── keymaps.lua    Global key mappings, each with a desc for which-key.
     │   ├── autocmds.lua   Autocommands: resize splits, spell check commits, restore cursor, trim trailing whitespace, highlight yanks, reload files changed outside nvim.
     │   └── lazy.lua       Bootstraps lazy.nvim and imports every spec in lua/plugins/.
@@ -29,7 +29,7 @@ nvim/
         ├── markdown-preview.lua  markdown-preview.nvim; `<leader>mo` opens a live browser preview (renders mermaid). Needs node for its build.
         ├── render-markdown.lua   render-markdown.nvim; `<leader>mp` toggles in-buffer rendering (off by default; mermaid stays as code).
         ├── tmux-navigator.lua  `<C-h/j/k/l>` moves between nvim splits and tmux panes.
-        ├── tokyonight.lua Colourscheme (storm variant); loaded first and sets `colorscheme tokyonight`.
+        ├── tokyonight.lua Colourscheme (moon variant); loaded first and sets `colorscheme tokyonight`.
         ├── treesitter.lua Parsers for Ruby, JS/TS, JSON (needed by neotest) and markdown (needed by render-markdown), and treesitter highlighting for the non-markdown ones (nvim starts it for markdown itself).
         └── which-key.lua  Popup of available keys after a prefix; `<leader>?` shows the buffer's keymaps.
 ```
