@@ -14,7 +14,7 @@ info "Setting up fish shell..."
 
 substep_info "Creating fish config folders..."
 mkdir -p "$DESTINATION/functions"
-mkdir -p "$DESTINATION/completions"
+mkdir -p "$DESTINATION/conf.d"
 
 find * -name "*.fish" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
@@ -43,20 +43,11 @@ set_fish_shell() {
             substep_error "Failed changing shell to fish"
             return 2
         fi
-        substep_info "Running fish initial setup"
-        fish -c "setup"
     fi
 }
 
 if set_fish_shell; then
-    substep_info "Reloading abbreviations and completions using custom 'setup' function"
-    if fish -c setup; then
-        substep_success "Reload successful."
-        success "Successfully set up fish shell."
-    else
-        substep_error "Failed reload in call to 'setup' function"
-        error "Failed setting up fish shell."
-    fi
+    success "Successfully set up fish shell."
 else
     error "Failed setting up fish shell."
 fi

@@ -5,6 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+[ -d "/Applications/Ghostty.app" ] || { info "Ghostty is not installed, skipping."; exit 0; }
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME/Library/Application Support/com.mitchellh.ghostty"
 

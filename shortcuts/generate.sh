@@ -46,7 +46,7 @@ render() {
         file = root "/" $2
         cmd = "sed -nE \"s/^[[:space:]]*abbr ([a-z][^ ]*) ([^#]*[^# ]).*$/\\1\\t\\2/p\" \"" file "\""
         while ((cmd | getline line) > 0) {
-            split(line, p, "\t"); gsub(/\\/, "", p[2]); gsub(/\|/, "\\|", p[2])
+            split(line, p, "\t"); gsub(/\\/, "", p[2]); gsub(/\|/, "\\|", p[2]); sub(/^--function /, "function ", p[2])
             add("`" p[1] "`", "`" p[2] "`")
         }
         close(cmd); next

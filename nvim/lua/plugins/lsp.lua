@@ -18,6 +18,16 @@ return {
       vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
 
       vim.lsp.config("ruby_lsp", {
+        -- Mason's ruby-lsp runs on whichever Ruby is on PATH. When the project's Gemfile.lock has ruby-lsp, run
+        -- it through bundler instead so it uses the project's own (rbenv-pinned) Ruby and gem versions.
+        cmd = function(dispatchers, config)
+          local cmd = { "ruby-lsp" }
+          local lock = config.root_dir and (config.root_dir .. "/Gemfile.lock")
+          if lock and vim.fn.filereadable(lock) == 1 and table.concat(vim.fn.readfile(lock), "\n"):find("ruby-lsp", 1, true) then
+            cmd = { "bundle", "exec", "ruby-lsp" }
+          end
+          return vim.lsp.rpc.start(cmd, dispatchers, { cwd = config.cmd_cwd, env = config.cmd_env, detached = config.detached })
+        end,
         init_options = {
           formatter = "standard",
           linters = { "standard" },

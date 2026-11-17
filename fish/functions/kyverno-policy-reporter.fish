@@ -1,4 +1,3 @@
-#!/usr/bin/env fish
 # Open Kyverno Policy Reporter UI at http://localhost:9090 in the browser
 # Extra args go to kubectl, e.g. `kyverno-policy-reporter --context my-cluster`
 function kyverno-policy-reporter

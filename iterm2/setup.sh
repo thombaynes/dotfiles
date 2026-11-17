@@ -5,6 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+[ -d "/Applications/iTerm.app" ] || { info "iTerm2 is not installed, skipping."; exit 0; }
+
 # Get iterm2 to look here for its config
 DIR_ABS="$(pwd -P)"
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DIR_ABS"

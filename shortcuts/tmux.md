@@ -34,8 +34,8 @@ Prefix is `Ctrl-Space`. Pressing `Prefix Space` sends a literal `Ctrl-Space` to 
 | Key        | Action                     | Key        | Action                  |
 | ---------- | -------------------------- | ---------- | ----------------------- |
 | `Prefix [` | Enter copy mode            | `Prefix ]` | Paste buffer            |
-| `v` / `Space` | Begin selection         | `Enter` / `y` | Copy selection and exit |
-| `C-v`      | Toggle rectangle selection | `q`        | Leave copy mode         |
+| `Space`    | Begin selection            | `Enter`    | Copy selection and exit |
+| `v`        | Toggle rectangle selection | `q`        | Leave copy mode         |
 | `/` / `?`  | Search forward / backward  |            |                         |
 
 ## Misc

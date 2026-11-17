@@ -1,9 +1,5 @@
-#!/usr/bin/env fish
-# Empty the Trash on the main HDD.
-# Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine. https://mths.be/bum
+# Empty the Trash on the main HDD and clear download history from quarantine. https://mths.be/bum
 function emptytrash
     sudo rm -rfv ~/.Trash
-    sudo rm -rfv /private/var/log/asl/*.asl
     sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
 end

@@ -5,6 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+[ -d "/Applications/Hammerspoon.app" ] || { info "Hammerspoon is not installed, skipping."; exit 0; }
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME/.hammerspoon"
 

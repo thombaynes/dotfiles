@@ -5,6 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+[ -d "/Applications/Visual Studio Code.app" ] || { info "VS Code is not installed, skipping."; exit 0; }
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME/Library/Application Support/Code/User"
 

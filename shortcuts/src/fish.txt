@@ -1,5 +1,5 @@
 # Fish
-> Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/functions/setup.fish`.
+> Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/conf.d/abbreviations.fish`.
 
 ## Cursor & Editing
 Ctrl-A / Ctrl-E | Start / end of line
@@ -36,4 +36,4 @@ week | Print the current week number
 local-branches | List local git branches (abbr `lb`)
 
 ## Abbreviations
-@abbreviations fish/functions/setup.fish
+@abbreviations fish/conf.d/abbreviations.fish
