@@ -24,7 +24,7 @@ fish/
 │   ├── emptytrash.fish            Empties the Trash and the download quarantine history.
 │   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
 │   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
-│   ├── pubkey.fish                Copies `~/.ssh/id_rsa.pub` to the clipboard.
+│   ├── pubkey.fish                Copies `~/.ssh/id_ed25519.pub` to the clipboard.
 │   └── week.fish                  Prints the current week number.
 ├── config.fish                  Brew and MacPorts on the `PATH`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, nodenv/rbenv init.
 ├── CONTEXT.md                   This file.
