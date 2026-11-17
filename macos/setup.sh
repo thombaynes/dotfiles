@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Taken from:
-# ~/.osx — https://mths.be/osx
-# Amended to work for my personal preferences
-
 DIR=$(dirname "$0")
 cd "$DIR"
 

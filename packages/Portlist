@@ -1,6 +1,5 @@
 # MacPorts equivalent of the Brewfile: one port per line, installed by setup.sh when MacPorts is present.
 # Port names were checked with `port search <name>`.
-# MacPorts has no casks, so GUI apps (alfred, docker, ghostty, ...) need installing by hand.
 
 # User testing
 libsodium
@@ -18,7 +17,6 @@ git
 go-task
 jq
 ripgrep
-mas
 neovim
 nmap
 redis

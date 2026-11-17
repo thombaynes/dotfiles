@@ -3,7 +3,7 @@
 ## Usage
 1. Restore your safely backed up ssh keys to `~/.ssh/`
     1. Alternatively, generate new ssh keys, and add these to your GitHub account
-2. Install Homebrew and git
+2. Install (Homebrew or Macports) and git
 3. Clone this repository
 4. Run the `bootstrap.sh` script
     1. Alternatively, only run the `setup.sh` scripts in specific subfolders if you don't need everything (see [AGENTS.md](AGENTS.md))
