@@ -23,7 +23,6 @@ fish/
 ├── functions/                   One function per file, symlinked into `~/.config/fish/functions/`.
 │   ├── abbrex.fish                Expands an abbreviation (`abbrex gs` prints `git status`).
 │   ├── emptytrash.fish            Empties the Trash, Apple system logs and the download quarantine history.
-│   ├── fish_prompt.fish           The prompt.
 │   ├── fisher.fish                Fisher, the fish plugin manager (vendored, v3.2.8).
 │   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
 │   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
