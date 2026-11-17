@@ -35,7 +35,7 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 
 ## Root files
 
-Root files: `bootstrap.sh` (entry point), `ut_aws.sh` (AWS shell setup for work), `LICENSE`, `README.md` (usage and customisation).
+Root files: `bootstrap.sh` (entry point), `LICENSE`, `README.md` (usage and customisation).
 
 ## fzf, fzf-lua, ripgrep and nvim
 
