@@ -30,7 +30,7 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 | `packages/` | ❌ | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent. `setup.sh` uses whichever of brew or MacPorts is installed. |
 | `scripts/` | ❌ | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
 | `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
-| `tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  Plugins are declared in the conf and installed with `prefix + I`. |
+| `tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  `setup.sh` also clones tpm to `~/.tmux/plugins/tpm`. Plugins are declared in the conf and installed with `prefix + I`. |
 | `TODO/` | ❌ | `TODO.txt`, loose ideas for this repo. |
 | `vscode/` | ❌ | VS Code `settings.json`, symlinked into the app's User folder. |
 
