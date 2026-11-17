@@ -2,140 +2,59 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Default Bookmark Guid</key>
-	<string>EAE52A81-A7B7-4E76-B280-585F14644B82</string>
-	<key>DisableFullscreenTransparency</key>
+	<key>AIFeatureFunctionCalling</key>
 	<true/>
-	<key>GlobalKeyMap</key>
-	<dict>
-		<key>0x19-0x60000</key>
-		<dict>
-			<key>Action</key>
-			<integer>39</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0x9-0x40000</key>
-		<dict>
-			<key>Action</key>
-			<integer>32</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf700-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>7</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf701-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>6</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf702-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>2</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf702-0x320000</key>
-		<dict>
-			<key>Action</key>
-			<integer>33</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf703-0x300000</key>
-		<dict>
-			<key>Action</key>
-			<integer>0</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf703-0x320000</key>
-		<dict>
-			<key>Action</key>
-			<integer>34</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf729-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>5</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf72b-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>4</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf72c-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>9</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf72c-0x20000</key>
-		<dict>
-			<key>Action</key>
-			<integer>9</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf72d-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>8</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-		<key>0xf72d-0x20000</key>
-		<dict>
-			<key>Action</key>
-			<integer>8</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
-	</dict>
+	<key>AIFeatureHostedCodeInterpeter</key>
+	<true/>
+	<key>AIFeatureHostedFileSearch</key>
+	<true/>
+	<key>AIFeatureHostedWebSearch</key>
+	<true/>
+	<key>AIFeatureStreamingResponses</key>
+	<true/>
+	<key>AITermAPI</key>
+	<integer>2</integer>
+	<key>AIVectorStore</key>
+	<integer>0</integer>
+	<key>AiMaxTokens</key>
+	<integer>1050000</integer>
+	<key>AiModel</key>
+	<string>gpt-5.5</string>
+	<key>AiResponseMaxTokens</key>
+	<integer>128000</integer>
+	<key>AitermURL</key>
+	<string>https://api.openai.com/v1/responses</string>
+	<key>AllowClipboardAccess</key>
+	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
+	<key>Default Bookmark Guid</key>
+	<string>39CEEFD5-85D0-46ED-8FCC-415E1D418ADB</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
-	<key>HideFromDockAndAppSwitcher</key>
-	<false/>
 	<key>HideMenuBarInFullscreen</key>
-	<false/>
+	<true/>
 	<key>Hotkey</key>
 	<true/>
 	<key>HotkeyChar</key>
-	<integer>27</integer>
+	<integer>96</integer>
 	<key>HotkeyCode</key>
-	<integer>53</integer>
+	<integer>50</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>524576</integer>
-	<key>HotkeyTermAnimationDuration</key>
-	<real>0.20000000298023224</real>
 	<key>IRMemory</key>
 	<integer>4</integer>
-	<key>NeverWarnAboutShortLivedSessions_EAE52A81-A7B7-4E76-B280-585F14644B82</key>
-	<true/>
-	<key>NeverWarnAboutShortLivedSessions_EAE52A81-A7B7-4E76-B280-585F14644B82_selection</key>
-	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>ASCII Ligatures</key>
+			<false/>
+			<key>Allow modifyOtherKeys</key>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -295,27 +214,10 @@
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
-			<key>Badge Color</key>
-			<dict>
-				<key>Alpha Component</key>
-				<real>0.5</real>
-				<key>Blue Component</key>
-				<real>0.0</real>
-				<key>Color Space</key>
-				<string>sRGB</string>
-				<key>Green Component</key>
-				<real>0.14910027384757996</real>
-				<key>Red Component</key>
-				<real>1</real>
-			</dict>
-			<key>Blend</key>
-			<real>0.40089872056159415</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<true/>
-			<key>Blur Radius</key>
-			<real>2.1000000000000001</real>
+			<false/>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -325,8 +227,6 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
-			<key>Brighten Bold Text</key>
-			<true/>
 			<key>Character Encoding</key>
 			<integer>4</integer>
 			<key>Close Sessions On End</key>
@@ -334,7 +234,7 @@
 			<key>Columns</key>
 			<integer>80</integer>
 			<key>Command</key>
-			<string>/opt/local/bin/fish</string>
+			<string>/bin/zsh</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -343,19 +243,6 @@
 				<real>0.73333334922790527</real>
 				<key>Red Component</key>
 				<real>0.73333334922790527</real>
-			</dict>
-			<key>Cursor Guide Color</key>
-			<dict>
-				<key>Alpha Component</key>
-				<real>0.25</real>
-				<key>Blue Component</key>
-				<real>1</real>
-				<key>Color Space</key>
-				<string>sRGB</string>
-				<key>Green Component</key>
-				<real>0.92681378126144409</real>
-				<key>Red Component</key>
-				<real>0.70214027166366577</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -388,41 +275,11 @@
 				<real>0.73333334922790527</real>
 			</dict>
 			<key>Guid</key>
-			<string>EAE52A81-A7B7-4E76-B280-585F14644B82</string>
-			<key>Has Hotkey</key>
-			<true/>
+			<string>39CEEFD5-85D0-46ED-8FCC-415E1D418ADB</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
-			<key>HotKey Activated By Modifier</key>
-			<true/>
-			<key>HotKey Alternate Shortcuts</key>
-			<array/>
-			<key>HotKey Characters</key>
-			<string></string>
-			<key>HotKey Characters Ignoring Modifiers</key>
-			<string>`</string>
-			<key>HotKey Key Code</key>
-			<integer>50</integer>
-			<key>HotKey Modifier Activation</key>
-			<integer>0</integer>
-			<key>HotKey Modifier Flags</key>
-			<integer>524288</integer>
-			<key>HotKey Window Animates</key>
-			<true/>
-			<key>HotKey Window AutoHides</key>
-			<true/>
-			<key>HotKey Window Dock Click Action</key>
-			<integer>0</integer>
-			<key>HotKey Window Floats</key>
-			<false/>
-			<key>HotKey Window Reopens On Activation</key>
-			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
-			<key>Initial Text</key>
-			<string></string>
-			<key>Initial Use Transparency</key>
-			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -487,17 +344,6 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
-				</dict>
-				<key>0x74-0x100000-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>27</integer>
-					<key>Label</key>
-					<string></string>
-					<key>Text</key>
-					<string>EAE52A81-A7B7-4E76-B280-585F14644B82</string>
-					<key>Version</key>
-					<integer>1</integer>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -724,41 +570,22 @@
 					<string>[1;5F</string>
 				</dict>
 			</dict>
-			<key>Link Color</key>
-			<dict>
-				<key>Alpha Component</key>
-				<real>1</real>
-				<key>Blue Component</key>
-				<real>0.73422712087631226</real>
-				<key>Color Space</key>
-				<string>sRGB</string>
-				<key>Green Component</key>
-				<real>0.35915297269821167</real>
-				<key>Red Component</key>
-				<real>0.0</real>
-			</dict>
-			<key>Load Shell Integration Automatically</key>
-			<true/>
 			<key>Minimum Contrast</key>
-			<real>0.42298177083333333</real>
+			<real>0.42825356012658228</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>SymbolsNFM 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
 			<string>Monaco 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<true/>
-			<key>Open Password Manager Automatically</key>
-			<true/>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
-			<key>Prevent Opening in a Tab</key>
-			<false/>
 			<key>Prompt Before Closing 2</key>
 			<false/>
 			<key>Right Option Key Sends</key>
@@ -766,7 +593,7 @@
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
-			<integer>-1</integer>
+			<integer>-2</integer>
 			<key>Scrollback Lines</key>
 			<integer>1000</integer>
 			<key>Selected Text Color</key>
@@ -802,7 +629,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.082959330673758866</real>
+			<real>0.0</real>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -812,23 +639,19 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
+			<true/>
+			<key>Use libtickit protocol</key>
 			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Working Directory</key>
 			<string>/Users/thombaynes</string>
 		</dict>
 	</array>
-	<key>OpenArrangementAtStartup</key>
-	<false/>
-	<key>OpenBookmark</key>
-	<false/>
-	<key>OpenNoWindowsAtStartup</key>
-	<true/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -839,7 +662,7 @@
 		<key>Button,2,1,,</key>
 		<dict>
 			<key>Action</key>
-			<string>kPasteFromClipboardPointerAction</string>
+			<string>kPasteFromSelectionPointerAction</string>
 		</dict>
 		<key>Gesture,ThreeFingerSwipeDown,,</key>
 		<dict>
@@ -862,25 +685,23 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>Print In Black And White</key>
-	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
-	<key>SplitPaneDimmingAmount</key>
-	<real>0.40343465564320385</real>
-	<key>TabFlashAnimationDuration</key>
-	<real>0.25</real>
+	<key>TabStyle</key>
+	<integer>3</integer>
 	<key>UseLionStyleFullscreen</key>
-	<true/>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
+	<key>WordCharacters</key>
+	<string>/-+\~_.</string>
+	<key>findIgnoreCase_iTerm</key>
+	<true/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
-	<key>kCPKSelectionViewPreferredModeKey</key>
-	<integer>0</integer>
-	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<key>findRegex_iTerm</key>
 	<false/>
 </dict>
 </plist>

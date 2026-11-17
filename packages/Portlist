@@ -27,6 +27,7 @@ redis
 ssh-copy-id
 terraform-1.17
 tmux
+ttf-nerd-fonts-symbols
 tree-sitter-cli
 wget
 
