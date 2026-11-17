@@ -12,6 +12,7 @@ shortcuts/
 ├── fish.md        Generated cheat sheet for fish (abbreviations pulled from fish/functions/setup.fish).
 ├── neovim.md      Generated cheat sheet for Neovim.
 ├── tmux.md        Generated cheat sheet for tmux.
+├── workflows.md   Hand-written how-tos that combine shortcuts (not generated, no src/ file).
 └── src/           Hand-written sources (`key | action` lines). Edit these, not the generated .md files.
     ├── claude.txt
     ├── fish.txt

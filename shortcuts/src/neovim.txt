@@ -49,6 +49,7 @@ gO | Document symbols
 <leader>hs | Stage hunk
 <leader>hr | Reset hunk
 <leader>hd | Diff against index
+<leader>hD | Toggle deleted lines inline (all hunks)
 <leader>hb | Toggle line blame
 <leader>hB | Full blame for line
 

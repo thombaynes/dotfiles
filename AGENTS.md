@@ -28,7 +28,7 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 | `nvim/` | ✅ | Neovim config, with the whole folder symlinked to `~/.config/nvim`. lazy.nvim with `config/` files (options keymaps and autcmds) and `plugins/` specs. See `nvim/CONTEXT.md` for file map. Its `setup.sh` does the symlink. |
 | `packages/` | ❌ | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent. `setup.sh` uses whichever of brew or MacPorts is installed. |
 | `scripts/` | ❌ | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
-| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
+| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Also `workflows.md`, a hand-written file of how-tos that combine them. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
 | `tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  `setup.sh` also clones tpm to `~/.tmux/plugins/tpm`. Plugins are declared in the conf and installed with `prefix + I`. |
 | `TODO/` | ❌ | `TODO.txt`, loose ideas for this repo. |
 | `vscode/` | ❌ | VS Code `settings.json`, symlinked into the app's User folder. |
