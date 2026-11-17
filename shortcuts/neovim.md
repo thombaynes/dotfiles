@@ -51,6 +51,7 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | `<leader>hu` | Preview hunk inline | `<leader>hs` | Stage hunk          |
 | `<leader>hr` | Reset hunk          | `<leader>hd` | Diff against index  |
 | `<leader>hb` | Toggle line blame   | `<leader>hB` | Full blame for line |
+| `<leader>hD` | Show deleted lines inline (all hunks) |  |  |
 
 ## Completion (blink.cmp) and formatting
 
