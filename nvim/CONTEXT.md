@@ -6,7 +6,7 @@ My Neovim configuration (symlinked to `~/.config/nvim`): a lazy.nvim setup.
 nvim/
 ├── CONTEXT.md           This file.
 ├── setup.sh             Symlinks this folder to `~/.config/nvim`.
-├── init.vim             Entry point. Loads config/options, keymaps and autocmds, then lazy.nvim.
+├── init.lua             Entry point. Loads config/options, keymaps and autocmds, then lazy.nvim.
 ├── lazy-lock.json       lazy.nvim's pinned plugin versions. Written by `:Lazy`; commit it, don't edit it.
 └── lua/
     ├── config/          Editor behaviour that isn't plugin-specific.

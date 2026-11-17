@@ -5,9 +5,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "saghen/blink.cmp",
-      { "williamboman/mason.nvim", opts = {} },
+      { "mason-org/mason.nvim", opts = {} },
       {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         opts = {
           ensure_installed = { "ts_ls", "ruby_lsp", "eslint" },
           automatic_enable = false,

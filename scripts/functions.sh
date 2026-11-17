@@ -2,10 +2,19 @@
 
 symlink() {
     OVERWRITTEN=""
-    if [ -e "$2" ] || [ -h "$2" ]; then
-        OVERWRITTEN="(Overwritten)"
-        if ! rm -r "$2"; then
-            substep_error "Failed to remove existing file(s) at $2."
+    if [ -h "$2" ]; then
+        # An old link: nothing to lose, just replace it
+        OVERWRITTEN="(Replaced old link)"
+        if ! rm "$2"; then
+            substep_error "Failed to remove existing link at $2."
+        fi
+    elif [ -e "$2" ]; then
+        # A real file or directory: move it aside rather than deleting it
+        BACKUP="$2.bak"
+        [ -e "$BACKUP" ] && BACKUP="$2.bak.$(date +%Y%m%d%H%M%S)"
+        OVERWRITTEN="(Existing moved to $BACKUP)"
+        if ! mv "$2" "$BACKUP"; then
+            substep_error "Failed to move existing file(s) at $2 to $BACKUP."
         fi
     fi
     if ln -s "$1" "$2"; then

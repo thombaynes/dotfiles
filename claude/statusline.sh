@@ -21,12 +21,14 @@ COLOR_RED=31
 
 input=$(cat)
 
-model=$(echo "$input" | jq -r '.model.display_name // "Claude"')
-dir=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
-pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-size=$(echo "$input" | jq -r ".context_window.context_window_size // $DEFAULT_WINDOW_SIZE")
+IFS=$'\t' read -r model pct size dir < <(echo "$input" | jq -r --argjson size "$DEFAULT_WINDOW_SIZE" '[
+    .model.display_name // "Claude",
+    .context_window.used_percentage // "-",
+    .context_window.context_window_size // $size,
+    .workspace.current_dir // .cwd // ""
+] | @tsv')
 
-if [ -z "$pct" ]; then
+if [ "$pct" = "-" ]; then
     printf '%s · %s · ctx --' "$model" "${dir##*/}"
     exit 0
 fi

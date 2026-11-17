@@ -40,9 +40,12 @@ autocmd("BufReadPost", {
 
 autocmd("BufWritePre", {
   group = group,
-  pattern = "*.*",
-  desc = "Strip trailing whitespace on save",
+  pattern = "*",
+  desc = "Strip trailing whitespace on save (not in Markdown, where two trailing spaces are a line break)",
   callback = function()
+    if vim.bo.filetype == "markdown" then
+      return
+    end
     local view = vim.fn.winsaveview()
     vim.cmd([[keeppatterns %s/\s\+$//e]])
     vim.fn.winrestview(view)
