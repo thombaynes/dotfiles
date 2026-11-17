@@ -30,7 +30,4 @@ find * -name "setup.sh" -not -wholename "packages*" | while read setup; do
     ./$setup
 done
 
-info "Overwriting default hosts file..."
-sudo cp ./hosts /etc/hosts
-
 success "Finished installing Dotfiles"

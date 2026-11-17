@@ -1,5 +1,5 @@
 ## Git Setup
-`.gitconfig`, `.gitignore_global`, `.githelpers` and the commit template all live here, and are symlinked into `~`.
+`.gitconfig`, `.gitignore_global`, and `.githelpers` all live here, and are symlinked into `~`.
 
 Machine-specific identity (name, email, signing key) lives in `.personal-gitconfig` and `.usertesting-gitconfig`.
 
