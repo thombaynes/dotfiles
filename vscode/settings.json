@@ -10,15 +10,6 @@
 
     "files.trimTrailingWhitespace": true,
 
-    "python.linting.pylintEnabled": true,
-    "python.linting.pep8Enabled": false,
-
-    "eslint.validate": [
-      { "language": "javascript", "autoFix": true },
-      { "language": "javascriptreact", "autoFix": true },
-      { "language": "typescript", "autoFix": true },
-      { "language": "typescriptreact", "autoFix": true }
-    ],
     "javascript.preferences.quoteStyle": "single",
 
     "[typescript]": {
