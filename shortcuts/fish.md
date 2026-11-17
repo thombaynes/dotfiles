@@ -54,8 +54,8 @@ Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`
 | `gm`    | `git merge FETCH_HEAD --ff-only`                      | `gpl`   | `git pull`                             |
 | `gps`   | `git push`                                            | `gpsf`  | `git push --force-with-lease`          |
 | `grb`   | `git rebase`                                          | `grba`  | `git rebase --abort`                   |
-| `grbc`  | `git rebase --continue`                               | `grbi`  | `git rebase -i master`                 |
-| `grbm`  | `git rebase master`                                   | `grbom` | `git rebase origin/master`             |
+| `grbc`  | `git rebase --continue`                               | `grbi`  | `git rebase -i origin/HEAD`            |
+| `grbm`  | `git rebase <default branch>`                         | `grbom` | `git rebase origin/HEAD`               |
 | `grsh`  | `git reset --hard origin/(git branch --show-current)` | `grss`  | `git reset --soft HEAD^`               |
 | `gs`    | `git status`                                          | `gsh`   | `git stash`                            |
 | `gshp`  | `git stash pop`                                       | `gsw`   | `git switch`                           |

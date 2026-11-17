@@ -27,8 +27,6 @@ brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
 brew "gotask"
-brew "gnupg"                # PGP is pretty good to have around
-brew "pinentry-mac"         # Native passphrase prompt for gpg, with a Keychain option (see gnupg/setup.sh)
 brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "kubectx"              # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)

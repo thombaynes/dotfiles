@@ -34,9 +34,9 @@ function setup
     abbr grb git rebase
     abbr grba git rebase --abort
     abbr grbc git rebase --continue
-    abbr grbi git rebase -i master
-    abbr grbm git rebase master
-    abbr grbom git rebase origin/master
+    abbr grbi git rebase -i origin/HEAD
+    abbr grbm --function __abbr_grbm
+    abbr grbom git rebase origin/HEAD
     abbr grsh git reset --hard origin/\(git branch --show-current\)
     abbr grss git reset --soft HEAD^
     abbr gs git status

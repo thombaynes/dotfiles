@@ -21,9 +21,8 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 | `fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |
 | `ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
 | `git/` | ✅ | Git config and defaults, symlinked into `~`. |
-| `gnupg/` | ❌ | `gpg-agent.conf` (long passphrase cache). `setup.sh` copies it to `~/.gnupg` and appends `pinentry-program` pointing at `pinentry-mac` wherever brew or MacPorts put it, then restarts the agent. |
 | `hammerspoon/` | ❌ | Hammerspoon Lua config. Has its own README. Used for making a global hyper key. |
-| `iterm2/` | ❌ | The terminal for older Macs. iTerm2 preferences plist and the terminfo files for italics (`tic`). |
+| `iterm2/` | ❌ | The terminal for older Macs. iTerm2 preferences plist (iTerm2 reads it from this folder) and a font copy step for the Nerd Font symbols. |
 | `key-mappings/` | ❌ | `hidutil` LaunchAgent plist for key remapping (left Ctrl as F18 for Hammerspoon, Escape as backtick). Caps Lock as Ctrl is not here: set it by hand in System Settings > Keyboard > Keyboard Shortcuts > Modifier Keys. `setup.sh` symlinks it into `~/Library/LaunchAgents`. |
 | `macos/` | ❌ | `setup.sh` only: a long list of `defaults write` macOS preferences. |
 | `nvim/` | ✅ | Neovim config, with the whole folder symlinked to `~/.config/nvim`. lazy.nvim with `config/` files (options keymaps and autcmds) and `plugins/` specs. See `nvim/CONTEXT.md` for file map. Its `setup.sh` does the symlink. |

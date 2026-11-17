@@ -23,14 +23,12 @@ fish/
 ├── functions/                   One function per file, symlinked into `~/.config/fish/functions/`.
 │   ├── abbrex.fish                Expands an abbreviation (`abbrex gs` prints `git status`).
 │   ├── emptytrash.fish            Empties the Trash, Apple system logs and the download quarantine history.
-│   ├── fisher.fish                Fisher, the fish plugin manager (vendored, v3.2.8).
 │   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
 │   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
 │   ├── pubkey.fish                Copies `~/.ssh/id_rsa.pub` to the clipboard.
 │   ├── setup.fish                 Defines every abbreviation. Run `setup` to reload them.
 │   └── week.fish                  Prints the current week number.
-├── config.fish                  Brew and MacPorts on the `PATH`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, nodenv/rbenv init, GPG_TTY.
-├── fishfile                     Fisher plugin list.
+├── config.fish                  Brew and MacPorts on the `PATH`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, nodenv/rbenv init.
 ├── CONTEXT.md                   This file.
-└── setup.sh                     Symlinks every `.fish` file and `fishfile` into `~/.config/fish/`, sets fish as the login shell, then runs `setup`.
+└── setup.sh                     Symlinks every `.fish` file into `~/.config/fish/`, sets fish as the login shell, then runs `setup`.
 ```

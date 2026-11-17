@@ -35,7 +35,8 @@ goodmorning_check_bundler() {
 goodmorning() {
   set -e
   clear
-  BASE_BRANCH=${1:-"master"}
+  BASE_BRANCH=${1:-$(git symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null | sed "s|^origin/||")}
+  BASE_BRANCH=${BASE_BRANCH:-master}
   CUR_BRANCH=$(git rev-parse --abbrev-ref HEAD)
   if [[ "$CUR_BRANCH" == "$BASE_BRANCH" ]]; then
     goodmorning_echo_green "Updating $BASE_BRANCH..."

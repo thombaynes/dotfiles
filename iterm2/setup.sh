@@ -10,12 +10,6 @@ DIR_ABS="$(pwd -P)"
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DIR_ABS"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 
-# Run these commands to add bold and italics to the terminfo database, allowing italics
-# Test by running:
-# echo `tput sitm`italics`tput ritm`
-tic -x tmux-256color.terminfo.txt
-tic -x xterm-256color-italic.terminfo.txt
-
 # MacPorts installs fonts to /opt/local/share/fonts, which macOS does not scan, and it ignores symlinked
 # fonts, so copy the Nerd Font symbols (icons for neo-tree etc.) into ~/Library/Fonts. Then pick "Symbols Nerd Font Mono"
 # as the non-ASCII font in iTerm2 > Settings > Profiles > Text.

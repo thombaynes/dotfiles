@@ -16,7 +16,7 @@
   unstage = reset HEAD --
   uncommit = reset --soft HEAD~
   hist = log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short
-  prm = "!sh -c 'git log master..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
+  prm = "!sh -c 'git log origin/HEAD..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -25,6 +25,12 @@
 	trustExitCode = true
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+[user]
+	signingkey = ~/.ssh/id_ed25519.pub
 [pull]
   rebase = false
 [tag]
