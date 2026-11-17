@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#!/usr/bin/env bash
 # Claude Code status line: model, directory and context window usage.
 # Claude Code pipes session JSON on stdin; whatever we print becomes the status line.
 

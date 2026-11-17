@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#!/usr/bin/env bash
 #
 # Render shortcuts/src/*.txt into two-column markdown files next to this script.
 #   ./generate.sh          regenerate every *.md
