@@ -3,3 +3,5 @@ theme = Arthur
 cursor-style-blink = true
 # Make the cursor 20% taller
 adjust-cursor-height = 20%
+# Ghostty draws box-drawing characters itself, so tmux's "heavy" pane borders look thin. Thicken them by 100% (tune to taste).
+adjust-box-thickness = 100%
