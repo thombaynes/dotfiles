@@ -15,7 +15,7 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 
 | Path | CONTEXT.md | Contents |
 | --- | --- | --- |
-| `bin/` | ❌ | Small custom scripts, symlinked into `~/bin/`. |
+| `bin/` | ❌ | Small custom scripts, symlinked into `~/.local/bin/` (on the fish `PATH`). |
 | `claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
 | `duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
 | `fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |

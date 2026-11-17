@@ -1,5 +1,8 @@
 #! /usr/bin/env sh
 
+DIR=$(dirname "$0")
+cd "$DIR"
+
 . ../scripts/functions.sh
 
 info "Setting up symlinks to useful bin files for current user"
