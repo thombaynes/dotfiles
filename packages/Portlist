@@ -27,6 +27,7 @@ redis
 ssh-copy-id
 terraform-1.17
 tmux
+tree-sitter-cli
 wget
 
 # Versioned or differently named in MacPorts, pick the right one with `port search`
@@ -34,7 +35,6 @@ wget
 # kubectl (kubectl-1.xx)
 # kubectx (kubectx and kubens; check `port search kubectx`, otherwise install from https://github.com/ahmetb/kubectx)
 # postgresql (postgresql16 etc.)
-# tree-sitter-cli (tree-sitter)
 
 # No port, install another way
 # nodenv, node-build (git clone https://github.com/nodenv/nodenv and nodenv/node-build, or use the ports nvm / fnm / asdf instead)
