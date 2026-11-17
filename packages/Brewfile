@@ -4,8 +4,8 @@
 # mas
 
 # Shared
-tap "homebrew/bundle"       # Allows this file (minus comments) to be generate if you type `brew bundle dump`
 tap "hashicorp/tap"         # Core homebrew terraform is stuck on 1.5.7 (last MPL release); HashiCorp's tap has current versions
+tap "go-task/tap"           # The go-task cask lives here, not in homebrew/cask
 
 # User testing
 brew "libsodium"            # For orders repo
@@ -26,11 +26,10 @@ brew "fd"                   # Without this fzf-lua has a checkHealth complaint i
 brew "fish"                 # Nice shell
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
-brew "gotask"
 brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "kubectx"              # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)
-brew "ripgrep"            # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
+brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "hashicorp/tap/terraform" # Infrastructure as code. One version, no version manager
 brew "tree-sitter-cli"      # Compiles treesitter parsers for nvim (neotest needs the Ruby one)
@@ -48,7 +47,7 @@ cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
 cask "ghostty"                      # Terminal of choice. Config lives in ./ghostty
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
-cask "go-task"                      # Great for dev work
+cask "go-task/tap/go-task"          # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
 cask "iterm2"                       # Previous terminal, still supported alongside ghostty
 cask "pgadmin4"                     # Great browser based Postgres client app

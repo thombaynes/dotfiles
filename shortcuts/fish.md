@@ -50,7 +50,7 @@ Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`
 | `gcan`  | `git commit --amend --no-edit`                        | `gco`   | `git checkout`                         |
 | `gcob`  | `git checkout -b`                                     | `gd`    | `git diff`                             |
 | `gf`    | `git fetch`                                           | `gfo`   | `git fetch origin`                     |
-| `gh`    | `git hist`                                            | `gl`    | `git log`                              |
+| `ghi`   | `git hist`                                            | `gl`    | `git log`                              |
 | `gm`    | `git merge FETCH_HEAD --ff-only`                      | `gpl`   | `git pull`                             |
 | `gps`   | `git push`                                            | `gpsf`  | `git push --force-with-lease`          |
 | `grb`   | `git rebase`                                          | `grba`  | `git rebase --abort`                   |

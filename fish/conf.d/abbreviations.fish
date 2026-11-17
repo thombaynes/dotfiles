@@ -20,7 +20,7 @@ abbr gcob git checkout -b
 abbr gd git diff
 abbr gf git fetch
 abbr gfo git fetch origin
-abbr gh git hist
+abbr ghi git hist
 abbr gl git log
 abbr gm git merge FETCH_HEAD --ff-only
 abbr gpl git pull
