@@ -4,7 +4,6 @@
 # mas
 
 # Shared
-tap "hashicorp/tap"         # Core homebrew terraform is stuck on 1.5.7 (last MPL release); HashiCorp's tap has current versions
 tap "go-task/tap"           # The go-task cask lives here, not in homebrew/cask
 
 # User testing
@@ -13,7 +12,6 @@ brew "rbenv"                # How ruby versions are managed at the time of onboa
 brew "ruby-build"           # Helps with rbenv somehow
 brew "nodenv"               # How node versions are managed at the time of onboarding
 brew "node-build"           # Helps with nodenv somehow
-cask "graphiql"             # This is very nice for testing graphql
 cask "ngrok"                # Local dev can be shared
 
 # General
@@ -43,14 +41,12 @@ brew "wget"                 # Utility for retrieving files
 
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
-cask "docker"                       # Great first party Docker GUI app
 cask "firefox"                      # Gotta have the fox
 cask "ghostty"                      # Terminal of choice. Config lives in ./ghostty
 # cask "google-chrome"                # Gotta have Chrome (Managed by UT)
 cask "go-task/tap/go-task"          # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
 cask "iterm2"                       # Previous terminal, still supported alongside ghostty
-cask "pgadmin4"                     # Great browser based Postgres client app
 # cask "slack"                        # Messaging app (managed by UT)
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music
