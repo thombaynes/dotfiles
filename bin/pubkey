@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Copy ~/.ssh/id_ed25519.pub to the clipboard.
+
+pbcopy < ~/.ssh/id_ed25519.pub && echo '=> Public key copied to pasteboard.'

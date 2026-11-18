@@ -15,20 +15,14 @@ mkdir -p "$DESTINATION"
 symlink "$SOURCE/statusline.sh" "$DESTINATION/statusline.sh"
 
 # settings.json is changed by Claude Code with every model change, so we merge to it rather than symlinking over it.
-# Claude's Bash tool only supports bash or zsh (not fish), so point it at the modern bash that brew or MacPorts
-BASH_PATH="$(PATH="$PATH:/opt/local/bin" type -ap bash | grep -vx /bin/bash | head -1)"
-SHELL_FILTER="."
-if [ -n "$BASH_PATH" ]; then
-    SHELL_FILTER='.env.CLAUDE_CODE_SHELL = $shell'
-else
-    substep_error "No bash other than /bin/bash found, so CLAUDE_CODE_SHELL is left as is. Run packages/setup.sh first."
-fi
+# Claude's Bash tool and the ! prompt shell use zsh, the login shell (see zsh/), so they get the same PATH and setup
+ZSH_PATH=/bin/zsh
 [ -f "$SETTINGS" ] || echo '{}' > "$SETTINGS"
-if jq --arg shell "$BASH_PATH" \
-    ".statusLine = {type: \"command\", command: \"~/.claude/statusline.sh\"} | $SHELL_FILTER" \
+if jq --arg shell "$ZSH_PATH" \
+    '.statusLine = {type: "command", command: "~/.claude/statusline.sh"} | .env.CLAUDE_CODE_SHELL = $shell' \
     "$SETTINGS" > "$SETTINGS.tmp"; then
     mv "$SETTINGS.tmp" "$SETTINGS"
-    substep_success "Updated $SETTINGS (CLAUDE_CODE_SHELL: ${BASH_PATH:-unchanged})."
+    substep_success "Updated $SETTINGS (CLAUDE_CODE_SHELL: $ZSH_PATH)."
 else
     rm -f "$SETTINGS.tmp"
     substep_error "Failed to update $SETTINGS."

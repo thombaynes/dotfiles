@@ -15,10 +15,10 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 
 | Path | CONTEXT.md | Contents |
 | --- | --- | --- |
-| `bin/` | ❌ | Small custom scripts, symlinked into `~/.local/bin/` (on the fish `PATH`). |
+| `bin/` | ❌ | Small custom scripts, symlinked into `~/.local/bin/` (on the zsh and fish `PATH`). Shell-independent commands go here as bash scripts, not as shell functions. |
 | `claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
 | `duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
-| `fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. `config.fish` puts brew and MacPorts on the `PATH` if present. |
+| `fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. No longer the login shell, but `conf.d/abbreviations.fish` is the abbreviation list for both shells. `config.fish` puts brew and MacPorts on the `PATH` if present. |
 | `ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
 | `git/` | ✅ | Git config and defaults, symlinked into `~`. |
 | `hammerspoon/` | ❌ | Hammerspoon Lua config. Has its own README. Used for making a global hyper key. |
@@ -28,8 +28,9 @@ The repo runs on two kinds of machine, so avoid hard-coding usernames or install
 | `nvim/` | ✅ | Neovim config, with the whole folder symlinked to `~/.config/nvim`. lazy.nvim with `config/` files (options keymaps and autcmds) and `plugins/` specs. See `nvim/CONTEXT.md` for file map. Its `setup.sh` does the symlink. |
 | `packages/` | ❌ | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent. `setup.sh` uses whichever of brew or MacPorts is installed. |
 | `scripts/` | ❌ | `functions.sh`, the shared helpers sourced by every `setup.sh`. |
-| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Also `workflows.md`, a hand-written file of how-tos that combine them. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
+| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `zsh.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Also `workflows.md`, a hand-written file of how-tos that combine them. No `setup.sh`: it is run by hand and is not part of `bootstrap.sh`. |
 | `tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  `setup.sh` also clones tpm to `~/.tmux/plugins/tpm`. Plugins are declared in the conf and installed with `prefix + I`. |
+| `zsh/` | ✅ | The login shell. `.zprofile` and `.zshrc`, symlinked into `~`, set up to feel like fish: abbreviations (read from fish's list), autosuggestions, syntax highlighting, substring history search. `setup.sh` also sets zsh as the login shell. |
 | `TODO/` | ❌ | `TODO.txt`, loose ideas for this repo. |
 | `vscode/` | ❌ | VS Code `settings.json`, symlinked into the app's User folder. |
 
@@ -39,7 +40,7 @@ Root files: `bootstrap.sh` (entry point), `LICENSE`, `README.md` (usage and cust
 
 ## fzf, fzf-lua, ripgrep and nvim
 
-`FZF_DEFAULT_COMMAND` in `fish/config.fish` (an `rg --files` command) is the single source of truth for file listing. The `fzf` binary runs it in the shell and nvim's fzf-lua reads it from the environment (`nvim/lua/plugins/fzf.lua`), so change it in fish only. See `nvim/CONTEXT.md` for the fzf-lua details.
+`FZF_DEFAULT_COMMAND` in `zsh/.zprofile` (an `rg --files` command) is the single source of truth for file listing. The `fzf` binary runs it in the shell and nvim's fzf-lua reads it from the environment (`nvim/lua/plugins/fzf.lua`), so change it there. `fish/config.fish` exports the same value for fish sessions; keep the two in sync. See `nvim/CONTEXT.md` for the fzf-lua details.
 
 ## When making changes
 

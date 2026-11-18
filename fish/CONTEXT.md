@@ -1,17 +1,14 @@
 # Fish config
 
-Fish shell configuration, symlinked into `~/.config/fish/`.
+Fish shell configuration, symlinked into `~/.config/fish/`. zsh is now the login shell (see `zsh/CONTEXT.md`); this config is kept working, and `conf.d/abbreviations.fish` is the abbreviation list that zsh reads too.
 
-## Adding a function
+## Adding a command
 
-1. Create `functions/<name>.fish` containing a single `function <name>` of the same name (fish autoloads it by filename). Start with a comment saying what it does.
-2. **Link it.** `setup.sh` symlinks each `.fish` file individually, so a new file is not live until you re-run `fish/setup.sh`, or link it by hand: `ln -s ~/tdot/fish/functions/<name>.fish ~/.config/fish/functions/<name>.fish`. Open a new shell (or `exec fish`) afterwards.
-3. Add it to the Functions section of `shortcuts/src/fish.txt`, then run `shortcuts/generate.sh`. Never edit `shortcuts/fish.md` directly.
-4. Add the file to the folder structure below.
+Commands that should work in any shell go in `bin/` as bash scripts, not as fish functions (see `zsh/CONTEXT.md`). Only fish-specific helpers, such as an abbreviation's `--function`, belong in `functions/`: one `function <name>` per `functions/<name>.fish` (fish autoloads it by filename), linked by re-running `fish/setup.sh`.
 
-Abbreviations are different: add an `abbr` line to `conf.d/abbreviations.fish`. They show up in the cheat sheet automatically.
+Abbreviations: add an `abbr` line to `conf.d/abbreviations.fish`. zsh picks it up in new shells and it shows up in the cheat sheet automatically. An abbreviation with `--function` also needs a zsh function of the same name in `zsh/abbreviations.zsh`.
 
-Environment variables, `PATH` and aliases go in `config.fish`, not in a function.
+Environment variables, `PATH` and aliases go in `config.fish`, not in a function. Mirror them in `zsh/.zprofile` (environment, `PATH`) or `zsh/.zshrc` (aliases).
 
 ## Folder structure
 
@@ -20,14 +17,8 @@ fish/
 ├── conf.d/                      Run on every shell start, symlinked into `~/.config/fish/conf.d/`.
 │   └── abbreviations.fish         Defines every abbreviation.
 ├── functions/                   One function per file, symlinked into `~/.config/fish/functions/`.
-│   ├── __abbr_grbm.fish           Expands abbr `grbm` to a rebase onto the repo's default branch (from `origin/HEAD`).
-│   ├── emptytrash.fish            Empties the Trash and the download quarantine history.
-│   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
-│   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
-│   ├── pubkey.fish                Copies `~/.ssh/id_ed25519.pub` to the clipboard.
-│   ├── week.fish                  Prints the current week number.
-│   └── worktree-cleanup.fish      Lists (or with `-r` removes, `-rf` forces, `-t` adds worktrees idle for 2+ weeks) linked worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/` (abbr `wtc`).
+│   └── __abbr_grbm.fish           Expands abbr `grbm` to a rebase onto the repo's default branch (from `origin/HEAD`). zsh has its own copy.
 ├── config.fish                  Brew and MacPorts on the `PATH`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, nodenv/rbenv init.
 ├── CONTEXT.md                   This file.
-└── setup.sh                     Symlinks every `.fish` file into `~/.config/fish/`, sets fish as the login shell.
+└── setup.sh                     Symlinks every `.fish` file into `~/.config/fish/`.
 ```

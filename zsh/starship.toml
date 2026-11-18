@@ -1,0 +1,6 @@
+# Starship prompt (.zshrc runs `starship init zsh`), symlinked into ~/.config by setup.sh. Anything not set here uses starship's defaults.
+
+# Show the full path (home as ~), rather than only the last 3 folders or the path inside the git repo
+[directory]
+truncation_length = 0
+truncate_to_repo = false

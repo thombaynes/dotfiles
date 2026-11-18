@@ -1,0 +1,43 @@
+# zsh
+> Emacs-style bindings, set up to feel like fish (see `zsh/CONTEXT.md`). Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/conf.d/abbreviations.fish`.
+
+## Cursor & Editing
+Ctrl-A / Ctrl-E | Start / end of line
+Alt-Left / Alt-Right | Back / forward one word
+Ctrl-W | Delete word backward
+Alt-D | Delete word forward
+Ctrl-U | Delete the whole line
+Ctrl-K | Delete to end of line
+Ctrl-Y | Paste deleted text
+Ctrl-_ | Undo
+Ctrl-C | Cancel line
+Ctrl-D | Exit (empty line) / delete char
+Ctrl-L | Clear the screen
+Ctrl-Z | Suspend foreground job (resume with `fg`, list with `jobs`)
+
+## History & Completion
+Up / Down | Search history for what's typed, anywhere in the line
+Ctrl-R | Search history
+Right / Ctrl-F / End | Accept autosuggestion
+Alt-Right / Alt-F | Accept one word of suggestion
+Alt-. | Insert last argument of the previous command (repeat for older)
+Tab | Complete / open completion menu
+Shift-Tab | Previous entry in the completion menu
+
+## Shortcuts
+Space / Enter | Expand an abbreviation
+Ctrl-Space | Plain space, without expanding
+Alt-E | Edit command line in `$EDITOR`
+Alt-S | Prepend `sudo`
+Alt-H | Man page for current command
+
+## Scripts
+kyverno-policy-reporter | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`)
+week | Print the current week number
+local-branches | List local git branches (abbr `lb`)
+worktree-cleanup | List git worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`)
+pubkey | Copy `~/.ssh/id_ed25519.pub` to the clipboard
+emptytrash | Empty the Trash and the download quarantine history
+
+## Abbreviations
+@abbreviations fish/conf.d/abbreviations.fish

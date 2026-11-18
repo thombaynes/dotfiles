@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+#
+# Lists (or with -r removes, -rf forces, -t adds worktrees idle for 2+ weeks) linked worktrees merged into the default branch across ~/foundry, repos/ and legacy-repos/.
+# - Scans ~/foundry plus every git repo in ~/foundry/repos and ~/foundry/legacy-repos for linked worktrees whose branch is already merged into the default branch (origin/HEAD).
+# - Prunes stale worktree metadata in each repo, then lists the merged worktrees. Dry run unless -r/--remove is passed.
+# - With -r/--remove it runs `git worktree remove` (which refuses worktrees with untracked or modified files) and then `git branch -d`.
+# - Add -f/--force (i.e. -rf) to remove those worktrees anyway, discarding their untracked and uncommitted changes.
+# - Add -t/--time to also select worktrees whose branch's last commit is older than 2 weeks, merged or not. Unmerged branches are kept (`git branch -d` refuses them), so only the checkout is removed.
+# - Squash-merged branches are not ancestors of the default branch, so only -t will pick them up (once they are old enough).
+
+usage() {
+    echo "usage: worktree-cleanup [-r|--remove] [-f|--force] [-t|--time]" >&2
+    exit 1
+}
+
+remove= force= time=
+for arg in "$@"; do
+    case $arg in
+        --remove) remove=1 ;;
+        --force) force=1 ;;
+        --time) time=1 ;;
+        --*) usage ;;
+        -?*)
+            # Short flags can be combined, e.g. -rf
+            flags=${arg#-}
+            while [ -n "$flags" ]; do
+                case ${flags:0:1} in
+                    r) remove=1 ;;
+                    f) force=1 ;;
+                    t) time=1 ;;
+                    *) usage ;;
+                esac
+                flags=${flags:1}
+            done
+            ;;
+        *) usage ;;
+    esac
+done
+
+if [ -n "$force" ] && [ -z "$remove" ]; then
+    echo "worktree-cleanup: -f/--force only applies with -r/--remove" >&2
+    exit 1
+fi
+
+force_flag=()
+[ -n "$force" ] && force_flag=(--force)
+
+cutoff=$(( $(date +%s) - 14 * 86400 ))
+
+for d in ~/foundry ~/foundry/repos/*/ ~/foundry/legacy-repos/*/; do
+    d=${d%/}
+    [ -e "$d/.git" ] || continue
+
+    git -C "$d" worktree prune
+
+    default=$(git -C "$d" symbolic-ref --short refs/remotes/origin/HEAD 2>/dev/null)
+    [ -n "$default" ] || continue
+
+    n=0
+    path=
+    while IFS= read -r line; do
+        case $line in
+            'worktree '*)
+                n=$((n + 1))
+                path=${line#worktree }
+                ;;
+            'branch '*)
+                # The first entry is the main checkout, which is never removed.
+                [ "$n" -gt 1 ] || continue
+                branch=${line#branch refs/heads/}
+
+                reason=
+                if git -C "$d" merge-base --is-ancestor "$branch" "$default"; then
+                    reason=merged
+                elif [ -n "$time" ] && [ "$(git -C "$d" log -1 --format=%ct "$branch")" -lt "$cutoff" ]; then
+                    reason=stale
+                fi
+                [ -n "$reason" ] || continue
+
+                if [ -n "$remove" ]; then
+                    echo "removing ($reason): $path ($branch)"
+                    git -C "$d" worktree remove "${force_flag[@]}" "$path" && git -C "$d" branch -d "$branch"
+                else
+                    echo "$reason: $path ($branch)"
+                fi
+                ;;
+        esac
+    done < <(git -C "$d" worktree list --porcelain)
+done

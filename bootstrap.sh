@@ -30,7 +30,8 @@ fi
 
 # Explicit order, so dependencies are visible. Run after packages: every one of these needs something it installed.
 SETUPS=(
-    fish        # Login shell and fish config
+    zsh         # Login shell and zsh config. Reads the abbreviations in fish/
+    fish        # Previous shell's config, kept working
     git         # Config and the SSH signing key setup
     tmux        # Clones tpm
     nvim

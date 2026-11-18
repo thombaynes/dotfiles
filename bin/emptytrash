@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Empty the Trash on the main HDD and clear download history from quarantine. https://mths.be/bum
+
+sudo rm -rfv ~/.Trash
+sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'

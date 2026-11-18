@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Open Kyverno Policy Reporter UI at http://localhost:9090 in the browser.
+# Extra args go to kubectl, e.g. `kyverno-policy-reporter --context my-cluster`
+
+# port-forward blocks, so open the browser from a background subshell once it answers (gives up after ~10s)
+(
+    for _ in $(seq 20); do
+        if curl -s -o /dev/null http://localhost:9090; then
+            open "http://localhost:9090/#/?namespaces=platform-services"
+            break
+        fi
+        sleep 0.5
+    done
+) &
+kubectl port-forward -n kyverno svc/policy-reporter-ui 9090:8080 "$@"

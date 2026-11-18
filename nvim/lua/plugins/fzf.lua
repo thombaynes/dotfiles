@@ -3,7 +3,7 @@ return {
   "ibhagwan/fzf-lua",
   cmd = "FzfLua",
   opts = {
-    -- Defined in fish/config.fish so fzf and nvim stay in sync; fzf-lua would otherwise pick fd, then find
+    -- Defined in zsh/.zprofile so fzf and nvim stay in sync; fzf-lua would otherwise pick fd, then find
     files = { cmd = vim.env.FZF_DEFAULT_COMMAND },
   },
   keys = {

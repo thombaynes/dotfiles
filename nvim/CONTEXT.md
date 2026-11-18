@@ -38,8 +38,8 @@ nvim/
 
 fzf-lua (`lua/plugins/fzf.lua`) is a Lua front end that drives the `fzf` binary (Brewfile) inside nvim. It is loaded lazily, on `:FzfLua` or its two keys.
 
-- **`<leader>p`** runs `files()`. The listing command is `files.cmd = vim.env.FZF_DEFAULT_COMMAND`, which `fish/config.fish` exports as `rg --files --hidden --glob '!.git'`. The shell's `fzf` runs the same variable, so the two stay in sync; change it in fish only.
-- **Why an env var:** nvim runs commands through `sh`, which can't see fish aliases or functions, so only an exported variable reaches it. nvim has to be started from a shell that has it (fish does).
+- **`<leader>p`** runs `files()`. The listing command is `files.cmd = vim.env.FZF_DEFAULT_COMMAND`, which `zsh/.zprofile` exports as `rg --files --hidden --glob '!.git'` (`fish/config.fish` exports the same for fish). The shell's `fzf` runs the same variable, so the two stay in sync; change it in the shell config only.
+- **Why an env var:** nvim runs commands through `sh`, which can't see shell aliases or functions, so only an exported variable reaches it. nvim has to be started from a shell that has it (zsh and fish both do).
 - **Fallback:** if the variable is unset, `files.cmd` is nil and fzf-lua picks its own tool: `fd`, then `rg`, then `find`.
 - **`<leader>o`** runs `lsp_live_workspace_symbols()`. It asks the LSP server (ruby-lsp for Ruby) for symbols matching what you type, so it uses neither `rg` nor `fd`. With no LSP client attached it reports "LSP: no client attached".
 - **`:checkhealth fzf-lua`** looks for `fd`, `fdfind` or `find`, never `rg`. Without `fd` it falls back to BSD `find` and reports `find: illegal option -- --` because `find --version` isn't valid there. That is cosmetic, and `fd` is in the Brewfile to silence it.

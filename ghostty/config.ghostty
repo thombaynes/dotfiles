@@ -1,6 +1,8 @@
 keybind = global:opt+backquote=toggle_quick_terminal
 theme = Arthur
 cursor-style-blink = true
+# Left Option acts as Alt for zsh's Alt-E, Alt-S, Alt-F, Alt-. etc. Right Option still types characters like é
+macos-option-as-alt = left
 # Make the cursor 20% taller
 adjust-cursor-height = 20%
 # Ghostty draws box-drawing characters itself, so tmux's "heavy" pane borders look thin. Thicken them by 100% (tune to taste).

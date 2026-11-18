@@ -16,28 +16,31 @@ cask "ngrok"                # Local dev can be shared
 
 # General
 brew "awscli"               # For AWS apps
-brew "bash"                 # Modern bash (macOS ships 3.2). Used by Claude Code as its shell, since fish is not POSIX compatible
 brew "coreutils"            # Used to bring in a bunch of Linux utilities and make things more Linux like
 brew "curl"                 # Great for one off API calls
 brew "duti"                 # Allows file type defaulting to be scripted
 brew "fd"                   # Without this fzf-lua has a checkHealth complaint in nvim. It actually uses ripgrep
-brew "fish"                 # Nice shell
+brew "fish"                 # Previous login shell. Its abbreviation list is still the one zsh reads
+brew "starship"             # Cross-shell prompt, used by zsh
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
 brew "jq"                   # JSON processor
 brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
 brew "kubectx"              # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)
-brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in fish/config.fish)
+brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in zsh/.zprofile)
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "hashicorp/tap/terraform" # Infrastructure as code. One version, no version manager
 brew "tree-sitter-cli"      # Compiles treesitter parsers for nvim (neotest needs the Ruby one)
-brew "neovim"               # Editor. Config lives in nvim; `vi` is aliased to nvim in fish/config.fish
+brew "neovim"               # Editor. Config lives in nvim; `vi` is aliased to nvim in zsh/.zshrc
 brew "nmap"                 # Network Utility
 brew "postgresql"           # Great DB
 brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
 brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
 brew "wget"                 # Utility for retrieving files
+brew "zsh-autosuggestions"  # Fish-style grey suggestions from history as you type (zsh is the login shell, see ./zsh)
+brew "zsh-history-substring-search" # Fish-style Up/Down history search for what's typed so far
+brew "zsh-syntax-highlighting" # Fish-style colouring of commands as you type
 
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)

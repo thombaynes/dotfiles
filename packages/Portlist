@@ -7,7 +7,6 @@ rbenv
 ruby-build
 
 # General
-bash
 coreutils
 curl
 duti
@@ -22,11 +21,15 @@ neovim
 nmap
 redis
 ssh-copy-id
+starship
 terraform-1.17
 tmux
 ttf-nerd-fonts-symbols
 tree-sitter-cli
 wget
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting
 
 # Versioned or differently named in MacPorts, pick the right one with `port search`
 # awscli (py313-awscli)
