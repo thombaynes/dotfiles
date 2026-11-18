@@ -14,9 +14,8 @@ info "Setting up Claude Code..."
 mkdir -p "$DESTINATION"
 symlink "$SOURCE/statusline.sh" "$DESTINATION/statusline.sh"
 
-# settings.json is owned by Claude Code, so merge the status line and shell in rather than symlinking over it.
+# settings.json is changed by Claude Code with every model change, so we merge to it rather than symlinking over it.
 # Claude's Bash tool only supports bash or zsh (not fish), so point it at the modern bash that brew or MacPorts
-# installed (see packages/), not macOS's /bin/bash 3.2. MacPorts' bin is often not on PATH in a non-login shell.
 BASH_PATH="$(PATH="$PATH:/opt/local/bin" type -ap bash | grep -vx /bin/bash | head -1)"
 SHELL_FILTER="."
 if [ -n "$BASH_PATH" ]; then
