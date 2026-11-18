@@ -25,7 +25,8 @@ fish/
 │   ├── kyverno-policy-reporter.fish  Port-forwards Kyverno Policy Reporter UI to `localhost:9090` and opens it in the browser (abbr `kpr`).
 │   ├── local-branches.fish        Lists each repo in `~/foundry/repos` with its branch, default-branch and dirty state (abbr `lb`).
 │   ├── pubkey.fish                Copies `~/.ssh/id_ed25519.pub` to the clipboard.
-│   └── week.fish                  Prints the current week number.
+│   ├── week.fish                  Prints the current week number.
+│   └── worktree-cleanup.fish      Lists (or with `-r` removes, `-rf` forces, `-t` adds worktrees idle for 2+ weeks) linked worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/` (abbr `wtc`).
 ├── config.fish                  Brew and MacPorts on the `PATH`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, nodenv/rbenv init.
 ├── CONTEXT.md                   This file.
 └── setup.sh                     Symlinks every `.fish` file into `~/.config/fish/`, sets fish as the login shell.

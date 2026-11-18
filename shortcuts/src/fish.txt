@@ -34,6 +34,7 @@ Alt-Left / Alt-Right | Prev / next dir (empty line)
 kyverno-policy-reporter | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`)
 week | Print the current week number
 local-branches | List local git branches (abbr `lb`)
+worktree-cleanup | List git worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`)
 
 ## Abbreviations
 @abbreviations fish/conf.d/abbreviations.fish

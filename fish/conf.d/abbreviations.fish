@@ -102,3 +102,4 @@ abbr t bin/utt
 abbr tpl bin/utt pull
 abbr tps bin/utt push
 abbr tpr bin/utt prune
+abbr wtc worktree-cleanup

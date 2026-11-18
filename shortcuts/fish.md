@@ -31,10 +31,10 @@ Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`
 
 ## Functions
 
-| Key                       | Action                                                                                                                                    | Key    | Action                        |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------- |
-| `kyverno-policy-reporter` | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`) | `week` | Print the current week number |
-| `local-branches`          | List local git branches (abbr `lb`)                                                                                                       |        |                               |
+| Key                       | Action                                                                                                                                    | Key                | Action                                                                                                                                                                                                                                                                      |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `kyverno-policy-reporter` | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`) | `week`             | Print the current week number                                                                                                                                                                                                                                               |
+| `local-branches`          | List local git branches (abbr `lb`)                                                                                                       | `worktree-cleanup` | List git worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`) |
 
 ## Abbreviations
 
@@ -91,4 +91,5 @@ Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`
 | `tsl`   | `terraform state list`                                | `tsm`   | `terraform state move`                 |
 | `t`     | `bin/utt`                                             | `tpl`   | `bin/utt pull`                         |
 | `tps`   | `bin/utt push`                                        | `tpr`   | `bin/utt prune`                        |
+| `wtc`   | `worktree-cleanup`                                    |         |                                        |
 

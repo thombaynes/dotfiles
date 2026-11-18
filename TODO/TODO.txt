@@ -1,2 +1,3 @@
 
 Revisit TypeScript linting config (eslint LSP in nvim/lua/plugins/lsp.lua, maybe biome or fix-on-save) once I know more about TypeScript
+Revisit shells: make the ! shell in Claude Code use fish (my login shell) while still having Claude run its own commands in bash reliably. Currently Claude tries bash syntax and it fails when the shell is fish. Look at Claude Code's shell settings/env (e.g. CLAUDE_CODE_SHELL, SHELL) and the claude/ folder.
