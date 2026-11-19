@@ -26,4 +26,19 @@ if [ ! -d "$TPM" ]; then
     fi
 fi
 
+# macOS's own terminfo has no tmux-256color, so anything using the system ncurses redraws wrongly inside tmux.
+# Compile the entry from brew's or MacPorts' ncurses into ~/.terminfo with the system tic: a newer tic writes a format the system ncurses can't read.
+if ! /usr/bin/infocmp tmux-256color >/dev/null 2>&1; then
+    INFOCMP="$(command -v brew >/dev/null && echo "$(brew --prefix ncurses 2>/dev/null)/bin/infocmp")"
+    [ -x "$INFOCMP" ] || INFOCMP="$(command -v infocmp)"
+    mkdir -p "$HOME/.terminfo"
+    TERMINFO_SOURCE="$(mktemp)"
+    if "$INFOCMP" -x tmux-256color > "$TERMINFO_SOURCE" 2>/dev/null && /usr/bin/tic -x -o "$HOME/.terminfo" "$TERMINFO_SOURCE" 2>/dev/null; then
+        substep_success "Compiled tmux-256color terminfo into ~/.terminfo"
+    else
+        substep_error "Could not compile tmux-256color terminfo. Install ncurses (see packages/)."
+    fi
+    rm -f "$TERMINFO_SOURCE"
+fi
+
 success "Finished setting up Tmux."

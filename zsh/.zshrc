@@ -7,7 +7,7 @@ ZSH_CONFIG=${${(%):-%x}:A:h}
 # Emacs-style line editing, like fish. Without this zsh picks vi mode because EDITOR contains "vi"
 bindkey -e
 
-setopt AUTO_CD              # Type a directory name to cd into it, like fish
+setopt AUTO_CD            # Type a directory name to cd into it, like fish
 setopt INTERACTIVE_COMMENTS # Allow `# comments` on the command line, like fish
 
 # History is shared between open shells and keeps one copy of each command, so autosuggestions stay useful

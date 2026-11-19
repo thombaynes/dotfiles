@@ -25,7 +25,8 @@ brew "starship"             # Cross-shell prompt, used by zsh
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
 brew "jq"                   # JSON processor
-brew "kubernetes-cli"       # Kubernetes CLI which includes kubectl
+brew "ncurses"              # Has the tmux-256color terminfo entry older macOS lacks; tmux/setup.sh compiles it into ~/.terminfo
+brew "kubernetes-cli"      # Kubernetes CLI which includes kubectl
 brew "kubectx"              # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in zsh/.zprofile)
 brew "mas"                  # For installing App store apps (see bottom of this file)

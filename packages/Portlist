@@ -17,6 +17,7 @@ git
 go-task
 jq
 ripgrep
+ncurses
 neovim
 nmap
 redis
