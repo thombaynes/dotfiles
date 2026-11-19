@@ -7,3 +7,5 @@ Use a Makefile to manage the state of this on a laptop. The local-k8s makefile i
 
 Revisit your worktree-cleanup script, and more broadly understand what your agentic workflow looks like.
 
+Maybe write ~/.gitconfig-local in git/setup.sh from a heredoc in gitconfig format (like the JSON blob in claude/setup.sh) instead of two git config --file calls, so the generated file is readable in the script. Catch: it would overwrite the whole file each run, so only do it if nothing is ever added to ~/.gitconfig-local by hand.
+
