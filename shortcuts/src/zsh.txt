@@ -35,8 +35,8 @@ Alt-H | Man page for current command
 kyverno-policy-reporter | Port-forward Kyverno Policy Reporter UI to `localhost:9090` and open it in the browser (abbr `kpr`; args go to kubectl, e.g. `--context`)
 week | Print the current week number
 local-branches | List local git branches (abbr `lb`)
-worktree-cleanup | List git worktrees merged into the default branch across `~/foundry`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`)
-pubkey | Copy `~/.ssh/id_ed25519.pub` to the clipboard
+worktree-cleanup | List git worktrees merged into the default branch across `$HOME_REPO`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`)
+pubkey | Copy the profile's `$SSH_KEY.pub` to the clipboard
 emptytrash | Empty the Trash and the download quarantine history
 
 ## Abbreviations

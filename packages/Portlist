@@ -1,7 +1,7 @@
 # MacPorts equivalent of the Brewfile: one port per line, installed by setup.sh when MacPorts is present.
 # Port names were checked with `port search <name>`.
 
-# User testing
+# Auros
 libsodium
 rbenv
 ruby-build

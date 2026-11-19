@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 #
-# Copy ~/.ssh/id_ed25519.pub to the clipboard.
+# Copy this machine's public key ($SSH_KEY.pub from the profile, see profiles/) to the clipboard.
 
-pbcopy < ~/.ssh/id_ed25519.pub && echo '=> Public key copied to pasteboard.'
+. ~/.config/dotfiles/profile.sh 2>/dev/null
+SSH_KEY="${SSH_KEY:-$HOME/.ssh/id_ed25519}"
+
+pbcopy < "$SSH_KEY.pub" && echo "=> Public key $SSH_KEY.pub copied to pasteboard."

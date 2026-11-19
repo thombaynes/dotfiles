@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 #
-# Lists each repo in ~/foundry/repos with its branch, whether it is on the default branch, and whether it has changes.
+# Lists each repo in $HOME_REPO/repos with its branch, whether it is on the default branch, and whether it has changes.
+# - HOME_REPO comes from this machine's profile (see profiles/).
 # - Shows 🟢 if the repo is on its default branch (origin/HEAD), 🔴 if it is not.
 # - Shows a green ✔ if the working tree is clean, or a red ╱ if there are staged, unstaged or untracked changes.
+
+. ~/.config/dotfiles/profile.sh 2>/dev/null
+if [ -z "$HOME_REPO" ]; then
+    echo "local-branches: HOME_REPO is not set in this machine's profile (~/.config/dotfiles/profile.sh)" >&2
+    exit 1
+fi
 
 green=$(tput setaf 2)
 red=$(tput setaf 1)
@@ -10,7 +17,7 @@ normal=$(tput sgr0)
 
 printf "%-45s %-20s %-10s %s\n" Repo Branch Default? Changes?
 
-for d in ~/foundry/repos/*/; do
+for d in "$HOME_REPO"/repos/*/; do
     [ -e "$d.git" ] || continue
     name=$(basename "$d")
     branch=$(git -C "$d" branch --show-current)

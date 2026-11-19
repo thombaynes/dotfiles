@@ -23,5 +23,11 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# This machine's profile (see profiles/, linked by the setup scripts): HOME_REPO and SSH_KEY for interactive use
+if [[ -r ~/.config/dotfiles/profile.sh ]]; then
+    source ~/.config/dotfiles/profile.sh
+    export HOME_REPO SSH_KEY
+fi
+
 # Machine-specific settings that don't belong in the repo (setup.sh moves an existing ~/.zprofile here)
 test -r ~/.zprofile.local && source ~/.zprofile.local

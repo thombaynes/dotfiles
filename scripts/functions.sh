@@ -1,5 +1,29 @@
 #!/usr/bin/env bash
 
+PROFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../profiles" && pwd -P)"
+# Outside the repo, so each laptop keeps its own choice and a pull never changes it
+PROFILE_LINK="$HOME/.config/dotfiles/profile.sh"
+
+# Loads this machine's profile (see profiles/) into the calling script's variables.
+# Asks which profile on first run. Pass a profile name to switch to it.
+load_profile() {
+    if [ -n "$1" ] || [ ! -e "$PROFILE_LINK" ]; then
+        local name="$1" names
+        names="$(for f in "$PROFILES_DIR"/*.sh; do basename "$f" .sh; done | paste -sd/ -)"
+        if [ -z "$name" ]; then
+            printf "Profile for this machine (%s): " "$names"
+            read name
+        fi
+        if [ ! -f "$PROFILES_DIR/$name.sh" ]; then
+            error "Unknown profile '$name'. Expected $names."
+            exit 1
+        fi
+        mkdir -p "$(dirname "$PROFILE_LINK")"
+        symlink "$PROFILES_DIR/$name.sh" "$PROFILE_LINK"
+    fi
+    . "$PROFILE_LINK"
+}
+
 symlink() {
     OVERWRITTEN=""
     if [ -h "$2" ]; then

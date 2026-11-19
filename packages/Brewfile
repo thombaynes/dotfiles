@@ -6,7 +6,7 @@
 # Shared
 tap "go-task/tap"           # The go-task cask lives here, not in homebrew/cask
 
-# User testing
+# Auros
 brew "libsodium"            # For orders repo
 brew "rbenv"                # How ruby versions are managed at the time of onboarding
 brew "ruby-build"           # Helps with rbenv somehow
@@ -45,16 +45,18 @@ brew "zsh-syntax-highlighting" # Fish-style colouring of commands as you type
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
 cask "firefox"                      # Gotta have the fox
-cask "ghostty"                      # Terminal of choice. Config lives in ./ghostty
-# cask "google-chrome"                # Gotta have Chrome (Managed by UT)
+# The profile's TERMINAL (see profiles/) picks one of ghostty and iterm2. brew drops variables without the HOMEBREW_ prefix,
+# so setup.sh passes it as HOMEBREW_TERMINAL. Without it, e.g. a hand-run brew bundle, both install
+cask "ghostty" unless ENV["HOMEBREW_TERMINAL"] == "iterm2" # Terminal of choice. Config lives in ./ghostty
+# cask "google-chrome"                # Gotta have Chrome (Managed by Auros)
 cask "go-task/tap/go-task"          # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
-cask "iterm2"                       # Previous terminal, still supported alongside ghostty
-# cask "slack"                        # Messaging app (managed by UT)
+cask "iterm2" unless ENV["HOMEBREW_TERMINAL"] == "ghostty" # Terminal for older Macs that Ghostty doesn't support
+# cask "slack"                        # Messaging app (managed by Auros)
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music
 cask "visual-studio-code"           # Decent Editor
 cask "vlc"                          # For viewing video content (QuickTime is no good)
-# cask "zoom"                       # Video conferencing (Managed by UT)
+# cask "zoom"                       # Video conferencing (Managed by Auros)
 
 mas "Tomato 2: Pomodoro Timer", id: 1494210770

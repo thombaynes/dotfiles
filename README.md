@@ -5,7 +5,7 @@
     1. Alternatively, generate new ssh keys, and add these to your GitHub account
 2. Install (Homebrew or Macports) and git
 3. Clone this repository
-4. Run the `bootstrap.sh` script
+4. Run the `bootstrap.sh` script. It asks which profile this machine uses (`personal` or `auros`, see `profiles/`), or pass it: `./bootstrap.sh personal`
     1. Alternatively, only run the `setup.sh` scripts in specific subfolders if you don't need everything (see [AGENTS.md](AGENTS.md))
 
 ## Contents

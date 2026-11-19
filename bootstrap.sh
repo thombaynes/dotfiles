@@ -5,6 +5,9 @@ cd "$DIR"
 
 . scripts/functions.sh
 
+# Ask for this machine's profile (personal/auros, see profiles/) up front, before the long installs. Every setup.sh reads it
+load_profile "$1"
+
 info "Prompting for sudo password..."
 if sudo -v; then
     # Keep-alive: update existing `sudo` time stamp until `setup.sh` has finished

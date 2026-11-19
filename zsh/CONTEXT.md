@@ -22,7 +22,7 @@ The login shell, set up to feel like fish. `.zprofile` and `.zshrc` are symlinke
 
 ```
 zsh/
-├── .zprofile            Login shells: brew and MacPorts on the `PATH`, `~/.local/bin`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`.
+├── .zprofile            Login shells: brew and MacPorts on the `PATH`, `~/.local/bin`, locale, `EDITOR`, `FZF_DEFAULT_COMMAND`, and `HOME_REPO`/`SSH_KEY` from the profile.
 ├── .zshrc               Interactive shells: history, options, nodenv/rbenv, completion, key bindings, starship, plugins.
 ├── abbreviations.zsh    Reads fish's abbreviation list and binds Space/Enter to expand it. Sourced by `.zshrc`.
 ├── CONTEXT.md           This file.

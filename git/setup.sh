@@ -15,29 +15,32 @@ find . -name ".git*" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
 
-PROFILE="${1:-$GIT_PROFILE}"
-if [ -z "$PROFILE" ] && [ -L "$DESTINATION/.gitconfig-local" ]; then
-    PROFILE="$(basename "$(readlink "$DESTINATION/.gitconfig-local")" | sed 's/^\.//; s/-gitconfig$//')"
-fi
-if [ -z "$PROFILE" ]; then
-    printf "Git profile (personal/usertesting): "
-    read PROFILE
-fi
+load_profile "$1"
 
-if [ ! -f "$SOURCE/.$PROFILE-gitconfig" ]; then
-    error "Unknown git profile '$PROFILE'. Expected personal or usertesting."
+IDENTITY="$SOURCE/.$PROFILE-gitconfig"
+if [ ! -f "$IDENTITY" ]; then
+    error "No $IDENTITY for profile '$PROFILE'."
     exit 1
 fi
-symlink "$SOURCE/.$PROFILE-gitconfig" "$DESTINATION/.gitconfig-local"
+
+# ~/.gitconfig-local is generated rather than linked, as it combines the profile's identity file with its signing key.
+# Remove the link older setups made, so git config doesn't write through it into the repo.
+LOCAL="$DESTINATION/.gitconfig-local"
+[ -h "$LOCAL" ] && rm "$LOCAL"
+PUBKEY="$SSH_KEY.pub"
+if git config --file "$LOCAL" include.path "$IDENTITY" && git config --file "$LOCAL" user.signingkey "$PUBKEY"; then
+    substep_success "Wrote $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)."
+else
+    substep_error "Failed to write $LOCAL."
+fi
 
 # Local verification of SSH signatures (git log --show-signature): trust our own key for our own email
 ALLOWED_SIGNERS="$HOME/.ssh/allowed_signers"
-PUBKEY="$HOME/.ssh/id_ed25519.pub"
 if [ -f "$PUBKEY" ]; then
     echo "$(git config user.email) $(cat "$PUBKEY")" > "$ALLOWED_SIGNERS"
-    substep_success "Wrote $ALLOWED_SIGNERS. Load the key into the agent once with: ssh-add --apple-use-keychain ~/.ssh/id_ed25519"
+    substep_success "Wrote $ALLOWED_SIGNERS. Load the key into the agent once with: ssh-add --apple-use-keychain $SSH_KEY"
 else
-    substep_error "No $PUBKEY, so commits cannot be signed. Create one with ssh-keygen -t ed25519."
+    substep_error "No $PUBKEY, so commits cannot be signed. Create one with ssh-keygen -t ed25519 -f $SSH_KEY."
 fi
 
 success "Finished configuring git."

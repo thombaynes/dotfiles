@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
-# Lists (or with -r removes, -rf forces, -t adds worktrees idle for 2+ weeks) linked worktrees merged into the default branch across ~/foundry, repos/ and legacy-repos/.
-# - Scans ~/foundry plus every git repo in ~/foundry/repos and ~/foundry/legacy-repos for linked worktrees whose branch is already merged into the default branch (origin/HEAD).
+# Lists (or with -r removes, -rf forces, -t adds worktrees idle for 2+ weeks) linked worktrees merged into the default branch across $HOME_REPO, repos/ and legacy-repos/.
+# - HOME_REPO comes from this machine's profile (see profiles/).
+# - Scans $HOME_REPO plus every git repo in $HOME_REPO/repos and $HOME_REPO/legacy-repos for linked worktrees whose branch is already merged into the default branch (origin/HEAD).
 # - Prunes stale worktree metadata in each repo, then lists the merged worktrees. Dry run unless -r/--remove is passed.
 # - With -r/--remove it runs `git worktree remove` (which refuses worktrees with untracked or modified files) and then `git branch -d`.
 # - Add -f/--force (i.e. -rf) to remove those worktrees anyway, discarding their untracked and uncommitted changes.
@@ -37,6 +38,12 @@ for arg in "$@"; do
     esac
 done
 
+. ~/.config/dotfiles/profile.sh 2>/dev/null
+if [ -z "$HOME_REPO" ]; then
+    echo "worktree-cleanup: HOME_REPO is not set in this machine's profile (~/.config/dotfiles/profile.sh)" >&2
+    exit 1
+fi
+
 if [ -n "$force" ] && [ -z "$remove" ]; then
     echo "worktree-cleanup: -f/--force only applies with -r/--remove" >&2
     exit 1
@@ -47,7 +54,7 @@ force_flag=()
 
 cutoff=$(( $(date +%s) - 14 * 86400 ))
 
-for d in ~/foundry ~/foundry/repos/*/ ~/foundry/legacy-repos/*/; do
+for d in "$HOME_REPO" "$HOME_REPO"/repos/*/ "$HOME_REPO"/legacy-repos/*/; do
     d=${d%/}
     [ -e "$d/.git" ] || continue
 
