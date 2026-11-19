@@ -1,5 +1,8 @@
 # Starship prompt (.zshrc runs `starship init zsh`), symlinked into ~/.config by setup.sh. Anything not set here uses starship's defaults.
 
+# The rbenv ruby shim takes ~0.3s to run `ruby --version`, which can tip past the 500ms default and log a timeout warning
+command_timeout = 1000
+
 # Show the full path (home as ~), rather than only the last 3 folders or the path inside the git repo
 [directory]
 truncation_length = 0

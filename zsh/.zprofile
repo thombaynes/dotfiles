@@ -13,6 +13,9 @@ path=(/opt/local/bin(N/) /opt/local/sbin(N/) $HOME/.local/bin $path)
 export LC_ALL=en_CA.UTF-8
 export LANG=en_CA.UTF-8
 
+# macOS ls only colours its output when this is set (fish's ls did it by default)
+export CLICOLOR=1
+
 # File listing command shared by fzf and nvim's fzf-lua (see nvim/lua/plugins/fzf.lua). ripgrep makes it MUCH FASTER
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 
