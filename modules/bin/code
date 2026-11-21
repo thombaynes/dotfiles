@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Open Visual Studio Code. With no arguments it opens the current directory.
+
+app="/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
+[ $# -eq 0 ] && set -- .
+
+exec "$app" "$@"

@@ -2,6 +2,7 @@
 # Port names were checked with `port search <name>`.
 
 # Auros
+# We don't add Kubernetes related dependencies to MacPorts: local clusters are only run with Homebrew.
 libsodium
 rbenv
 ruby-build
@@ -15,6 +16,7 @@ fzf
 git
 go-task
 jq
+yq
 ripgrep
 ncurses
 neovim
@@ -33,8 +35,6 @@ zsh-syntax-highlighting
 
 # Versioned or differently named in MacPorts, pick the right one with `port search`
 # awscli (py313-awscli)
-# kubectl (kubectl-1.37)
-# kubectx (kubectx and kubens; check `port search kubectx`, otherwise install from https://github.com/ahmetb/kubectx)
 # postgresql (postgresql16 or postgresql17)
 
 # No port, install another way

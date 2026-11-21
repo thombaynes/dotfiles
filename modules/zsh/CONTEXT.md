@@ -6,6 +6,7 @@ The login shell, set up to feel like fish. `.zprofile` and `.zshrc` are symlinke
 
 - **Abbreviations** (`abbreviations.zsh`): Space or Enter expands `gs` to `git status` in command position, so history holds the full command. Ctrl-Space inserts a plain space. The list is `abbreviations.list`, read on every shell start and by the cheat sheet generator. They are abbreviations, not aliases, so every command stays visible. The idea comes from fish. An `x @f` line calls the zsh function `f`, which must be defined in `abbreviations.zsh` (currently only `__abbr_grbm`).
 - **Plugins**, from brew or MacPorts (`modules/packages/`), each skipped if not installed: zsh-autosuggestions (grey history suggestion, → accepts), zsh-syntax-highlighting (with a regexp rule so typed abbreviations show as valid), zsh-history-substring-search (↑/↓ match what's typed anywhere in the line; without it ↑/↓ fall back to zsh's built-in prefix search).
+- **Aliases** (`.zshrc`): `vi` is nvim, and `docker` is podman when podman is installed. Everything else is an abbreviation.
 - **Prompt**: starship, configured in `starship.toml`
 - **Completion**: an arrow-key menu, case-insensitive, grouped under descriptions.
 - **Keys**: emacs mode (set explicitly: zsh would pick vi mode because `EDITOR` is nvim), Alt-E edits the line in `$EDITOR`, Alt-S prepends `sudo`, Alt-Left/Right move by word.

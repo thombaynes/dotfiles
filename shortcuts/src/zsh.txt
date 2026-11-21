@@ -38,6 +38,7 @@ local-branches | List local git branches (abbr `lb`)
 worktree-cleanup | List git worktrees merged into the default branch across `$HOME_REPO`, `repos/` and `legacy-repos/`; `-r` removes them and their branches, `-rf` also discards uncommitted/untracked changes, `-t` also selects worktrees whose last commit is over 2 weeks old (abbr `wtc`)
 pubkey | Copy the profile's `$SSH_KEY.pub` to the clipboard
 emptytrash | Empty the Trash and the download quarantine history
+code | Open Visual Studio Code, on the current directory when given no arguments
 
 ## Abbreviations
 @abbreviations modules/zsh/abbreviations.list

@@ -4,6 +4,7 @@
 PROFILE=auros
 HOME_REPO="$HOME/home_repo"
 TERMINAL=ghostty
+LOCAL_CLUSTER=true                      # Whether to install the Kubernetes tools in the Brewfile for a local cluster
 PACKAGE_MANAGER=brew
 SSH_KEY="$HOME/.ssh/id_ed25519"
 SKIP_MODULES="iterm2"                  # List of space-separated modules to skip

@@ -24,10 +24,10 @@ brew "fd"                   # Without this fzf-lua has a checkHealth complaint i
 brew "starship"             # Cross-shell prompt, used by zsh
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
+brew "helm"                 # Kubernetes package manager. Outside the local cluster section on purpose: useful without a local cluster
 brew "jq"                   # JSON processor
+brew "yq"                   # YAML processor
 brew "ncurses"              # Has the tmux-256color terminfo entry older macOS lacks; tmux/setup.sh compiles it into ~/.terminfo
-brew "kubernetes-cli"      # Kubernetes CLI which includes kubectl
-brew "kubectx"              # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in zsh/.zprofile)
 brew "mas"                  # For installing App store apps (see bottom of this file)
 brew "hashicorp/tap/terraform" # Infrastructure as code. One version, no version manager
@@ -43,6 +43,15 @@ brew "zsh-autosuggestions"  # Fish-style grey suggestions from history as you ty
 brew "zsh-history-substring-search" # Fish-style Up/Down history search for what's typed so far
 brew "zsh-syntax-highlighting" # Fish-style colouring of commands as you type
 
+
+# Local Kubernetes cluster (~/home_repo/local-k8s). The profile's LOCAL_CLUSTER (see profiles/) switches these on or off.
+# brew drops variables without the HOMEBREW_ prefix, so setup.sh passes it as HOMEBREW_LOCAL_CLUSTER. Without it, e.g. a hand-run brew bundle, they install
+unless ENV["HOMEBREW_LOCAL_CLUSTER"] == "false"
+  brew "kubernetes-cli"     # Kubernetes CLI which includes kubectl
+  brew "kubectx"            # Installs kubectx and kubens for switching kubectl contexts and namespaces (uses fzf for the picker)
+  brew "argocd"             # Argo CD CLI, used by local-k8s
+  brew "k3d"                # Runs k3s clusters in containers (on Podman)
+end
 
 cask "alfred"                       # Used instead of Spotlight (and also offers a clipboard history)
 cask "firefox"                      # Gotta have the fox

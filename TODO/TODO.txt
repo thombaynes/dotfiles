@@ -11,3 +11,5 @@ Once repos/Makefile (make status/fetch/default/prune in home_repo) is proving us
 Revisit your worktree-cleanup script, and more broadly understand what your agentic workflow looks like.
 
 Try out a way of browsing and doing GitHub reviews (PRs with my review requested). Two candidates: octo.nvim (pwntester/octo.nvim, in nvim, e.g. :Octo pr search review-requested:@me) and gh-dash (dlvhdr/gh-dash, a gh extension TUI with a "needs my review" section). octo.nvim is likely best for the code review itself, but it might be good to try both.
+
+Make the .zshrc more robust by having a .zshrc.personal for my specific preferences, and a .zshrc.auros for what I think we should share.

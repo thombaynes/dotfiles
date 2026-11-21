@@ -19,6 +19,9 @@ setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS HIST_IGNORE_SPACE
 # Use neovim wherever I type vi
 alias vi=nvim
 
+# Podman stands in for docker, where it is installed
+command -v podman >/dev/null && alias docker=podman
+
 command -v nodenv >/dev/null && eval "$(nodenv init - zsh)"
 command -v rbenv >/dev/null && eval "$(rbenv init - zsh)"
 
@@ -92,3 +95,6 @@ unfunction _plugin
 
 # Machine-specific settings that don't belong in the repo (setup.sh moves an existing ~/.zshrc here)
 test -r ~/.zshrc.local && source ~/.zshrc.local
+
+# Aliases from an old dotfiles setup in ~/.zshrc.local would hide the ll abbreviation and the code script (modules/bin)
+unalias ll code 2>/dev/null

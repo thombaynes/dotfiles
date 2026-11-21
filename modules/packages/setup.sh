@@ -7,7 +7,7 @@ cd "$DIR"
 
 COMMENT=\#*
 
-# PACKAGE_MANAGER picks brew or MacPorts, and the Brewfile reads TERMINAL from it
+# PACKAGE_MANAGER picks brew or MacPorts, and the Brewfile reads TERMINAL and LOCAL_CLUSTER from it
 profile_guard
 
 # MacPorts installs to /opt/local, which is often not on PATH in a non-login shell
@@ -22,7 +22,7 @@ if [ "$PACKAGE_MANAGER" = brew ]; then
     fi
     if dry_run; then
         # brew bundle installs and upgrades, and check reports both, one "→ ..." line each
-        HOMEBREW_TERMINAL="$TERMINAL" brew bundle check --verbose 2>&1 | while read -r line; do
+        HOMEBREW_TERMINAL="$TERMINAL" HOMEBREW_LOCAL_CLUSTER="$LOCAL_CLUSTER" brew bundle check --verbose 2>&1 | while read -r line; do
             case "$line" in
                 "→ "*" needs to be installed or updated.")
                     line="${line#→ }"
@@ -33,7 +33,7 @@ if [ "$PACKAGE_MANAGER" = brew ]; then
         done
     else
         info "Installing Brewfile packages..."
-        HOMEBREW_TERMINAL="$TERMINAL" brew bundle
+        HOMEBREW_TERMINAL="$TERMINAL" HOMEBREW_LOCAL_CLUSTER="$LOCAL_CLUSTER" brew bundle
         success "Finished installing Brewfile packages."
     fi
 elif [ "$PACKAGE_MANAGER" = macports ]; then
