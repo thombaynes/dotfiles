@@ -5,6 +5,14 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+profile_guard
+
+# These defaults write lines don't go through the dry run helpers yet, so a dry run must not reach them (see TODO/TODO.txt)
+if dry_run; then
+    info "macOS defaults have no dry run yet, skipping."
+    exit 0
+fi
+
 info "Setting macOS defaults..."
 
 # Ask for the administrator password upfront

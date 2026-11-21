@@ -28,28 +28,7 @@ else
     error "Failed to install XCode command line tools."
 fi
 
-# Package control must be executed first in order for the rest to work
-./packages/setup.sh
-
-# Explicit order, so dependencies are visible. Run after packages: every one of these needs something it installed.
-SETUPS=(
-    zsh         # Login shell and zsh config. Reads the abbreviations in fish/
-    fish        # Previous shell's config, kept working
-    git         # Config and the SSH signing key setup
-    tmux        # Clones tpm
-    nvim
-    bin
-    claude
-    duti        # Default apps, needs the apps installed by packages
-    macos
-    key-mappings
-    hammerspoon # Skips itself when Hammerspoon is not installed
-    ghostty     # Likewise
-    iterm2      # Likewise. Also copies the Nerd Font symbols that packages installed
-    vscode      # Likewise
-)
-for folder in "${SETUPS[@]}"; do
-    ./$folder/setup.sh
-done
+# Every folder's setup.sh, in the install order kept in the Makefile
+make all
 
 success "Finished installing Dotfiles"

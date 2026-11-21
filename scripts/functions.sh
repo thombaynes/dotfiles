@@ -24,7 +24,47 @@ load_profile() {
     . "$PROFILE_LINK"
 }
 
+# True unless the loaded profile lists the folder in SKIP_FOLDERS
+in_profile() {
+    [[ " $SKIP_FOLDERS " != *" $1 "* ]]
+}
+
+# Ends the calling setup.sh when this machine's profile skips its folder. Call it right after sourcing this file.
+profile_guard() {
+    local folder
+    folder="$(basename "$(pwd -P)")"
+    load_profile
+    if ! in_profile "$folder"; then
+        info "Skipping $folder - not part of the $PROFILE profile."
+        exit 0
+    fi
+}
+
+# Dry run (DOTFILES_DRY_RUN=1, set by scripts/status.sh for make status): each setup.sh reports what it would change
+# and changes nothing. Everything a setup.sh changes must go through these helpers or be skipped in a dry run.
+dry_run() {
+    [ -n "$DOTFILES_DRY_RUN" ]
+}
+
+# Reports a change found in a dry run. scripts/status.sh counts these lines
+would() {
+    coloredEcho "Would $1" yellow "===="
+}
+
+# mkdir -p, except in a dry run, where the symlinks into the folder report the change
+make_dir() {
+    dry_run || mkdir -p "$@"
+}
+
 symlink() {
+    # Already linked to the source: nothing to do
+    if [ -h "$2" ] && [ "$(readlink "$2")" = "$1" ]; then
+        return
+    fi
+    if dry_run; then
+        would "symlink $2 to $1"
+        return
+    fi
     OVERWRITTEN=""
     if [ -h "$2" ]; then
         # An old link: nothing to lose, just replace it
@@ -49,9 +89,11 @@ symlink() {
 }
 
 clear_broken_symlinks() {
-    substep_info "Clearing broken symlinks"
-    find -L "$1" -type l | while read fn; do
-        if rm "$fn"; then
+    dry_run || substep_info "Clearing broken symlinks"
+    find -L "$1" -type l 2>/dev/null | while read fn; do
+        if dry_run; then
+            would "remove broken symlink at $fn"
+        elif rm "$fn"; then
             substep_success "Removed broken symlink at $fn."
         else
             substep_error "Failed to remove broken symlink at $fn."
@@ -87,6 +129,8 @@ info() {
 }
 
 success() {
+    # Every setup.sh ends with a "Finished" message, which isn't true in a dry run
+    dry_run && return
     coloredEcho "$1" green "========>"
 }
 

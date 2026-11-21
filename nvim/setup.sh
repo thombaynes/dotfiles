@@ -5,12 +5,14 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+profile_guard
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME"
 
 info "Setting up Neovim..."
 
-mkdir -p "$DESTINATION/.config"
+make_dir "$DESTINATION/.config"
 symlink "$SOURCE" "$DESTINATION/.config/nvim"
 
 success "Finished setting up Neovim."

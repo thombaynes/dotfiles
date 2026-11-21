@@ -5,6 +5,8 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+profile_guard
+
 SOURCE="$(pwd -P)"
 # macOS ships zsh and already lists it in /etc/shells, so use it rather than a brew or MacPorts copy
 ZSH_PATH=/bin/zsh
@@ -14,19 +16,25 @@ info "Setting up zsh..."
 for file in .zprofile .zshrc; do
     # An existing file is machine-specific (work tools and the like): keep it as the .local file the repo's copy sources
     if [ -f "$HOME/$file" ] && [ ! -h "$HOME/$file" ] && [ ! -e "$HOME/$file.local" ]; then
-        mv "$HOME/$file" "$HOME/$file.local" && substep_success "Moved existing ~/$file to ~/$file.local"
+        if dry_run; then
+            would "move existing ~/$file to ~/$file.local"
+        else
+            mv "$HOME/$file" "$HOME/$file.local" && substep_success "Moved existing ~/$file to ~/$file.local"
+        fi
     fi
     symlink "$SOURCE/$file" "$HOME/$file"
 done
 
 # The starship prompt reads its config from ~/.config
-mkdir -p "$HOME/.config"
+make_dir "$HOME/.config"
 symlink "$SOURCE/starship.toml" "$HOME/.config/starship.toml"
 
 set_zsh_shell() {
     # $SHELL is only updated at the next login, so ask Directory Services for the current login shell
     if [ "$(dscl . -read "/Users/$USER" UserShell | awk '{ print $2 }')" = "$ZSH_PATH" ]; then
         substep_success "zsh is already the login shell."
+    elif dry_run; then
+        would "change the login shell to $ZSH_PATH"
     else
         substep_info "Changing shell to zsh"
         if sudo chsh -s "$ZSH_PATH" "$USER"; then

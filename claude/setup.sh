@@ -5,13 +5,15 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+profile_guard
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME/.claude"
 SETTINGS="$DESTINATION/settings.json"
 
 info "Setting up Claude Code..."
 
-mkdir -p "$DESTINATION"
+make_dir "$DESTINATION"
 symlink "$SOURCE/statusline.sh" "$DESTINATION/statusline.sh"
 
 # settings.json is changed by Claude Code with every model change, so we merge this subset into it rather than
@@ -33,8 +35,10 @@ MANAGED_SETTINGS=$(cat <<'EOF'
 }
 EOF
 )
-[ -f "$SETTINGS" ] || echo '{}' > "$SETTINGS"
-if jq --argjson managed "$MANAGED_SETTINGS" '
+# Merge into a temp file and only write when that changes something. A missing settings.json merges as an empty one.
+CURRENT="$(cat "$SETTINGS" 2>/dev/null || echo '{}')"
+MERGED="$(mktemp)"
+if ! jq --argjson managed "$MANAGED_SETTINGS" '
     def merge($new):
         if type == "object" and ($new | type) == "object" then
             reduce ($new | keys_unsorted[]) as $key (.; .[$key] |= merge($new[$key]))
@@ -44,12 +48,18 @@ if jq --argjson managed "$MANAGED_SETTINGS" '
             $new
         end;
     merge($managed)' \
-    "$SETTINGS" > "$SETTINGS.tmp"; then
-    mv "$SETTINGS.tmp" "$SETTINGS"
+    <<< "$CURRENT" > "$MERGED"; then
+    substep_error "Failed to merge the managed settings."
+elif [ -f "$SETTINGS" ] && cmp -s <(jq -S . "$SETTINGS") <(jq -S . "$MERGED"); then
+    substep_success "$SETTINGS already has the managed settings."
+elif dry_run; then
+    would "merge the managed settings into $SETTINGS"
+# Written in place rather than moved, so the file keeps its permissions
+elif cat "$MERGED" > "$SETTINGS"; then
     substep_success "Merged managed settings into $SETTINGS."
 else
-    rm -f "$SETTINGS.tmp"
     substep_error "Failed to update $SETTINGS."
 fi
+rm -f "$MERGED"
 
 success "Finished setting up Claude Code."

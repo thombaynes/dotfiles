@@ -5,6 +5,10 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+# Pass a profile name to switch to it before the guard reads it
+load_profile "$1"
+profile_guard
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME"
 
@@ -15,8 +19,6 @@ find . -name ".git*" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"
 done
 
-load_profile "$1"
-
 IDENTITY="$SOURCE/.$PROFILE-gitconfig"
 if [ ! -f "$IDENTITY" ]; then
     error "No $IDENTITY for profile '$PROFILE'."
@@ -26,19 +28,33 @@ fi
 # ~/.gitconfig-local is generated rather than linked, as it combines the profile's identity file with its signing key.
 # Remove the link older setups made, so git config doesn't write through it into the repo.
 LOCAL="$DESTINATION/.gitconfig-local"
-[ -h "$LOCAL" ] && rm "$LOCAL"
 PUBKEY="$SSH_KEY.pub"
-if git config --file "$LOCAL" include.path "$IDENTITY" && git config --file "$LOCAL" user.signingkey "$PUBKEY"; then
-    substep_success "Wrote $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)."
+if [ ! -h "$LOCAL" ] && [ "$(git config --file "$LOCAL" include.path 2>/dev/null)" = "$IDENTITY" ] && [ "$(git config --file "$LOCAL" user.signingkey 2>/dev/null)" = "$PUBKEY" ]; then
+    :
+elif dry_run; then
+    would "write $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)"
 else
-    substep_error "Failed to write $LOCAL."
+    [ -h "$LOCAL" ] && rm "$LOCAL"
+    if git config --file "$LOCAL" include.path "$IDENTITY" && git config --file "$LOCAL" user.signingkey "$PUBKEY"; then
+        substep_success "Wrote $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)."
+    else
+        substep_error "Failed to write $LOCAL."
+    fi
 fi
 
-# Local verification of SSH signatures (git log --show-signature): trust our own key for our own email
+# Local verification of SSH signatures (git log --show-signature): trust our own key for our own email.
+# The email is read from the identity file, as ~/.gitconfig-local may not include it yet in a dry run.
 ALLOWED_SIGNERS="$HOME/.ssh/allowed_signers"
 if [ -f "$PUBKEY" ]; then
-    echo "$(git config user.email) $(cat "$PUBKEY")" > "$ALLOWED_SIGNERS"
-    substep_success "Wrote $ALLOWED_SIGNERS. Load the key into the agent once with: ssh-add --apple-use-keychain $SSH_KEY"
+    SIGNER="$(git config --file "$IDENTITY" user.email) $(cat "$PUBKEY")"
+    if [ "$(cat "$ALLOWED_SIGNERS" 2>/dev/null)" = "$SIGNER" ]; then
+        :
+    elif dry_run; then
+        would "write $ALLOWED_SIGNERS"
+    else
+        echo "$SIGNER" > "$ALLOWED_SIGNERS"
+        substep_success "Wrote $ALLOWED_SIGNERS. Load the key into the agent once with: ssh-add --apple-use-keychain $SSH_KEY"
+    fi
 else
     substep_error "No $PUBKEY, so commits cannot be signed. Create one with ssh-keygen -t ed25519 -f $SSH_KEY."
 fi

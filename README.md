@@ -6,7 +6,8 @@
 2. Install (Homebrew or Macports) and git
 3. Clone this repository
 4. Run the `bootstrap.sh` script. It asks which profile this machine uses (`personal` or `auros`, see `profiles/`), or pass it: `./bootstrap.sh personal`
-    1. Alternatively, only run the `setup.sh` scripts in specific subfolders if you don't need everything (see [AGENTS.md](AGENTS.md))
+    1. Alternatively, only run specific folders if you don't need everything, e.g. `make nvim` (see `make help` and [AGENTS.md](AGENTS.md))
+5. Afterwards, `make status` shows what any `setup.sh` would change, without changing anything
 
 ## Contents
 See [AGENTS.md](AGENTS.md) for what each folder contains.

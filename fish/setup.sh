@@ -5,14 +5,16 @@ cd "$DIR"
 
 . ../scripts/functions.sh
 
+profile_guard
+
 SOURCE="$(pwd -P)"
 DESTINATION="$HOME/.config/fish"
 
 info "Setting up fish shell..."
 
 substep_info "Creating fish config folders..."
-mkdir -p "$DESTINATION/functions"
-mkdir -p "$DESTINATION/conf.d"
+make_dir "$DESTINATION/functions"
+make_dir "$DESTINATION/conf.d"
 
 find * -name "*.fish" | while read fn; do
     symlink "$SOURCE/$fn" "$DESTINATION/$fn"

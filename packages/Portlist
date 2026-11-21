@@ -40,5 +40,6 @@ zsh-syntax-highlighting
 
 # No port, install another way
 # nodenv, node-build (git clone https://github.com/nodenv/nodenv and nodenv/node-build, or use the ports nvm / fnm instead)
+# podman-desktop (no port, only open requests: trac tickets 66215 and 71424. Download it from https://podman-desktop.io)
 # nx (npm install -g nx, or npx nx inside a repo that has it as a dependency)
 # tpm (cloned by tmux/setup.sh)

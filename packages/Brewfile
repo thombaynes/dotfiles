@@ -54,6 +54,7 @@ cask "ghostty" unless ENV["HOMEBREW_TERMINAL"] == "iterm2" # Terminal of choice.
 cask "go-task/tap/go-task"          # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
 cask "iterm2" unless ENV["HOMEBREW_TERMINAL"] == "ghostty" # Terminal for older Macs that Ghostty doesn't support
+cask "podman-desktop"                # GUI for managing containers and images with Podman
 # cask "slack"                        # Messaging app (managed by Auros)
 cask "sourcetree"                   # Git GUI app
 cask "spotify"                      # For listening to music

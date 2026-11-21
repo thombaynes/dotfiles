@@ -4,9 +4,12 @@ Revisit TypeScript linting config (eslint LSP in nvim/lua/plugins/lsp.lua, maybe
 
 Once we are confident that fish isn't needed we need to move the abbreviations out of that folder and into zsh, then remove it entirely
 
-Use a Makefile to manage the state of this on a laptop. The local-k8s makefile is a great example - status is so helpful. It also has phases of build. If done right then we could have the different dependencies more explicit and the laptop setup could be done in a easily understood linear progression.
-
-Revisit your worktree-cleanup script, and more broadly understand what your agentic workflow looks like.
+Give macos/setup.sh a dry run so make status covers it, then remove the filter-out of macos in the Makefile and its early exit in a dry run. Route the defaults write lines through a helper that reads the current value first (defaults read prints bools as 1/0). The -dict / -dict-add and PlistBuddy lines need their own comparison, and systemsetup can't be read without sudo, so report those as not checked.
 
 Maybe write ~/.gitconfig-local in git/setup.sh from a heredoc in gitconfig format (like the JSON blob in claude/setup.sh) instead of two git config --file calls, so the generated file is readable in the script. Catch: it would overwrite the whole file each run, so only do it if nothing is ever added to ~/.gitconfig-local by hand.
 
+Once repos/Makefile (make status/fetch/default/prune in home_repo) is proving useful, remove the local-branches script from bin/ (and its mention in any docs), since make status is a copy of it.
+
+Revisit your worktree-cleanup script, and more broadly understand what your agentic workflow looks like.
+
+Try out a way of browsing and doing GitHub reviews (PRs with my review requested). Two candidates: octo.nvim (pwntester/octo.nvim, in nvim, e.g. :Octo pr search review-requested:@me) and gh-dash (dlvhdr/gh-dash, a gh extension TUI with a "needs my review" section). octo.nvim is likely best for the code review itself, but it might be good to try both.
