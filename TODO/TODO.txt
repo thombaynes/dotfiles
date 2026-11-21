@@ -1,14 +1,14 @@
 Update the README or AGENTS.md to have broad strategic guidelines. So far the decisions here are meant to allow anyone watching me work to understand what I am doing, while also creating efficient workflows and shortcuts. Expanding abbreviations means that every command can be understood, whereas aliases would not. Highlighting the line in nvim and a blinking cursor work. Highlighted tmux panes. And then generally the whole flow is meant to be make local development without AI very possible and slick. A bias for deterministic scripting is best, and the skills in the repo are generally meant to help make changing the repo easier.
 
-Revisit TypeScript linting config (eslint LSP in nvim/lua/plugins/lsp.lua, maybe biome or fix-on-save) once I know more about TypeScript
+Revisit TypeScript linting config (eslint LSP in modules/nvim/lua/plugins/lsp.lua, maybe biome or fix-on-save) once I know more about TypeScript
 
 Once we are confident that fish isn't needed we need to move the abbreviations out of that folder and into zsh, then remove it entirely
 
-Give macos/setup.sh a dry run so make status covers it, then remove the filter-out of macos in the Makefile and its early exit in a dry run. Route the defaults write lines through a helper that reads the current value first (defaults read prints bools as 1/0). The -dict / -dict-add and PlistBuddy lines need their own comparison, and systemsetup can't be read without sudo, so report those as not checked.
+Give modules/macos/setup.sh a dry run so make status covers it, then remove the filter-out of macos in the Makefile and its early exit in a dry run. Route the defaults write lines through a helper that reads the current value first (defaults read prints bools as 1/0). The -dict / -dict-add and PlistBuddy lines need their own comparison, and systemsetup can't be read without sudo, so report those as not checked.
 
-Maybe write ~/.gitconfig-local in git/setup.sh from a heredoc in gitconfig format (like the JSON blob in claude/setup.sh) instead of two git config --file calls, so the generated file is readable in the script. Catch: it would overwrite the whole file each run, so only do it if nothing is ever added to ~/.gitconfig-local by hand.
+Maybe write ~/.gitconfig-local in modules/git/setup.sh from a heredoc in gitconfig format (like the JSON blob in modules/claude/setup.sh) instead of two git config --file calls, so the generated file is readable in the script. Catch: it would overwrite the whole file each run, so only do it if nothing is ever added to ~/.gitconfig-local by hand.
 
-Once repos/Makefile (make status/fetch/default/prune in home_repo) is proving useful, remove the local-branches script from bin/ (and its mention in any docs), since make status is a copy of it.
+Once repos/Makefile (make status/fetch/default/prune in home_repo) is proving useful, remove the local-branches script from modules/bin/ (and its mention in any docs), since make status is a copy of it.
 
 Revisit your worktree-cleanup script, and more broadly understand what your agentic workflow looks like.
 

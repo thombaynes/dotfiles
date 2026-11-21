@@ -6,4 +6,4 @@ HOME_REPO="$HOME/dotfiles"
 TERMINAL=iterm2
 PACKAGE_MANAGER=macports
 SSH_KEY="$HOME/.ssh/id_ed25519"
-SKIP_FOLDERS="ghostty"
+SKIP_MODULES="ghostty"

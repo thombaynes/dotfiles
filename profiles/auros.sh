@@ -6,4 +6,4 @@ HOME_REPO="$HOME/home_repo"
 TERMINAL=ghostty
 PACKAGE_MANAGER=brew
 SSH_KEY="$HOME/.ssh/id_ed25519"
-SKIP_FOLDERS="iterm2"                  # List of space-separated folders to skip
+SKIP_MODULES="iterm2"                  # List of space-separated modules to skip

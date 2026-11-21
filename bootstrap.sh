@@ -28,7 +28,7 @@ else
     error "Failed to install XCode command line tools."
 fi
 
-# Every folder's setup.sh, in the install order kept in the Makefile
+# Every module's setup.sh, in the install order kept in the Makefile
 make all
 
 success "Finished installing Dotfiles"

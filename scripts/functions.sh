@@ -24,18 +24,18 @@ load_profile() {
     . "$PROFILE_LINK"
 }
 
-# True unless the loaded profile lists the folder in SKIP_FOLDERS
+# True unless the loaded profile lists the module in SKIP_MODULES
 in_profile() {
-    [[ " $SKIP_FOLDERS " != *" $1 "* ]]
+    [[ " $SKIP_MODULES " != *" $1 "* ]]
 }
 
-# Ends the calling setup.sh when this machine's profile skips its folder. Call it right after sourcing this file.
+# Ends the calling setup.sh when this machine's profile skips its module. Call it right after sourcing this file.
 profile_guard() {
-    local folder
-    folder="$(basename "$(pwd -P)")"
+    local module
+    module="$(basename "$(pwd -P)")"
     load_profile
-    if ! in_profile "$folder"; then
-        info "Skipping $folder - not part of the $PROFILE profile."
+    if ! in_profile "$module"; then
+        info "Skipping $module - not part of the $PROFILE profile."
         exit 0
     fi
 }

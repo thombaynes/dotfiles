@@ -1,6 +1,6 @@
 # zsh
 
-Emacs-style bindings, set up to feel like fish (see `zsh/CONTEXT.md`). Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/conf.d/abbreviations.fish`.
+Emacs-style bindings, set up to feel like fish (see `modules/zsh/CONTEXT.md`). Caps Lock is remapped to Ctrl (see `modules/key-mappings/`). Abbreviations come from `modules/fish/conf.d/abbreviations.fish`.
 
 ## Cursor & Editing
 

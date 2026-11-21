@@ -1,6 +1,6 @@
 # Fish
 
-Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/conf.d/abbreviations.fish`. zsh is the login shell now (see `zsh.md`, which also lists the `bin/` scripts).
+Default emacs-style bindings. Caps Lock is remapped to Ctrl (see `modules/key-mappings/`). Abbreviations come from `modules/fish/conf.d/abbreviations.fish`. zsh is the login shell now (see `zsh.md`, which also lists the `modules/bin/` scripts).
 
 ## Cursor & Editing
 

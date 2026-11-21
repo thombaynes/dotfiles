@@ -76,7 +76,7 @@ check() {
     tmp=$(mktemp)
 
     # tmux: bind / bind-key lines; the key is the first non-flag argument after any -T <table>
-    grep -E '^[[:space:]]*bind(-key)?[[:space:]]' "$ROOT/tmux/.tmux.conf" | awk '
+    grep -E '^[[:space:]]*bind(-key)?[[:space:]]' "$ROOT/modules/tmux/.tmux.conf" | awk '
         { for (i = 2; i <= NF; i++) {
             if ($i == "-T") { i++; continue }
             if ($i ~ /^-./) continue
@@ -85,13 +85,13 @@ check() {
 
     # neovim: map() helpers (plugins and config/keymaps.lua), and lazy.nvim `keys` specs
     {
-        grep -hE 'map\("[^"]+"|keys = \{ \{ "[^"]+"' "$ROOT"/nvim/lua/plugins/*.lua | sed -E 's/.*(map\(|\{ \{ )"([^"]+)".*/\2/'
-        grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
+        grep -hE 'map\("[^"]+"|keys = \{ \{ "[^"]+"' "$ROOT"/modules/nvim/lua/plugins/*.lua | sed -E 's/.*(map\(|\{ \{ )"([^"]+)".*/\2/'
+        grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/modules/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
     } | sed -E 's/<[Ll]eader>/<leader>/; s/<[MmDd]-(.)>/Alt-\1/' | sort -u > "$tmp"
     report neovim "$tmp"
 
     # fish: custom `bind` lines (abbreviations are generated, so never missing)
-    grep -rhE '^[[:space:]]*bind[[:space:]]' "$ROOT/fish/config.fish" "$ROOT/fish/functions" 2>/dev/null | awk '{ print $2 }' | sort -u > "$tmp"
+    grep -rhE '^[[:space:]]*bind[[:space:]]' "$ROOT/modules/fish/config.fish" "$ROOT/modules/fish/functions" 2>/dev/null | awk '{ print $2 }' | sort -u > "$tmp"
     report fish "$tmp"
 
     rm -f "$tmp"

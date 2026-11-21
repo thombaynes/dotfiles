@@ -1,5 +1,5 @@
 # zsh
-> Emacs-style bindings, set up to feel like fish (see `zsh/CONTEXT.md`). Caps Lock is remapped to Ctrl (see `key-mappings/`). Abbreviations come from `fish/conf.d/abbreviations.fish`.
+> Emacs-style bindings, set up to feel like fish (see `modules/zsh/CONTEXT.md`). Caps Lock is remapped to Ctrl (see `modules/key-mappings/`). Abbreviations come from `modules/fish/conf.d/abbreviations.fish`.
 
 ## Cursor & Editing
 Ctrl-A / Ctrl-E | Start / end of line
@@ -40,4 +40,4 @@ pubkey | Copy the profile's `$SSH_KEY.pub` to the clipboard
 emptytrash | Empty the Trash and the download quarantine history
 
 ## Abbreviations
-@abbreviations fish/conf.d/abbreviations.fish
+@abbreviations modules/fish/conf.d/abbreviations.fish

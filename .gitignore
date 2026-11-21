@@ -1,5 +1,5 @@
-/iterm2/*.log
-/iterm2/*.pem
+/modules/iterm2/*.log
+/modules/iterm2/*.pem
 .DS_Store
 # The LSP uses ruby to run brew commands, but I don't really want this in the repo
 .ruby-lsp
