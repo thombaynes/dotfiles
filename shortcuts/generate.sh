@@ -13,7 +13,7 @@ SRC="$DIR/src"
 #   > text                         intro line
 #   ## Section                     starts a table
 #   key | action                   one shortcut; "a / b" renders as `a` / `b`
-#   @abbreviations path/to/file    expands every `abbr x y` line in that file (path from repo root)
+#   @abbreviations path/to/file    expands every `x expansion` line in that abbreviations list (path from repo root)
 render() {
     awk -v root="$ROOT" '
     function flush(   i, n, kw, aw, k, a, row) {
@@ -44,9 +44,9 @@ render() {
     function add(k, a) { count++; keys[count] = k; acts[count] = a }
     /^@abbreviations / {
         file = root "/" $2
-        cmd = "sed -nE \"s/^[[:space:]]*abbr ([a-z][^ ]*) ([^#]*[^# ]).*$/\\1\\t\\2/p\" \"" file "\""
+        cmd = "sed -nE \"s/^([a-z][^ ]*)[[:space:]]+([^#]*[^# ]).*$/\\1\\t\\2/p\" \"" file "\""
         while ((cmd | getline line) > 0) {
-            split(line, p, "\t"); gsub(/\\/, "", p[2]); gsub(/\|/, "\\|", p[2]); sub(/^--function /, "function ", p[2])
+            split(line, p, "\t"); gsub(/\|/, "\\|", p[2]); sub(/^@/, "function ", p[2])
             add("`" p[1] "`", "`" p[2] "`")
         }
         close(cmd); next
@@ -89,10 +89,6 @@ check() {
         grep -hE 'map\("[a-z]+", "[^"]+"' "$ROOT"/modules/nvim/lua/config/keymaps.lua | sed -E 's/.*map\("[a-z]+", "([^"]+)".*/\1/'
     } | sed -E 's/<[Ll]eader>/<leader>/; s/<[MmDd]-(.)>/Alt-\1/' | sort -u > "$tmp"
     report neovim "$tmp"
-
-    # fish: custom `bind` lines (abbreviations are generated, so never missing)
-    grep -rhE '^[[:space:]]*bind[[:space:]]' "$ROOT/modules/fish/config.fish" "$ROOT/modules/fish/functions" 2>/dev/null | awk '{ print $2 }' | sort -u > "$tmp"
-    report fish "$tmp"
 
     rm -f "$tmp"
     if [ "$missing" = 0 ]; then echo "Every binding found in the configs is documented."; fi

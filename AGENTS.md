@@ -23,10 +23,9 @@ The `modules/<name>/` rows are the modules the `Makefile` runs, in alphabetical 
 
 | Path | CONTEXT.md | Contents |
 | --- | --- | --- |
-| `modules/bin/` | ✅ | Small custom scripts, symlinked into `~/.local/bin/` (on the zsh and fish `PATH`). Shell-independent commands go here as bash scripts, not as shell functions. |
+| `modules/bin/` | ✅ | Small custom scripts, symlinked into `~/.local/bin/` (on the zsh `PATH`). Shell-independent commands go here as bash scripts, not as shell functions. |
 | `modules/claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
 | `modules/duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
-| `modules/fish/` | ✅ | Fish shell configuration symlinked into `~/.config/fish/`. No longer the login shell, but `conf.d/abbreviations.fish` is the abbreviation list for both shells. `config.fish` puts brew and MacPorts on the `PATH` if present. |
 | `modules/ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
 | `modules/git/` | ✅ | Git config and defaults, symlinked into `~`. `setup.sh` generates `~/.gitconfig-local` from the profile. |
 | `modules/hammerspoon/` | ❌ | Hammerspoon Lua config. Has its own README. Used for making a global hyper key. |
@@ -37,11 +36,11 @@ The `modules/<name>/` rows are the modules the `Makefile` runs, in alphabetical 
 | `modules/packages/` | ❌ | `Brewfile` of Homebrew formulae and casks, and `Portlist`, the MacPorts equivalent. `setup.sh` uses the profile's `PACKAGE_MANAGER`, and the Brewfile installs only the profile's `TERMINAL`. |
 | `modules/tmux/` | ❌ | `.tmux.conf`, symlinked into `~`.  `setup.sh` also clones tpm to `~/.tmux/plugins/tpm`. Plugins are declared in the conf and installed with `prefix + I`. |
 | `modules/vscode/` | ❌ | VS Code `settings.json`, symlinked into the app's User folder. |
-| `modules/zsh/` | ✅ | The login shell. `.zprofile` and `.zshrc`, symlinked into `~`, set up to feel like fish: abbreviations (read from fish's list), autosuggestions, syntax highlighting, substring history search. `setup.sh` also sets zsh as the login shell. |
+| `modules/zsh/` | ✅ | The login shell. `.zprofile` and `.zshrc`, symlinked into `~`, set up to feel like fish: abbreviations (`abbreviations.list`), autosuggestions, syntax highlighting, substring history search. `setup.sh` also sets zsh as the login shell. |
 | `TODO/` | ❌ | `TODO.txt`, loose ideas for this repo. |
 | `profiles/` | ❌ | One file of settings per kind of machine (`auros.sh`, `personal.sh`). `load_profile` links the active one. See Profiles above. |
 | `scripts/` | ❌ | `functions.sh`, the shared helpers sourced by every `setup.sh`, including the dry run ones. `status.sh` runs each `setup.sh` in a dry run for `make status`. |
-| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `zsh.md`, `fish.md`, `claude.md`) in a two-column markdown table that prints nicely. Also `workflows.md`, a hand-written file of how-tos that combine them. No `setup.sh`: `make shortcuts` regenerates the sheets (it runs `shortcuts/generate.sh`), and it is not part of `make all` or `bootstrap.sh`. |
+| `shortcuts/` | ✅ | One-stop keyboard shortcut cheat sheets (`neovim.md`, `tmux.md`, `zsh.md`, `claude.md`) in a two-column markdown table that prints nicely. Also `workflows.md`, a hand-written file of how-tos that combine them. No `setup.sh`: `make shortcuts` regenerates the sheets (it runs `shortcuts/generate.sh`), and it is not part of `make all` or `bootstrap.sh`. |
 
 ## Root files
 
@@ -59,7 +58,7 @@ A dry run depends on every change in a `setup.sh` going through the helpers in `
 
 ## fzf, fzf-lua, ripgrep and nvim
 
-`FZF_DEFAULT_COMMAND` in `modules/zsh/.zprofile` (an `rg --files` command) is the single source of truth for file listing. The `fzf` binary runs it in the shell and nvim's fzf-lua reads it from the environment (`modules/nvim/lua/plugins/fzf.lua`), so change it there. `modules/fish/config.fish` exports the same value for fish sessions; keep the two in sync. See `modules/nvim/CONTEXT.md` for the fzf-lua details.
+`FZF_DEFAULT_COMMAND` in `modules/zsh/.zprofile` (an `rg --files` command) is the single source of truth for file listing. The `fzf` binary runs it in the shell and nvim's fzf-lua reads it from the environment (`modules/nvim/lua/plugins/fzf.lua`), so change it there. See `modules/nvim/CONTEXT.md` for the fzf-lua details.
 
 ## When making changes
 

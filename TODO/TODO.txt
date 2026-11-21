@@ -2,8 +2,6 @@ Update the README or AGENTS.md to have broad strategic guidelines. So far the de
 
 Revisit TypeScript linting config (eslint LSP in modules/nvim/lua/plugins/lsp.lua, maybe biome or fix-on-save) once I know more about TypeScript
 
-Once we are confident that fish isn't needed we need to move the abbreviations out of that folder and into zsh, then remove it entirely
-
 Give modules/macos/setup.sh a dry run so make status covers it, then remove the filter-out of macos in the Makefile and its early exit in a dry run. Route the defaults write lines through a helper that reads the current value first (defaults read prints bools as 1/0). The -dict / -dict-add and PlistBuddy lines need their own comparison, and systemsetup can't be read without sudo, so report those as not checked.
 
 Maybe write ~/.gitconfig-local in modules/git/setup.sh from a heredoc in gitconfig format (like the JSON blob in modules/claude/setup.sh) instead of two git config --file calls, so the generated file is readable in the script. Catch: it would overwrite the whole file each run, so only do it if nothing is ever added to ~/.gitconfig-local by hand.

@@ -1,28 +1,26 @@
-# Fish-style abbreviations: `gs` then Space or Enter becomes `git status`, so history holds the full command.
-# The list is fish's (modules/fish/conf.d/abbreviations.fish), so both shells and the cheat sheet share one file.
+# Abbreviations, inspired by fish: `gs` then Space or Enter becomes `git status`, so history holds the full command.
+# The list is abbreviations.list, which the cheat sheet reads too.
 # Like fish they only expand in command position (start of the line, or after ; | & or a `(`). Ctrl-Space inserts a plain space.
 
 typeset -gA ABBRS ABBR_FUNCTIONS
 
 () {
-    local line rest key expansion
+    setopt localoptions extendedglob
+    local line key expansion
     for line in "${(@f)$(<$1)}"; do
-        [[ $line == abbr\ * ]] || continue
-        line=${line%% \#*}
-        rest=${line#abbr }
-        key=${rest%% *}
-        expansion=${rest#* }
-        if [[ $expansion == --function\ * ]]; then
-            ABBR_FUNCTIONS[$key]=${expansion#--function }
+        [[ $line == [[:space:]]#(\#*|) ]] && continue
+        line=${line%%[[:space:]]##\#*}
+        key=${line%%[[:space:]]*}
+        expansion=${${line#$key}##[[:space:]]#}
+        if [[ $expansion == @* ]]; then
+            ABBR_FUNCTIONS[$key]=${expansion#@}
         else
-            # Fish command substitution \(...\) becomes $(...)
-            expansion=${expansion//\\\(/\$(}
-            ABBRS[$key]=${expansion//\\\)/)}
+            ABBRS[$key]=$expansion
         fi
     done
-} ${${(%):-%x}:A:h:h}/fish/conf.d/abbreviations.fish
+} ${${(%):-%x}:A:h}/abbreviations.list
 
-# zsh version of fish/functions/__abbr_grbm.fish: rebase onto the local copy of the repo's default branch (from origin/HEAD)
+# The `@__abbr_grbm` abbreviation: rebase onto the local copy of the repo's default branch (from origin/HEAD)
 __abbr_grbm() {
     print -r -- "git rebase ${$(git symbolic-ref --short refs/remotes/origin/HEAD)#origin/}"
 }

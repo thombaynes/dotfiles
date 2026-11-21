@@ -6,8 +6,7 @@ SHELL := /bin/bash
 
 # Install order for make all. Every module after packages needs something it installed
 MODULES := packages     # Brewfile or Portlist, from the profile's PACKAGE_MANAGER
-MODULES += zsh          # Login shell and zsh config. Reads the abbreviations in modules/fish/
-MODULES += fish         # Previous shell's config, kept working
+MODULES += zsh          # Login shell and zsh config, including the abbreviations list
 MODULES += git          # Config and the SSH signing key setup
 MODULES += tmux         # Clones tpm
 MODULES += nvim
