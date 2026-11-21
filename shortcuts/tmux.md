@@ -24,12 +24,10 @@ Prefix is `Ctrl-Space`. Pressing `Prefix Space` sends a literal `Ctrl-Space` to 
 
 ## Sessions
 
-| Key                         | Action                            | Key                    | Action                   |
-| --------------------------- | --------------------------------- | ---------------------- | ------------------------ |
-| `Prefix d`                  | Detach                            | `Prefix s`             | Choose session from list |
-| `Prefix $`                  | Rename session                    | `Prefix (` / `)`       | Previous / next session  |
-| `Prefix s` then `x`         | Kill highlighted session          | `Prefix :kill-session` | Kill current session     |
-| `tmux kill-session -t name` | Kill a named session (from shell) | `tmux kill-server`     | Kill all sessions        |
+| Key        | Action         | Key              | Action                   |
+| ---------- | -------------- | ---------------- | ------------------------ |
+| `Prefix d` | Detach         | `Prefix s`       | Choose session from list |
+| `Prefix $` | Rename session | `Prefix (` / `)` | Previous / next session  |
 
 ## Copy Mode (vi keys)
 

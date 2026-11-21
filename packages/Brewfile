@@ -12,6 +12,7 @@ brew "rbenv"                # How ruby versions are managed at the time of onboa
 brew "ruby-build"           # Helps with rbenv somehow
 brew "nodenv"               # How node versions are managed at the time of onboarding
 brew "node-build"           # Helps with nodenv somehow
+brew "nx"                   # Nx build system, used in the orders and results repos
 cask "ngrok"                # Local dev can be shared
 
 # General

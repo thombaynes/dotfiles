@@ -56,16 +56,38 @@ abbr lb local-branches
 abbr ll ls -lhA
 abbr mci mvn clean install
 abbr mcp mvn clean pre-integration-test
+abbr n nx
+abbr na nx affected
+abbr nat nx affected -t
+abbr nb nx build
+abbr ne nx e2e
+abbr nf nx format:write
+abbr nfc nx format:check
+abbr ngen nx generate
+abbr ngr nx graph
+abbr nln nx lint
+abbr nmg nx migrate
+abbr nr nx run
+abbr nrm nx run-many
+abbr nrmt nx run-many -t
+abbr nrst nx reset
+abbr ns nx serve
+abbr nsp nx show projects
+abbr nt nx test
 abbr p pnpm
 abbr pa pnpm add
 abbr pad pnpm add -D
 abbr pau pnpm run audit:deps
 abbr pb pnpm build
+abbr pci pnpm install --frozen-lockfile
 abbr pdc pnpm run depcheck
+abbr pdx pnpm dlx
 abbr pe pnpm exec
 abbr pf pnpm format
 abbr pi pnpm install
 abbr pl pnpm lint
+abbr pls pnpm ls
+abbr pout pnpm outdated
 abbr prm pnpm remove
 abbr prn pnpm run
 abbr pst pnpm start
@@ -78,6 +100,7 @@ abbr ptd pnpm test:debug
 abbr pte pnpm test:e2e
 abbr ptu pnpm test:unit
 abbr ptw pnpm test:watch
+abbr pu pnpm update
 abbr rc bundle exec rails console
 abbr rdb rails db:
 abbr rdbm rails db:migrate
