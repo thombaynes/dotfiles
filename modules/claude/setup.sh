@@ -25,6 +25,7 @@ done
 # settings.json is changed by Claude Code with every model change, so we merge this subset into it rather than
 # symlinking over it. Objects merge key by key and arrays are unioned, so anything else in the file is kept.
 # - CLAUDE_CODE_SHELL: Claude's Bash tool and the ! prompt shell use zsh, the login shell (see modules/zsh/), so they get the same PATH and setup
+# - cleanupPeriodDays: days before old sessions are deleted (default 90). 9999 keeps them effectively forever. When this becomes a problem let's revisit.
 # - deny Artifact: no claude.ai hosted pages, so Claude answers in the terminal instead of publishing
 MANAGED_SETTINGS=$(cat <<'EOF'
 {
@@ -32,6 +33,7 @@ MANAGED_SETTINGS=$(cat <<'EOF'
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
+  "cleanupPeriodDays": 9999,
   "env": {
     "CLAUDE_CODE_SHELL": "/bin/zsh"
   },
