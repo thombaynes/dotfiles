@@ -24,7 +24,7 @@ The `modules/<name>/` rows are the modules the `Makefile` runs, in alphabetical 
 | Path | CONTEXT.md | Contents |
 | --- | --- | --- |
 | `modules/bin/` | ✅ | Small custom scripts, symlinked into `~/.local/bin/` (on the zsh `PATH`). Shell-independent commands go here as bash scripts, not as shell functions. |
-| `modules/claude/` | ❌ | Claude Code status line. Symlinks into `~/.claude/` |
+| `modules/claude/` | ❌ | Claude Code status line, and `skills/`. Symlinks into `~/.claude/` |
 | `modules/duti/` | ❌ | Default-app associations: one file per app bundle ID listing the extensions it opens. `setup.sh` applies them with `duti`. |
 | `modules/ghostty/` | ❌ | Ghostty `config.ghostty`, symlinked into `~/Library/Application Support/com.mitchellh.ghostty/`. The terminal for newer Macs. |
 | `modules/git/` | ✅ | Git config and defaults, symlinked into `~`. `setup.sh` generates `~/.gitconfig-local` from the profile. |

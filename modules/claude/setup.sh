@@ -16,6 +16,12 @@ info "Setting up Claude Code..."
 make_dir "$DESTINATION"
 symlink "$SOURCE/statusline.sh" "$DESTINATION/statusline.sh"
 
+# Each skill in skills/ is linked whole into ~/.claude/skills
+make_dir "$DESTINATION/skills"
+for skill in "$SOURCE"/skills/*/; do
+    symlink "${skill%/}" "$DESTINATION/skills/$(basename "$skill")"
+done
+
 # settings.json is changed by Claude Code with every model change, so we merge this subset into it rather than
 # symlinking over it. Objects merge key by key and arrays are unioned, so anything else in the file is kept.
 # - CLAUDE_CODE_SHELL: Claude's Bash tool and the ! prompt shell use zsh, the login shell (see modules/zsh/), so they get the same PATH and setup
