@@ -53,7 +53,6 @@ opt.timeoutlen = 500
 opt.whichwrap:append("<,>,h,l")
 opt.wildmode = { "longest:full", "full" }
 
--- Yank and paste through the system clipboard (on macOS + and * are the same pasteboard)
-opt.clipboard = "unnamedplus"
+-- Yank and paste through the system clipboard: set up in clipboard.lua (debounced, to keep key repeat fast)
 
 -- The colourscheme is set by plugins/tokyonight.lua, because it has to be installed first

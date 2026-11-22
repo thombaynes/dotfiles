@@ -1,5 +1,6 @@
 -- Editor config. Loaded first so mapleader is set before plugins define their keys.
 require("config.options")
+require("config.clipboard")
 require("config.keymaps")
 require("config.autocmds")
 
