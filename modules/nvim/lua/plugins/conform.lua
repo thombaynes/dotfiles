@@ -9,6 +9,9 @@ for _, ft in ipairs(prettier_filetypes) do
   formatters_by_ft[ft] = { "prettier" }
 end
 
+-- xmllint ships with macOS
+formatters_by_ft.xml = { "xmllint" }
+
 return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
