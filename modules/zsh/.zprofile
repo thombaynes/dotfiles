@@ -17,7 +17,7 @@ export LANG=en_CA.UTF-8
 export CLICOLOR=1
 
 # File listing command shared by fzf and nvim's fzf-lua (see modules/nvim/lua/plugins/fzf.lua). ripgrep makes it MUCH FASTER
-export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -G .git"
 
 # Programs that open an editor (git, Claude Code's Ctrl-G, zsh's Alt-E) use these
 export EDITOR=nvim
