@@ -39,6 +39,7 @@ brew "redis"                # Great caching and sub tool
 brew "ssh-copy-id"          # Utility for SSH keys
 brew "tmux"                 # Terminal window manager. Will have a growing config file in this repo
 brew "wget"                 # Utility for retrieving files
+brew "zsh"                  # The login shell, newer than the one macOS ships. zsh/setup.sh makes it the login shell
 brew "zsh-autosuggestions"  # Fish-style grey suggestions from history as you type (zsh is the login shell, see ./zsh)
 brew "zsh-history-substring-search" # Fish-style Up/Down history search for what's typed so far
 brew "zsh-syntax-highlighting" # Fish-style colouring of commands as you type

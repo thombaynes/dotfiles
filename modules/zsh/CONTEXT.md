@@ -29,6 +29,6 @@ zsh/
 ├── abbreviations.zsh    Reads the list and binds Space/Enter to expand it. Sourced by `.zshrc`.
 ├── CONTEXT.md           This file.
 ├── starship.toml        Prompt config (full path in the directory module). Symlinked to `~/.config/starship.toml`.
-└── setup.sh             Symlinks `.zprofile` and `.zshrc` into `~` and `starship.toml` into `~/.config`, and makes `/bin/zsh` the login shell.
+└── setup.sh             Symlinks `.zprofile` and `.zshrc` into `~` and `starship.toml` into `~/.config`, and makes the package manager's zsh (brew or MacPorts, not `/bin/zsh`) the login shell, adding it to `/etc/shells` first.
 ```
 

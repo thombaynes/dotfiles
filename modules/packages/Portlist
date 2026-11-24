@@ -29,6 +29,7 @@ tmux
 ttf-nerd-fonts-symbols
 tree-sitter-cli
 wget
+zsh
 zsh-autosuggestions
 zsh-history-substring-search
 zsh-syntax-highlighting

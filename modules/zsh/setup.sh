@@ -8,8 +8,12 @@ cd "$DIR"
 profile_guard
 
 SOURCE="$(pwd -P)"
-# macOS ships zsh and already lists it in /etc/shells, so use it rather than a brew or MacPorts copy
-ZSH_PATH=/bin/zsh
+# zsh comes from the profile's package manager (see modules/packages), not the older copy macOS ships
+if [ "$PACKAGE_MANAGER" = brew ]; then
+    ZSH_PATH="$(brew --prefix 2>/dev/null || echo /opt/homebrew)/bin/zsh"
+else
+    ZSH_PATH=/opt/local/bin/zsh
+fi
 
 info "Setting up zsh..."
 
@@ -30,6 +34,24 @@ make_dir "$HOME/.config"
 symlink "$SOURCE/starship.toml" "$HOME/.config/starship.toml"
 
 set_zsh_shell() {
+    if [ ! -x "$ZSH_PATH" ]; then
+        # The packages module installs it, so on a dry run before that this is a change to report
+        if dry_run; then
+            would "install zsh with $PACKAGE_MANAGER (expected at $ZSH_PATH) and make it the login shell"
+            return
+        fi
+        substep_error "$ZSH_PATH is not installed. Run make packages first."
+        return 1
+    fi
+    # chsh only accepts shells listed in /etc/shells
+    if ! grep -qx "$ZSH_PATH" /etc/shells; then
+        if dry_run; then
+            would "add $ZSH_PATH to /etc/shells"
+        else
+            substep_info "Adding $ZSH_PATH to /etc/shells"
+            echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null || return 1
+        fi
+    fi
     # $SHELL is only updated at the next login, so ask Directory Services for the current login shell
     if [ "$(dscl . -read "/Users/$USER" UserShell | awk '{ print $2 }')" = "$ZSH_PATH" ]; then
         substep_success "zsh is already the login shell."
