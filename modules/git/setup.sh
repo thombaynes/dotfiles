@@ -26,16 +26,24 @@ if [ ! -f "$IDENTITY" ]; then
 fi
 
 # ~/.gitconfig-local is generated rather than linked, as it combines the profile's identity file with its signing key.
-# Remove the link older setups made, so git config doesn't write through it into the repo.
+# The whole file is rewritten from the template below, so don't add anything to it by hand: put it in the profile's identity file instead.
+# Remove the link older setups made, so writing it doesn't go through into the repo.
 LOCAL="$DESTINATION/.gitconfig-local"
 PUBKEY="$SSH_KEY.pub"
-if [ ! -h "$LOCAL" ] && [ "$(git config --file "$LOCAL" include.path 2>/dev/null)" = "$IDENTITY" ] && [ "$(git config --file "$LOCAL" user.signingkey 2>/dev/null)" = "$PUBKEY" ]; then
+LOCAL_CONFIG=$(cat <<EOF
+[include]
+	path = $IDENTITY
+[user]
+	signingkey = $PUBKEY
+EOF
+)
+if [ ! -h "$LOCAL" ] && [ "$(cat "$LOCAL" 2>/dev/null)" = "$LOCAL_CONFIG" ]; then
     :
 elif dry_run; then
     would "write $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)"
 else
     [ -h "$LOCAL" ] && rm "$LOCAL"
-    if git config --file "$LOCAL" include.path "$IDENTITY" && git config --file "$LOCAL" user.signingkey "$PUBKEY"; then
+    if echo "$LOCAL_CONFIG" > "$LOCAL"; then
         substep_success "Wrote $LOCAL (identity: $IDENTITY, signing key: $PUBKEY)."
     else
         substep_error "Failed to write $LOCAL."

@@ -55,7 +55,6 @@ kgr     kubectl get replicasets -o wide
 kpr     kyverno-policy-reporter
 krs     kubectl rollout status
 krh     kubectl rollout history
-lb      local-branches
 ll      ls -lhA
 mci     mvn clean install
 mcp     mvn clean pre-integration-test
