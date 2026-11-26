@@ -10,11 +10,12 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | `<leader>e` | Toggle file tree     | `<leader>?` | Show buffer keymaps                   |
 | `<leader>-` | Maximise window      | `<leader>=` | Equalise windows                      |
 
-## Markdown
+## Render
 
-| Key          | Action                                              | Key          | Action                                                              |
-| ------------ | --------------------------------------------------- | ------------ | ------------------------------------------------------------------- |
-| `<leader>mp` | Toggle in-buffer markdown preview (render-markdown) | `<leader>mo` | Open / close live markdown preview in the browser (renders mermaid) |
+| Key          | Action                                                                                   | Key          | Action                                                              |
+| ------------ | ---------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------- |
+| `<leader>rm` | Toggle in-buffer markdown preview (render-markdown)                                      | `<leader>rb` | Open / close live markdown preview in the browser (renders mermaid) |
+| `<leader>rh` | Render the Helm chart template in a split (yaml; prompts for a values-*.yaml if several) |              |                                                                     |
 
 ## Tabs
 
@@ -67,5 +68,5 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | ----------- | ---------------- | ----------- | ------------------- |
 | `<leader>t` | Run spec file    | `<leader>s` | Run nearest spec    |
 | `<leader>l` | Run last spec    | `<leader>a` | Run all specs       |
-| `<leader>r` | Show spec output | `<leader>S` | Toggle spec summary |
+| `<leader>R` | Show spec output | `<leader>S` | Toggle spec summary |
 

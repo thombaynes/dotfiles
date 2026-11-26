@@ -21,12 +21,12 @@ nvim/
 │   ├── clipboard.lua  Shares the system clipboard through a debounced pbcopy provider. See "Keep it VERY FAST" above.
     │   ├── keymaps.lua    Global key mappings, each with a desc for which-key.
     │   ├── autocmds.lua   Autocommands: resize splits, spell check commits, restore cursor, trim trailing whitespace, highlight yanks, reload files changed outside nvim.
-    │   ├── helm.lua       `<leader>mp` in a yaml file inside a Helm chart renders it with `helm template` into a split.
+    │   ├── helm.lua       Helm rendering achieved via `helm template`.
     │   └── lazy.lua       Bootstraps lazy.nvim and imports every spec in lua/plugins/.
     └── plugins/         One lazy.nvim spec per file; a plugin's own keys live beside it.
         ├── beacon.lua     Flashes the cursor line after a jump.
-        ├── blink.lua      blink.cmp completion, off until `<leader>c` toggles it; `<C-space>` opens the menu by hand.
-        ├── conform.lua    Prettier on save and `<leader>f`, only where a prettier config exists above the file.
+        ├── blink.lua      Auto-complete via blink.cmp. Off by default.
+        ├── conform.lua    Prettier on save and `<leader>f`. Needs formatting config per file type.
         ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
         ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols. See "fzf-lua" below.
@@ -34,13 +34,13 @@ nvim/
         ├── lualine.lua    Statusline (replaces airline).
         ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), `gd`/`gD`, and Ruby format on save.
         ├── neo-tree.lua   File tree; `<leader>e` toggles it and dotfiles show by default.
-        ├── neotest.lua    neotest with neotest-rspec and neotest-vitest; `<leader>t/s/l/a` run file, nearest, last, all specs.
-        ├── markdown-preview.lua  markdown-preview.nvim; `<leader>mo` opens a live browser preview (renders mermaid). Needs node for its build.
-        ├── render-markdown.lua   render-markdown.nvim; `<leader>mp` toggles in-buffer rendering (off by default; mermaid stays as code).
+        ├── neotest.lua    neotest with neotest-rspec and neotest-vitest.
+        ├── markdown-preview.lua  markdown-preview.nvim; `<leader>rb` opens a live browser preview (renders mermaid). Needs node for its build.
+        ├── render-markdown.lua   render-markdown.nvim; `<leader>rm` toggles in-buffer rendering (off by default; mermaid stays as code).
         ├── tmux-navigator.lua  `<C-h/j/k/l>` moves between nvim splits and tmux panes.
-        ├── tokyonight.lua Colourscheme (moon variant); loaded first and sets `colorscheme tokyonight`.
+        ├── tokyonight.lua Colourscheme for nvim.
         ├── treesitter.lua Parsers for Ruby, JS/TS, JSON (needed by neotest) and markdown (needed by render-markdown), and treesitter highlighting for the non-markdown ones (nvim starts it for markdown itself).
-        └── which-key.lua  Popup of available keys after a prefix; `<leader>?` shows the buffer's keymaps.
+        └── which-key.lua  Learn available shortucts - Popup of available keys after `<leader>?`.
 ```
 
 ## fzf-lua

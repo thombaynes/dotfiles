@@ -5,6 +5,6 @@ return {
   cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
   build = "cd app && npm install",
   keys = {
-    { "<leader>mo", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Markdown open (in browser)" },
+    { "<leader>rb", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Markdown open (in browser)" },
   },
 }
