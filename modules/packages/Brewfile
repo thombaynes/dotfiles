@@ -24,6 +24,7 @@ brew "fd"                   # Without this fzf-lua has a checkHealth complaint i
 brew "starship"             # Cross-shell prompt, used by zsh
 brew "fzf"                  # Fuzzy File Finder for easy navigation. Needed by fzf-lua in nvim (<leader>p); depends on ripgrep
 brew "git"                  # Source control
+brew "go-task"              # Task runner for dev work (the formula is in homebrew-core)
 brew "helm"                 # Kubernetes package manager. Outside the local cluster section on purpose: useful without a local cluster
 brew "jq"                   # JSON processor
 brew "yq"                   # YAML processor
@@ -60,7 +61,6 @@ cask "firefox"                      # Gotta have the fox
 # so setup.sh passes it as HOMEBREW_TERMINAL. Without it, e.g. a hand-run brew bundle, both install
 cask "ghostty" unless ENV["HOMEBREW_TERMINAL"] == "iterm2" # Terminal of choice. Config lives in ./ghostty
 # cask "google-chrome"                # Gotta have Chrome (Managed by Auros)
-cask "go-task/tap/go-task"          # Great for dev work
 cask "hammerspoon"                  # ./hammerspoon has config details (left control is hyper key)
 cask "iterm2" unless ENV["HOMEBREW_TERMINAL"] == "ghostty" # Terminal for older Macs that Ghostty doesn't support
 cask "podman-desktop"                # GUI for managing containers and images with Podman
