@@ -32,7 +32,7 @@ nvim/
         ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols. See "fzf-lua" below.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.
         ├── lualine.lua    Statusline (replaces airline).
-        ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), `gd`/`gD`, and Ruby format on save.
+        ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), LSP keymaps, Ruby format on save, and ruby-lsp launched with the project's rbenv Ruby.
         ├── neo-tree.lua   File tree; `<leader>e` toggles it and dotfiles show by default.
         ├── neotest.lua    neotest with neotest-rspec and neotest-vitest.
         ├── markdown-preview.lua  markdown-preview.nvim; `<leader>rb` opens a live browser preview (renders mermaid). Needs node for its build.
