@@ -55,7 +55,6 @@ return {
           map("gD", vim.lsp.buf.type_definition, "Go to type definition")
           map("<leader>d", vim.diagnostic.open_float, "Line diagnostics")
           map("<leader>q", vim.diagnostic.setloclist, "Buffer diagnostics to location list")
-          map("<leader>rn", vim.lsp.buf.rename, "Rename symbol")
           map("<leader>F", function() vim.lsp.buf.format({ bufnr = args.buf }) end, "Format buffer")
           map("<C-k>", vim.lsp.buf.signature_help, "Signature help")
           map("<leader>i", function()
