@@ -11,6 +11,7 @@ brew "nodenv"               # How node versions are managed at the time of onboa
 brew "node-build"           # Helps with nodenv somehow
 brew "nx"                   # Nx build system, used in the orders and results repos
 cask "ngrok"                # Local dev can be shared
+brew "openjdk@21"           # Needed by node openapitools (openapi-generator-cli) that generate clients, e.g. core-authorization/client. Keg-only: brew info says how to symlink it so /usr/bin/java finds it
 
 # General
 brew "awscli"               # For AWS apps
