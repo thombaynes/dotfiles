@@ -3,6 +3,9 @@
 -- Why a custom provider: nvim's built-in one spawns pbcopy for every register write, and each spawn takes
 -- about 20ms. Holding x repeats every 15ms, so keys queued faster than they ran and kept landing for over a
 -- second after release. This provider debounces the writes: a burst costs a single pbcopy.
+--
+-- BUT that broke something simple like 'dd' then 'p', hence all the copy and paste code getting even bigger.
+-- Not ideal but it seems to work.
 vim.opt.clipboard = "unnamedplus"
 
 local pending -- { lines, regtype } not yet written to the pasteboard
@@ -20,8 +23,11 @@ local function flush(wait)
   end
 end
 
+local last -- { lines, regtype } most recently copied by nvim; pbpaste can't carry the register type
+
 local function copy(lines, regtype)
   pending = { lines, regtype }
+  last = { lines, regtype }
   timer:start(100, 0, vim.schedule_wrap(function() flush() end))
 end
 
@@ -29,7 +35,16 @@ local function paste()
   if pending then
     return pending
   end
-  return { vim.fn.systemlist("pbpaste"), "" }
+  local lines = vim.fn.systemlist("pbpaste")
+  -- A linewise copy arrives as { "text", "" }, but systemlist drops that trailing empty line
+  local copied = vim.deepcopy(last and last[1] or {})
+  if copied[#copied] == "" then
+    copied[#copied] = nil
+  end
+  if last and vim.deep_equal(lines, copied) then
+    return last -- same text nvim copied: keep its linewise/blockwise type
+  end
+  return { lines, "" }
 end
 
 vim.g.clipboard = {
