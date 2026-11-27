@@ -47,11 +47,11 @@ nvim/
 
 ## LSP
 
-Language servers come from `lua/plugins/lsp.lua` (installed by Mason, started with `vim.lsp.enable`). Supported languages:
+Language servers come from `lua/plugins/lsp.lua`. Supported languages:
 
-- **Ruby:** `ruby_lsp`, with standardrb for formatting (on save) and linting. Runs on the project's rbenv Ruby.
+- **Ruby:** `ruby_lsp` with standardrb for formatting on the project's rbenv Ruby.
 - **JavaScript / TypeScript (including JSX and TSX):** `ts_ls`, plus `eslint` where the project has an eslint config. Prettier formats on save via conform.
-- **Lua:** `lua_ls`, set up for the nvim runtime (`vim` is a known global).
+- **Lua:** `lua_ls`
 
 ## fzf-lua
 
