@@ -23,6 +23,17 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden -G .git"
 export EDITOR=nvim
 export VISUAL=nvim
 
+# Cloudflare WARP re-signs TLS traffic with its own CA. Node ignores the macOS keychain, so trust that CA explicitly
+# (e.g. openapi-generator-cli downloading its jar from Maven Central). No-op on machines without WARP
+test -r "/Library/Application Support/Cloudflare/installed_cert.pem" && export NODE_EXTRA_CA_CERTS="/Library/Application Support/Cloudflare/installed_cert.pem"
+
+# openjdk@21 from Homebrew is keg-only, so macOS's /usr/bin/java stub can't find it. openapi-generator-cli (node openapitools
+# that generate clients) needs a real java. Avoids the sudo symlink into /Library/Java/JavaVirtualMachines. No-op without it
+if [[ -d ${HOMEBREW_PREFIX:-/opt/homebrew}/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home ]]; then
+    export JAVA_HOME=${HOMEBREW_PREFIX:-/opt/homebrew}/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
+    path=($JAVA_HOME/bin $path)
+fi
+
 # This machine's profile (see profiles/, linked by the setup scripts): HOME_REPO and SSH_KEY for interactive use
 if [[ -r ~/.config/dotfiles/profile.sh ]]; then
     source ~/.config/dotfiles/profile.sh
