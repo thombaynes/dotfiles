@@ -16,7 +16,8 @@ return {
   "stevearc/conform.nvim",
   event = "BufWritePre",
   cmd = "ConformInfo",
-  keys = { { "<leader>f", function() require("conform").format({ lsp_format = "never" }) end, desc = "Format file" } },
+  -- By hand, fall back to the LSP where there is no formatter: ruby_lsp runs standardrb (same as its format on save, see lsp.lua)
+  keys = { { "<leader>f", function() require("conform").format({ lsp_format = "fallback" }) end, desc = "Format file" } },
   opts = {
     formatters_by_ft = formatters_by_ft,
     formatters = { prettier = { require_cwd = true } },

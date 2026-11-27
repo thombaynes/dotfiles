@@ -28,7 +28,7 @@ nvim/
     └── plugins/         One lazy.nvim spec per file; a plugin's own keys live beside it.
         ├── beacon.lua     Flashes the cursor line after a jump.
         ├── blink.lua      blink.cmp completion. Off by default. Enable with <leader>c.
-        ├── conform.lua    Formatting on save. Prettier only where the project has a prettier config (searched upwards, so monorepo sub-folders work); `xmllint` for XML. LSP formatting is disabled here.
+        ├── conform.lua    Formatting on save. Prettier only where the project has a prettier config (searches upwards); `xmllint` for XML. Ruby LSP used on save.
         ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   Git stuff via vim-fugitive, loaded on its commands.
         ├── fzf.lua        fzf-lua for file, text, buffer, recent-file and symbol lookups. See "fzf-lua" below.

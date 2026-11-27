@@ -63,7 +63,7 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | ----------------- | ------------------------------------ | ----------- | --------------------------------------------------- |
 | `<leader>c`       | Toggle autocomplete (off by default) | `<C-space>` | Open completion menu by hand                        |
 | `<C-n>` / `<C-p>` | Select next / prev item              | `<C-y>`     | Accept item                                         |
-| `<C-e>`           | Hide menu                            | `<leader>f` | Format file (prettier, if the project has a config) |
+| `<C-e>`           | Hide menu                            | `<leader>f` | Format file (prettier if the project has a config, else the LSP, e.g. standardrb for Ruby) |
 
 ## Testing (neotest)
 
