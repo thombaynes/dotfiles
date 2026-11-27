@@ -7,6 +7,9 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | Key         | Action               | Key         | Action                                |
 | ----------- | -------------------- | ----------- | ------------------------------------- |
 | `<leader>p` | Find files (fzf-lua) | `<leader>o` | Find symbols / classes (fzf-lua, LSP) |
+| `<leader>/` | Search project text (fzf-lua) | `<leader>*` | Search project for word under cursor (fzf-lua) |
+| `<leader>b` | Find open buffers (fzf-lua) | `<leader>.` | Find recent files (fzf-lua) |
+| `<leader>'` | Resume last fzf search (fzf-lua) | `<leader><leader>` | Toggle last buffer |
 | `<leader>e` | Toggle file tree     | `<leader>?` | Show buffer keymaps                   |
 | `<leader>-` | Maximise window      | `<leader>=` | Equalise windows                      |
 

@@ -31,7 +31,7 @@ nvim/
         ├── conform.lua    Prettier on save and `<leader>f`. Needs formatting config per file type.
         ├── dropbar.lua    Breadcrumbs in the winbar (symbols only, from LSP with a treesitter fallback).
         ├── fugitive.lua   vim-fugitive (`:Git`), loaded on its commands.
-        ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols. See "fzf-lua" below.
+        ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols, `<leader>/` greps project text, `<leader>*` greps the word under the cursor, `<leader>b` lists buffers, `<leader>.` recent files, `<leader>'` resumes the last search. See "fzf-lua" below.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.
         ├── lualine.lua    Statusline (replaces airline).
         ├── lsp.lua        nvim-lspconfig with mason and LSP keymaps. See LSP section below for list of supported languages.
@@ -55,9 +55,9 @@ Language servers come from `lua/plugins/lsp.lua`. Supported languages:
 
 ## fzf-lua
 
-fzf-lua (`lua/plugins/fzf.lua`) is a Lua front end that drives the `fzf` binary (Brewfile) inside nvim. It is loaded lazily, on `:FzfLua` or its two keys.
+fzf-lua (`lua/plugins/fzf.lua`) is a Lua front end that drives the `fzf` binary (Brewfile) inside nvim. It is loaded lazily, on `:FzfLua` or its keys.
 
-- **`<leader>p`** runs `files()`. The listing command is `files.cmd = vim.env.FZF_DEFAULT_COMMAND`, which `modules/zsh/.zprofile` exports as `rg --files --hidden -G .git`. The shell's `fzf` runs the same variable, so the two stay in sync; change it in the shell config only.
+- **`<leader>p`** runs `files()`. The listing command is `files.cmd = vim.env.FZF_DEFAULT_COMMAND`. The shell's `fzf` runs with that, so the two stay in sync; change it in the shell config only.
 - **Why an env var:** nvim runs commands through `sh`, which can't see shell aliases or functions, so only an exported variable reaches it. nvim has to be started from a shell that has it (zsh does).
 - **Fallback:** if the variable is unset, `files.cmd` is nil and fzf-lua picks its own tool: `fd`, then `rg`, then `find`.
 - **`<leader>o`** runs `lsp_live_workspace_symbols()`. It asks the LSP server (ruby-lsp for Ruby) for symbols matching what you type, so it uses neither `rg` nor `fd`. With no LSP client attached it reports "LSP: no client attached".
