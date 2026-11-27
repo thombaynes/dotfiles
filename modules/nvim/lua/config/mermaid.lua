@@ -3,6 +3,7 @@
 -- In markdown it renders the ```mermaid block under the cursor
 -- Prompts if the cursor is outside one and the file has several.
 -- In a `.mmd` / `.mermaid` file it renders the whole buffer.
+-- After installing or upgrading mermaid-cli, run `$(brew --prefix mermaid-cli)/libexec/lib/node_modules/@mermaid-js/mermaid-cli/node_modules/.bin/puppeteer browsers install chrome-headless-shell` (brew does not ship the browser).
 local group = vim.api.nvim_create_augroup("config_mermaid", { clear = true })
 
 -- Returns the lines of every ```mermaid block as { start = fence line, stop = closing fence line, lines = {...} }

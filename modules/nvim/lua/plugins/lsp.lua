@@ -9,7 +9,7 @@ return {
       {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = { "ts_ls", "ruby_lsp", "eslint" },
+          ensure_installed = { "ts_ls", "ruby_lsp", "eslint", "lua_ls" },
           automatic_enable = false,
         },
       },
@@ -41,8 +41,22 @@ return {
         },
       })
 
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+              checkThirdParty = false,
+              library = { vim.env.VIMRUNTIME .. "/lua" },
+            },
+            telemetry = { enable = false },
+          },
+        },
+      })
+
       -- eslint only starts where the project has an eslint config
-      vim.lsp.enable({ "ts_ls", "ruby_lsp", "eslint" })
+      vim.lsp.enable({ "ts_ls", "ruby_lsp", "eslint", "lua_ls" })
 
       -- Extras on top of the nvim 0.11+ defaults (K, grn, gra, grr, gri, gO, [d, ]d; see :help lsp-defaults).
       vim.api.nvim_create_autocmd("LspAttach", {

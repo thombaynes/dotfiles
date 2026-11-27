@@ -9,6 +9,7 @@ Speed is a priority. Key repeat is set very fast (15ms), and holding a key must 
 - **Measuring:** drive a real nvim in a pty with `x` sent every 15ms and compare when the last key is processed (use `vim.on_key` to timestamp) with when the last one was sent. Bare `nvim -u NONE` has 0ms of lag, and so should this config. Bisect by removing plugin files from a copy of the config, or by setting options with `-c`.
 - **Past culprit, the 20ms/15ms problem:** with `clipboard=unnamedplus`, nvim spawns `pbcopy` for every register write, and each spawn takes about 20ms. Holding `x` repeats every 15ms, so keys queued faster than they ran and kept landing for over a second after release. `lua/config/clipboard.lua` fixed that.
 
+**GIVE BRIEF BUT NOT COMPLETE DESCRIPTIONS BELOW**
 ```
 nvim/
 ├── CONTEXT.md           This file.
@@ -22,6 +23,7 @@ nvim/
     │   ├── keymaps.lua    Global key mappings, each with a desc for which-key.
     │   ├── autocmds.lua   Autocommands: resize splits, spell check commits, restore cursor, trim trailing whitespace, highlight yanks, reload files changed outside nvim.
     │   ├── helm.lua       Helm rendering achieved via `helm template`.
+    │   ├── mermaid.lua    Render a mermaid block under the cursor - or a whole `.mmd` file. Opens the PNG in Preview. 
     │   └── lazy.lua       Bootstraps lazy.nvim and imports every spec in lua/plugins/.
     └── plugins/         One lazy.nvim spec per file; a plugin's own keys live beside it.
         ├── beacon.lua     Flashes the cursor line after a jump.
@@ -32,7 +34,7 @@ nvim/
         ├── fzf.lua        fzf-lua; `<leader>p` finds files, `<leader>o` live-searches Ruby classes via LSP workspace symbols. See "fzf-lua" below.
         ├── gitsigns.lua   Git signs in the gutter, line blame, and `<leader>h` hunk maps.
         ├── lualine.lua    Statusline (replaces airline).
-        ├── lsp.lua        nvim-lspconfig with mason (ts_ls, ruby_lsp, eslint), LSP keymaps, Ruby format on save, and ruby-lsp launched with the project's rbenv Ruby.
+        ├── lsp.lua        nvim-lspconfig with mason and LSP keymaps. See LSP section below for list of supported languages.
         ├── neo-tree.lua   File tree; `<leader>e` toggles it and dotfiles show by default.
         ├── neotest.lua    neotest with neotest-rspec and neotest-vitest.
         ├── markdown-preview.lua  markdown-preview.nvim; `<leader>rb` opens a live browser preview (renders mermaid). Needs node for its build.
@@ -42,6 +44,14 @@ nvim/
         ├── treesitter.lua Parsers for Ruby, JS/TS, JSON (needed by neotest) and markdown (needed by render-markdown), and treesitter highlighting for the non-markdown ones (nvim starts it for markdown itself).
         └── which-key.lua  Learn available shortucts - Popup of available keys after `<leader>?`.
 ```
+
+## LSP
+
+Language servers come from `lua/plugins/lsp.lua` (installed by Mason, started with `vim.lsp.enable`). Supported languages:
+
+- **Ruby:** `ruby_lsp`, with standardrb for formatting (on save) and linting. Runs on the project's rbenv Ruby.
+- **JavaScript / TypeScript (including JSX and TSX):** `ts_ls`, plus `eslint` where the project has an eslint config. Prettier formats on save via conform.
+- **Lua:** `lua_ls`, set up for the nvim runtime (`vim` is a known global).
 
 ## fzf-lua
 
