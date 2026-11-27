@@ -4,6 +4,7 @@ require("config.clipboard")
 require("config.keymaps")
 require("config.autocmds")
 require("config.helm")
+require("config.mermaid")
 
 -- Plugin manager (lazy.nvim); plugin specs live in lua/plugins/
 require("config.lazy")

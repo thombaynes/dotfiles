@@ -15,7 +15,7 @@ Leader is `Space`. Plugins: lazy.nvim, fugitive, gitsigns, fzf, neo-tree, which-
 | Key          | Action                                                                                   | Key          | Action                                                              |
 | ------------ | ---------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------- |
 | `<leader>rm` | Toggle in-buffer markdown preview (render-markdown)                                      | `<leader>rb` | Open / close live markdown preview in the browser (renders mermaid) |
-| `<leader>rh` | Render the Helm chart template in a split (yaml; prompts for a values-*.yaml if several) |              |                                                                     |
+| `<leader>rh` | Render the Helm chart template in a split (yaml; prompts for a values-*.yaml if several) | `<leader>rp` | Render the mermaid block under the cursor (or a .mmd file) with mmdc and open it in Preview |
 
 ## Tabs
 

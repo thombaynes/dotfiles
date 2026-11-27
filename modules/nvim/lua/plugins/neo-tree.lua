@@ -31,6 +31,25 @@ return {
     define_tints()
     vim.api.nvim_create_autocmd("ColorScheme", { callback = define_tints })
 
+    -- neo-tree refreshes git status (after `ga`, `gu`, checkouts, ...) with `--ignored=traditional`, which lists every
+    -- ignored file one by one. In a repo with node_modules that walks 100k+ files (~1.3s in platform-foundations).
+    -- `matching` reports an ignored folder as one entry (~30ms), which is all the tree needs to grey it out.
+    require("neo-tree.events").subscribe({
+      event = "before_git_status",
+      handler = function(args)
+        -- git rejects `matching` together with `--untracked-files=no` (neo-tree uses that for its first quick pass), so
+        -- leave those calls alone
+        if vim.tbl_contains(args.status_args, "--untracked-files=no") then
+          return
+        end
+        for i, arg in ipairs(args.status_args) do
+          if arg == "--ignored=traditional" then
+            args.status_args[i] = "--ignored=matching"
+          end
+        end
+      end,
+    })
+
     require("neo-tree.events").subscribe({
       event = "neo_tree_buffer_enter",
       handler = function()

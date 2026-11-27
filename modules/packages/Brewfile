@@ -3,9 +3,6 @@
 # cask
 # mas
 
-# Shared
-tap "go-task/tap"           # The go-task cask lives here, not in homebrew/cask
-
 # Auros
 brew "libsodium"            # For orders repo
 brew "rbenv"                # How ruby versions are managed at the time of onboarding
@@ -28,6 +25,7 @@ brew "go-task"              # Task runner for dev work (the formula is in homebr
 brew "helm"                 # Kubernetes package manager. Outside the local cluster section on purpose: useful without a local cluster
 brew "jq"                   # JSON processor
 brew "yq"                   # YAML processor
+brew "mermaid-cli"          # `mmdc` renders mermaid diagrams to PNG for nvim (<leader>rp, config/mermaid.lua)
 brew "ncurses"              # Has the tmux-256color terminfo entry older macOS lacks; tmux/setup.sh compiles it into ~/.terminfo
 brew "ripgrep"              # MacOS grep is slooooow. This installs rg in the path. Used by fzf (see FZF_DEFAULT_COMMAND in zsh/.zprofile)
 brew "mas"                  # For installing App store apps (see bottom of this file)
