@@ -33,7 +33,7 @@ nvim/
         ├── fugitive.lua   Git stuff via vim-fugitive, loaded on its commands.
         ├── fzf.lua        fzf-lua for file, text, buffer, recent-file and symbol lookups. See "fzf-lua" below.
         ├── gitsigns.lua   A bunch of useful git stuff in the window.
-        ├── lualine.lua    Statusline (replaces airline).
+        ├── lualine.lua    Statusline (replaces airline). Shows the relative path, with folders cut to one letter past 40 columns.
         ├── lsp.lua        nvim-lspconfig with mason and blink's capabilities. See LSP section below.
         ├── neo-tree.lua   File tree with Files / Buffers / Git sources, each tinted differently. Follows the current file and watches the disk. Some customization for speed.
         ├── neotest.lua    neotest with neotest-rspec and neotest-vitest.
